@@ -38,5 +38,26 @@ namespace StyleSys.Forms.MainForms
         {
             tbPassword.UseSystemPasswordChar=true;
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            string user, password;
+
+            user = tbUsuario.Text;
+            password = tbPassword.Text;
+
+            if (string.IsNullOrEmpty(user) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Complete todos los datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                //Muestra el dashboard
+                MessageBox.Show("Bienvenido: " + user, "Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.None);
+                this.Hide();
+                Dashboard dashboard = new Dashboard();
+                dashboard.Show();
+            }
+        }
     }
 }
