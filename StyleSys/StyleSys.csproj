@@ -102,5 +102,17 @@
   <ItemGroup>
     <None Include="Resources\lock.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\burgerbtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prodbtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plusicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\serachicon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
