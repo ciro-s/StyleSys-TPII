@@ -102,5 +102,11 @@
   <ItemGroup>
     <None Include="Resources\lock.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DB\DB.csproj">
+      <Project>{089ee4a8-fbdf-4dc9-be8f-8b31b1fb74a8}</Project>
+      <Name>DB</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
