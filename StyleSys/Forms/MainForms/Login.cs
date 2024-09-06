@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DB;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,19 @@ namespace StyleSys.Forms.MainForms
 {
     public partial class Login : Form
     {
+        private StyleSysContext? dbContext;
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            this.dbContext = new StyleSysContext();
+
+            // Descomentar la línea de abajo si se desea iniciar desde una base de datos nueva
+            // this.dbContext.Database.EnsureDeleted();
+            this.dbContext.Database.EnsureCreated();
+        }
+
         public Login()
         {
             InitializeComponent();

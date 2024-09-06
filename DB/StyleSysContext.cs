@@ -9,11 +9,11 @@ namespace DB
     public class StyleSysContext : DbContext
     {
         //Constructor de la clase
-        public StyleSysContext(DbContextOptions<StyleSysContext> options)
-            : base(options) 
-        {
+        //public StyleSysContext()
+        //    : base("options") 
+        //{
             
-        }
+        //}
 
         public DbSet<Rol> Roles { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
@@ -32,7 +32,10 @@ namespace DB
          */
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=CIROSOLALINDE\\SQLEXPRESS;Database=StyleSysDB;Trusted_Connection=True;MultipleActiveResultSets=True");
+            optionsBuilder
+                .UseSqlServer(
+                    "Server=CIROSOLALINDE\\SQLEXPRESS;Database=StyleSysDB;Trusted_Connection=True;MultipleActiveResultSets=True;TrustServerCertificate=True;ConnectRetryCount=0",
+                    options => options.EnableRetryOnFailure());
         }
 
     }
