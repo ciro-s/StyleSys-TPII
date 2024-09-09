@@ -26,6 +26,7 @@ namespace StyleSys.Forms.MainForms
             // this.dbContext.Database.EnsureDeleted();
             // this.dbContext.Database.EnsureCreated();
 
+            //Aplica las migraciones pendientes - COMENTAR SI NO HACE FALTA MIGRAR
             this.dbContext.Database.Migrate();
             
         }
@@ -64,17 +65,49 @@ namespace StyleSys.Forms.MainForms
             user = tbUsuario.Text;
             password = tbPassword.Text;
 
+            //Verifica que los campos no estén vacíos
             if (string.IsNullOrEmpty(user) || string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Complete todos los datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                //Muestra el dashboard
-                MessageBox.Show("Bienvenido: " + user, "Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.None);
-                this.Hide();
-                Dashboard dashboard = new Dashboard();
-                dashboard.Show();
+                //Pregunta si coinciden el usuario y la contraseña
+                if (VerificarCredenciales(user, password))
+                {
+                    //Muestra el dashboard
+                    MessageBox.Show("Bienvenido: " + user, "Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    this.Hide();
+                    Dashboard dashboard = new Dashboard();
+                    dashboard.Show();
+                }
+                else
+                {
+                    MessageBox.Show("El usuario o la contraseña no son correctos", "Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+        }
+
+        /*
+         * Busca en la base de datos al usuario por el nickname, y verifica si la contraseña coincide
+         * FALTA HACER HASH A LAS CONTRASEÑAS DE LA BASE DE DATOS.
+         */
+        private bool VerificarCredenciales(string nick, string password)
+        {
+            using (StyleSysContext db = new StyleSysContext())
+            {
+                Usuario usuario = db.Usuarios.Where(u => u.us_clave == password && u.us_nickname == nick).FirstOrDefault();
+
+                //¿Esto es optimo?
+                if (usuario != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
     }
