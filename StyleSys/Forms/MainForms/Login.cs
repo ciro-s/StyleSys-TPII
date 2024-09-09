@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 
 namespace StyleSys.Forms.MainForms
 {
@@ -27,7 +28,7 @@ namespace StyleSys.Forms.MainForms
             // this.dbContext.Database.EnsureCreated();
 
             //Aplica las migraciones pendientes - COMENTAR SI NO HACE FALTA MIGRAR
-            this.dbContext.Database.Migrate();
+            //this.dbContext.Database.Migrate();
             
         }
 
@@ -97,12 +98,21 @@ namespace StyleSys.Forms.MainForms
         {
             using (StyleSysContext db = new StyleSysContext())
             {
-                Usuario usuario = db.Usuarios.Where(u => u.us_clave == password && u.us_nickname == nick).FirstOrDefault();
+                Usuario usuario = db.Usuarios.Where(u => u.us_nickname == nick).FirstOrDefault();
 
                 //¿Esto es optimo?
                 if (usuario != null)
                 {
-                    return true;
+                    //Obtener contraseña de la DB
+                    byte[] storedPass = Convert.FromHexString(usuario.us_clave);
+
+                    //Convierte el string ingresado a una cadena de bytes
+                    byte[] messageBytes = Encoding.UTF8.GetBytes(password);
+
+                    //Crea el valor hasheado a partir de la cadena de 
+                    byte[] hashValue = SHA256.HashData(messageBytes);
+                    
+                    return storedPass.SequenceEqual(hashValue);
                 }
                 else
                 {
