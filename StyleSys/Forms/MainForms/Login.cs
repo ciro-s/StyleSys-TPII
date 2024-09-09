@@ -1,4 +1,5 @@
 ﻿using DB;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,7 +24,10 @@ namespace StyleSys.Forms.MainForms
 
             // Descomentar la línea de abajo si se desea iniciar desde una base de datos nueva
             // this.dbContext.Database.EnsureDeleted();
-            this.dbContext.Database.EnsureCreated();
+            // this.dbContext.Database.EnsureCreated();
+
+            this.dbContext.Database.Migrate();
+            
         }
 
         public Login()

@@ -23,8 +23,18 @@ namespace DB
          */
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //Se configura el nombre de las tablas
             modelBuilder.Entity<Rol>().ToTable("Rol");
             modelBuilder.Entity<Usuario>().ToTable("Usuario");
+
+            //Constraints de UNIQUE
+            modelBuilder.Entity<Usuario>()
+                .HasAlternateKey(u => u.us_nickname)
+                .HasName("UNQ_NICKNAME");
+
+            modelBuilder.Entity<Usuario>()
+                .HasAlternateKey(u => u.us_email)
+                .HasName("UNQ_EMAIL");
         }
 
         /*

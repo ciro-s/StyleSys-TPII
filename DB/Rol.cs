@@ -14,10 +14,15 @@ namespace DB
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id_rol { get; set; }
+
         [Required]
+        [StringLength(20, MinimumLength=3)]
         public string rol_nombre { get; set; }
+
         [AllowNull]
+        [StringLength (60)]
         public string rol_descripcion { get; set; }
+
         [Required]
         public bool rol_estado { get; set; }
 
