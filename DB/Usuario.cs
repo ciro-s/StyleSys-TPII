@@ -32,7 +32,7 @@ namespace DB
 
         [Required]
         [DataType(DataType.Password)]
-        [StringLength(20, MinimumLength = 6, ErrorMessage = "La contraseña debe tener entre 6 y 20 caracteres")]
+        [StringLength(80, MinimumLength = 6)]
         public string us_clave { get; set; }
 
         [Required]
