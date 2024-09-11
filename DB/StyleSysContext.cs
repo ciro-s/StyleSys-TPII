@@ -44,7 +44,7 @@ namespace DB
         {
             optionsBuilder
                 .UseSqlServer(
-                    "Server=CIROSOLALINDE\\SQLEXPRESS;Database=StyleSysDB;Trusted_Connection=True;MultipleActiveResultSets=True;TrustServerCertificate=True;ConnectRetryCount=0",
+                    "Server=.\\SQLEXPRESS;Database=StyleSysDB;Trusted_Connection=True;MultipleActiveResultSets=True;TrustServerCertificate=True;ConnectRetryCount=0",
                     options => options.EnableRetryOnFailure());
         }
 
