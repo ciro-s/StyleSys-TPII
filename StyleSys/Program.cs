@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using StyleSys.Forms.MainForms;
+using StyleSys.Forms.Productos;
 
 
 namespace StyleSys
@@ -18,7 +19,7 @@ namespace StyleSys
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            Application.Run(new Dashboard());
         }
     }
 }

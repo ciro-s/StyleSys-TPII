@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StyleSys.Forms.Productos;
 
 namespace StyleSys.Forms.MainForms
 {
@@ -16,33 +17,36 @@ namespace StyleSys.Forms.MainForms
         {
             InitializeComponent();
         }
-        bool prodExpand = false;
         
-        private void prodTransicion_Tick(object sender, EventArgs e)
-        {
-            if (!prodExpand)
-            {
-                panelProductos.Height += 10;
-                if (panelProductos.Height >= 207)
-                {
-                    prodTransicion.Stop();
-                    prodExpand = true;
-                }
-            }
-            else
-            {
-                panelProductos.Height -= 10;
-                if (panelProductos.Height <= 61)
-                {
-                    prodTransicion.Stop();
-                    prodExpand = false;
-                }
-            }
-        }
+        //Atributo que guarda el formulario activo dentro del dashboard.
+        private Form activeForm = null;
 
+        /*
+         * Abre el formulario según lo clickeado en el dashboard.
+         */
+        public void abrirFormHijo(Form hijo)
+        {
+            //Si hay otro formulario activo, se lo cierra antes de abrir el nuevo
+            if (activeForm != null)
+            { activeForm.Close(); }
+
+            activeForm = hijo; //Se asigna el nuevo formulario
+
+            //Configuración del formulario para que entre en el dashboard
+            hijo.TopLevel = false;
+            hijo.FormBorderStyle = FormBorderStyle.None;
+            hijo.Dock = DockStyle.Fill;
+            lbTitulo.Text = hijo.Text;
+
+            //Agrega el formulario al panel del dashboard
+            panelMain.Controls.Add(hijo);
+            panelMain.Tag = hijo;
+            hijo.BringToFront();
+            hijo.Show();
+        }
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            prodTransicion.Start();
+            abrirFormHijo(new ListaProductos());
         }
 
         private void btnClose_Click(object sender, EventArgs e)
