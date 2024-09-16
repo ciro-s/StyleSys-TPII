@@ -31,10 +31,15 @@ namespace StyleSys.Forms.Productos
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            tbNombre.Clear();
-            tbPrecioCompra.Clear();
-            tbPrecioVenta.Clear();
-            tbStock.Clear();
+            DialogResult msg = MessageBox.Show("¿Está seguro de borrar el formulario?", "Confirmar.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (msg == DialogResult.Yes)
+            {
+                tbNombre.Clear();
+                tbPrecioCompra.Clear();
+                tbPrecioVenta.Clear();
+                tbStock.Clear();
+            }
         }
     }
 }
