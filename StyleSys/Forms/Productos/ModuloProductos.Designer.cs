@@ -188,7 +188,7 @@
             btnGuardar.FlatAppearance.BorderSize = 0;
             btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
             btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnGuardar.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             btnGuardar.ForeColor = System.Drawing.Color.White;
             btnGuardar.Image = (System.Drawing.Image)resources.GetObject("btnGuardar.Image");
             btnGuardar.Location = new System.Drawing.Point(454, 377);
@@ -206,7 +206,7 @@
             btnCancelar.FlatAppearance.BorderSize = 0;
             btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
             btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnCancelar.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             btnCancelar.ForeColor = System.Drawing.Color.White;
             btnCancelar.Image = (System.Drawing.Image)resources.GetObject("btnCancelar.Image");
             btnCancelar.Location = new System.Drawing.Point(588, 377);
@@ -234,7 +234,7 @@
             btnActualizar.FlatAppearance.BorderSize = 0;
             btnActualizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
             btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnActualizar.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            btnActualizar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             btnActualizar.ForeColor = System.Drawing.Color.White;
             btnActualizar.Image = (System.Drawing.Image)resources.GetObject("btnActualizar.Image");
             btnActualizar.Location = new System.Drawing.Point(320, 377);

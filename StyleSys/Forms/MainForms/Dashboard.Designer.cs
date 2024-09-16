@@ -206,6 +206,7 @@
             btnProveedores.TabIndex = 2;
             btnProveedores.Text = "Proveedores";
             btnProveedores.UseVisualStyleBackColor = false;
+            btnProveedores.Click += btnProveedores_Click;
             // 
             // panel3
             // 

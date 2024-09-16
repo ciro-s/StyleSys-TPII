@@ -35,17 +35,17 @@
             pictureBox1 = new System.Windows.Forms.PictureBox();
             label1 = new System.Windows.Forms.Label();
             dgvProductos = new System.Windows.Forms.DataGridView();
-            Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            preciocompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            precioventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            stockmin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            editar = new System.Windows.Forms.DataGridViewImageColumn();
-            Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             panel2 = new System.Windows.Forms.Panel();
+            Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            editar = new System.Windows.Forms.DataGridViewImageColumn();
+            categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            stockmin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            precioventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            preciocompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
@@ -80,7 +80,7 @@
             btnAgregar.Text = "Agregar";
             btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             btnAgregar.UseVisualStyleBackColor = false;
-            btnAgregar.Click += bntAdd_Click;
+            btnAgregar.Click += this.bntAdd_Click;
             // 
             // pictureBox1
             // 
@@ -127,81 +127,6 @@
             dgvProductos.Size = new System.Drawing.Size(982, 453);
             dgvProductos.TabIndex = 1;
             // 
-            // Column1
-            // 
-            Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            Column1.HeaderText = "No";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
-            Column1.Width = 62;
-            // 
-            // id
-            // 
-            id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            id.HeaderText = "Id";
-            id.MinimumWidth = 6;
-            id.Name = "id";
-            id.Visible = false;
-            id.Width = 125;
-            // 
-            // nombre
-            // 
-            nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            nombre.HeaderText = "Nombre";
-            nombre.MinimumWidth = 6;
-            nombre.Name = "nombre";
-            // 
-            // preciocompra
-            // 
-            preciocompra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            preciocompra.HeaderText = "$ Compra";
-            preciocompra.MinimumWidth = 6;
-            preciocompra.Name = "preciocompra";
-            // 
-            // precioventa
-            // 
-            precioventa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            precioventa.HeaderText = "$ Venta";
-            precioventa.MinimumWidth = 6;
-            precioventa.Name = "precioventa";
-            // 
-            // stock
-            // 
-            stock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            stock.HeaderText = "Stock Actual";
-            stock.MinimumWidth = 6;
-            stock.Name = "stock";
-            // 
-            // stockmin
-            // 
-            stockmin.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            stockmin.HeaderText = "Stock Minimo";
-            stockmin.MinimumWidth = 6;
-            stockmin.Name = "stockmin";
-            // 
-            // categoria
-            // 
-            categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            categoria.HeaderText = "Categoria";
-            categoria.MinimumWidth = 6;
-            categoria.Name = "categoria";
-            // 
-            // editar
-            // 
-            editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            editar.HeaderText = "";
-            editar.MinimumWidth = 6;
-            editar.Name = "editar";
-            editar.Width = 6;
-            // 
-            // Eliminar
-            // 
-            Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            Eliminar.HeaderText = "";
-            Eliminar.MinimumWidth = 6;
-            Eliminar.Name = "Eliminar";
-            Eliminar.Width = 6;
-            // 
             // panel2
             // 
             panel2.Controls.Add(dgvProductos);
@@ -211,7 +136,82 @@
             panel2.Size = new System.Drawing.Size(982, 453);
             panel2.TabIndex = 2;
             // 
-            // Productos
+            // Eliminar
+            // 
+            Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            Eliminar.HeaderText = "";
+            Eliminar.MinimumWidth = 6;
+            Eliminar.Name = "Eliminar";
+            Eliminar.Width = 6;
+            // 
+            // editar
+            // 
+            editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            editar.HeaderText = "";
+            editar.MinimumWidth = 6;
+            editar.Name = "editar";
+            editar.Width = 6;
+            // 
+            // categoria
+            // 
+            categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            categoria.HeaderText = "Categoria";
+            categoria.MinimumWidth = 6;
+            categoria.Name = "categoria";
+            // 
+            // stockmin
+            // 
+            stockmin.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            stockmin.HeaderText = "Stock Minimo";
+            stockmin.MinimumWidth = 6;
+            stockmin.Name = "stockmin";
+            // 
+            // stock
+            // 
+            stock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            stock.HeaderText = "Stock Actual";
+            stock.MinimumWidth = 6;
+            stock.Name = "stock";
+            // 
+            // precioventa
+            // 
+            precioventa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            precioventa.HeaderText = "$ Venta";
+            precioventa.MinimumWidth = 6;
+            precioventa.Name = "precioventa";
+            // 
+            // preciocompra
+            // 
+            preciocompra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            preciocompra.HeaderText = "$ Compra";
+            preciocompra.MinimumWidth = 6;
+            preciocompra.Name = "preciocompra";
+            // 
+            // nombre
+            // 
+            nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            nombre.HeaderText = "Nombre";
+            nombre.MinimumWidth = 6;
+            nombre.Name = "nombre";
+            // 
+            // id
+            // 
+            id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            id.HeaderText = "Id";
+            id.MinimumWidth = 6;
+            id.Name = "id";
+            id.Visible = false;
+            id.Width = 54;
+            // 
+            // Column1
+            // 
+            Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            Column1.HeaderText = "No";
+            Column1.MinimumWidth = 6;
+            Column1.Name = "Column1";
+            Column1.Width = 62;
+            // 
+            // ListaProductos
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -219,7 +219,7 @@
             Controls.Add(panel1);
             Controls.Add(panel2);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            Name = "Productos";
+            Name = "ListaProductos";
             Text = "Productos";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

@@ -17,7 +17,7 @@ namespace StyleSys.Forms.MainForms
         {
             InitializeComponent();
         }
-        
+
         //Atributo que guarda el formulario activo dentro del dashboard.
         private Form activeForm = null;
 
@@ -52,6 +52,11 @@ namespace StyleSys.Forms.MainForms
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnProveedores_Click(object sender, EventArgs e)
+        {
+            abrirFormHijo(new ListaProveedores());
         }
     }
 }
