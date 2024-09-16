@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             panel1 = new System.Windows.Forms.Panel();
             btnClose = new System.Windows.Forms.Button();
             label1 = new System.Windows.Forms.Label();
@@ -36,36 +37,36 @@
             panel2 = new System.Windows.Forms.Panel();
             pictureBox2 = new System.Windows.Forms.PictureBox();
             btnProductos = new System.Windows.Forms.Button();
-            panel3 = new System.Windows.Forms.Panel();
-            pictureBox1 = new System.Windows.Forms.PictureBox();
-            btnUsuarios = new System.Windows.Forms.Button();
             panel4 = new System.Windows.Forms.Panel();
             pictureBox3 = new System.Windows.Forms.PictureBox();
             btnProveedores = new System.Windows.Forms.Button();
+            panel3 = new System.Windows.Forms.Panel();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            btnUsuarios = new System.Windows.Forms.Button();
             panel5 = new System.Windows.Forms.Panel();
+            panel6 = new System.Windows.Forms.Panel();
+            pictureBox5 = new System.Windows.Forms.PictureBox();
+            button1 = new System.Windows.Forms.Button();
             pictureBox4 = new System.Windows.Forms.PictureBox();
             btnFacturas = new System.Windows.Forms.Button();
             panelMain = new System.Windows.Forms.Panel();
             panelTitulo = new System.Windows.Forms.Panel();
             lbTitulo = new System.Windows.Forms.Label();
-            panel6 = new System.Windows.Forms.Panel();
-            pictureBox5 = new System.Windows.Forms.PictureBox();
-            button1 = new System.Windows.Forms.Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)burger).BeginInit();
             panelPrincipal.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel5.SuspendLayout();
+            panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             panelMain.SuspendLayout();
             panelTitulo.SuspendLayout();
-            panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -168,44 +169,6 @@
             btnProductos.UseVisualStyleBackColor = false;
             btnProductos.Click += btnProductos_Click;
             // 
-            // panel3
-            // 
-            panel3.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            panel3.Controls.Add(pictureBox1);
-            panel3.Controls.Add(btnUsuarios);
-            panel3.Location = new System.Drawing.Point(3, 99);
-            panel3.Name = "panel3";
-            panel3.Size = new System.Drawing.Size(379, 42);
-            panel3.TabIndex = 6;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.prodbtn;
-            pictureBox1.Location = new System.Drawing.Point(3, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(35, 35);
-            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 4;
-            pictureBox1.TabStop = false;
-            // 
-            // btnUsuarios
-            // 
-            btnUsuarios.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            btnUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
-            btnUsuarios.FlatAppearance.BorderSize = 0;
-            btnUsuarios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(64, 64, 64);
-            btnUsuarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(64, 64, 64);
-            btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnUsuarios.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            btnUsuarios.ForeColor = System.Drawing.Color.White;
-            btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            btnUsuarios.Location = new System.Drawing.Point(0, 0);
-            btnUsuarios.Name = "btnUsuarios";
-            btnUsuarios.Size = new System.Drawing.Size(379, 42);
-            btnUsuarios.TabIndex = 2;
-            btnUsuarios.Text = "Usuarios";
-            btnUsuarios.UseVisualStyleBackColor = false;
-            // 
             // panel4
             // 
             panel4.BackColor = System.Drawing.SystemColors.InactiveCaption;
@@ -218,7 +181,7 @@
             // 
             // pictureBox3
             // 
-            pictureBox3.Image = Properties.Resources.prodbtn;
+            pictureBox3.Image = (System.Drawing.Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.Location = new System.Drawing.Point(3, 3);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new System.Drawing.Size(35, 35);
@@ -244,6 +207,44 @@
             btnProveedores.Text = "Proveedores";
             btnProveedores.UseVisualStyleBackColor = false;
             // 
+            // panel3
+            // 
+            panel3.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            panel3.Controls.Add(pictureBox1);
+            panel3.Controls.Add(btnUsuarios);
+            panel3.Location = new System.Drawing.Point(3, 99);
+            panel3.Name = "panel3";
+            panel3.Size = new System.Drawing.Size(379, 42);
+            panel3.TabIndex = 6;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (System.Drawing.Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new System.Drawing.Point(3, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(35, 35);
+            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
+            // 
+            // btnUsuarios
+            // 
+            btnUsuarios.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            btnUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
+            btnUsuarios.FlatAppearance.BorderSize = 0;
+            btnUsuarios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(64, 64, 64);
+            btnUsuarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(64, 64, 64);
+            btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnUsuarios.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            btnUsuarios.ForeColor = System.Drawing.Color.White;
+            btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            btnUsuarios.Location = new System.Drawing.Point(0, 0);
+            btnUsuarios.Name = "btnUsuarios";
+            btnUsuarios.Size = new System.Drawing.Size(379, 42);
+            btnUsuarios.TabIndex = 2;
+            btnUsuarios.Text = "Usuarios";
+            btnUsuarios.UseVisualStyleBackColor = false;
+            // 
             // panel5
             // 
             panel5.BackColor = System.Drawing.SystemColors.InactiveCaption;
@@ -254,6 +255,45 @@
             panel5.Name = "panel5";
             panel5.Size = new System.Drawing.Size(379, 42);
             panel5.TabIndex = 5;
+            // 
+            // panel6
+            // 
+            panel6.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            panel6.Controls.Add(pictureBox5);
+            panel6.Controls.Add(button1);
+            panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            panel6.Location = new System.Drawing.Point(0, 0);
+            panel6.Name = "panel6";
+            panel6.Size = new System.Drawing.Size(379, 42);
+            panel6.TabIndex = 6;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = (System.Drawing.Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new System.Drawing.Point(3, 3);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new System.Drawing.Size(35, 35);
+            pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox5.TabIndex = 4;
+            pictureBox5.TabStop = false;
+            // 
+            // button1
+            // 
+            button1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(64, 64, 64);
+            button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(64, 64, 64);
+            button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            button1.ForeColor = System.Drawing.Color.White;
+            button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            button1.Location = new System.Drawing.Point(0, 0);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(379, 42);
+            button1.TabIndex = 2;
+            button1.Text = "Facturas";
+            button1.UseVisualStyleBackColor = false;
             // 
             // pictureBox4
             // 
@@ -311,45 +351,6 @@
             lbTitulo.TabIndex = 1;
             lbTitulo.Text = "Titulo";
             // 
-            // panel6
-            // 
-            panel6.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            panel6.Controls.Add(pictureBox5);
-            panel6.Controls.Add(button1);
-            panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            panel6.Location = new System.Drawing.Point(0, 0);
-            panel6.Name = "panel6";
-            panel6.Size = new System.Drawing.Size(379, 42);
-            panel6.TabIndex = 6;
-            // 
-            // pictureBox5
-            // 
-            pictureBox5.Image = Properties.Resources.prodbtn;
-            pictureBox5.Location = new System.Drawing.Point(3, 3);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new System.Drawing.Size(35, 35);
-            pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            pictureBox5.TabIndex = 4;
-            pictureBox5.TabStop = false;
-            // 
-            // button1
-            // 
-            button1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(64, 64, 64);
-            button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(64, 64, 64);
-            button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            button1.ForeColor = System.Drawing.Color.White;
-            button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            button1.Location = new System.Drawing.Point(0, 0);
-            button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(379, 42);
-            button1.TabIndex = 2;
-            button1.Text = "Facturas";
-            button1.UseVisualStyleBackColor = false;
-            // 
             // Dashboard
             // 
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -369,17 +370,17 @@
             panelPrincipal.ResumeLayout(false);
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel5.ResumeLayout(false);
+            panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             panelMain.ResumeLayout(false);
             panelTitulo.ResumeLayout(false);
             panelTitulo.PerformLayout();
-            panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
         }
 
