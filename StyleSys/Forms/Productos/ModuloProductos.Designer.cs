@@ -269,7 +269,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(16F, 32F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            BackColor = System.Drawing.Color.White;
+            BackColor = System.Drawing.SystemColors.Control;
             ClientSize = new System.Drawing.Size(782, 452);
             Controls.Add(cbProveedor);
             Controls.Add(cbCategoria);
