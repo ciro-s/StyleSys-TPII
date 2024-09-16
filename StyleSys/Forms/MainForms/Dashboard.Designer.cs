@@ -245,6 +245,7 @@
             btnUsuarios.TabIndex = 2;
             btnUsuarios.Text = "Usuarios";
             btnUsuarios.UseVisualStyleBackColor = false;
+            btnUsuarios.Click += btnUsuarios_Click;
             // 
             // panel5
             // 

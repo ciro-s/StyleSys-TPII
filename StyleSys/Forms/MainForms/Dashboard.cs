@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using StyleSys.Forms.Productos;
+using StyleSys.Forms.Usuarios;
 
 namespace StyleSys.Forms.MainForms
 {
@@ -57,6 +58,11 @@ namespace StyleSys.Forms.MainForms
         private void btnProveedores_Click(object sender, EventArgs e)
         {
             abrirFormHijo(new ListaProveedores());
+        }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            abrirFormHijo(new ListaUsuarios());
         }
     }
 }

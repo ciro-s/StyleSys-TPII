@@ -7,9 +7,6 @@
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="Forms\Usuarios\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\DB\DB.csproj" />
   </ItemGroup>
   <ItemGroup>
