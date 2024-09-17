@@ -4,6 +4,7 @@ using DB;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DB.Migrations
 {
     [DbContext(typeof(StyleSysContext))]
-    partial class StyleSysContextModelSnapshot : ModelSnapshot
+    [Migration("20240917111517_SeedingRolTable")]
+    partial class SeedingRolTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -139,23 +142,6 @@ namespace DB.Migrations
                     b.HasIndex("id_rol");
 
                     b.ToTable("Usuario", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            id_usuario = 1,
-                            id_rol = 3,
-                            us_apellido = "Solalinde",
-                            us_clave = "clavehash",
-                            us_direccion = "Calle Ficticia 123",
-                            us_dni = 43205377,
-                            us_email = "admin@maill.com",
-                            us_estado = true,
-                            us_fechaNacimiento = new DateTime(2024, 9, 17, 8, 25, 16, 207, DateTimeKind.Local).AddTicks(5236),
-                            us_nickname = "admin",
-                            us_nombre = "Ciro",
-                            us_telefono = "3794143742"
-                        });
                 });
 
             modelBuilder.Entity("DB.Usuario", b =>
