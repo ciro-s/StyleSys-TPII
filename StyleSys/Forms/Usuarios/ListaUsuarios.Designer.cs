@@ -38,11 +38,11 @@
             dgvUsuarios = new System.Windows.Forms.DataGridView();
             Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            fechanacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            us_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            us_apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            us_email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            us_fechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            us_telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             editar = new System.Windows.Forms.DataGridViewImageColumn();
             Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             panel1.SuspendLayout();
@@ -126,7 +126,7 @@
             dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvUsuarios.ColumnHeadersHeight = 30;
             dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1, id, nombre, apellido, email, fechanacimiento, telefono, editar, Eliminar });
+            dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1, id, us_nombre, us_apellido, us_email, us_fechaNacimiento, us_telefono, editar, Eliminar });
             dgvUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             dgvUsuarios.EnableHeadersVisualStyles = false;
             dgvUsuarios.Location = new System.Drawing.Point(0, 0);
@@ -152,40 +152,40 @@
             id.Visible = false;
             id.Width = 54;
             // 
-            // nombre
+            // us_nombre
             // 
-            nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            nombre.HeaderText = "Nombre";
-            nombre.MinimumWidth = 6;
-            nombre.Name = "nombre";
+            us_nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            us_nombre.HeaderText = "Nombre";
+            us_nombre.MinimumWidth = 6;
+            us_nombre.Name = "us_nombre";
             // 
-            // apellido
+            // us_apellido
             // 
-            apellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            apellido.HeaderText = "Apellido";
-            apellido.MinimumWidth = 6;
-            apellido.Name = "apellido";
+            us_apellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            us_apellido.HeaderText = "Apellido";
+            us_apellido.MinimumWidth = 6;
+            us_apellido.Name = "us_apellido";
             // 
-            // email
+            // us_email
             // 
-            email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            email.HeaderText = "e-Mail";
-            email.MinimumWidth = 6;
-            email.Name = "email";
+            us_email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            us_email.HeaderText = "e-Mail";
+            us_email.MinimumWidth = 6;
+            us_email.Name = "us_email";
             // 
-            // fechanacimiento
+            // us_fechaNacimiento
             // 
-            fechanacimiento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            fechanacimiento.HeaderText = "Nacimiento";
-            fechanacimiento.MinimumWidth = 6;
-            fechanacimiento.Name = "fechanacimiento";
+            us_fechaNacimiento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            us_fechaNacimiento.HeaderText = "Nacimiento";
+            us_fechaNacimiento.MinimumWidth = 6;
+            us_fechaNacimiento.Name = "us_fechaNacimiento";
             // 
-            // telefono
+            // us_telefono
             // 
-            telefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            telefono.HeaderText = "Telefono";
-            telefono.MinimumWidth = 6;
-            telefono.Name = "telefono";
+            us_telefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            us_telefono.HeaderText = "Telefono";
+            us_telefono.MinimumWidth = 6;
+            us_telefono.Name = "us_telefono";
             // 
             // editar
             // 
@@ -230,11 +230,11 @@
         private System.Windows.Forms.DataGridView dgvUsuarios;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn apellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechanacimiento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn us_nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn us_apellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn us_email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn us_fechaNacimiento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn us_telefono;
         private System.Windows.Forms.DataGridViewImageColumn editar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
     }
