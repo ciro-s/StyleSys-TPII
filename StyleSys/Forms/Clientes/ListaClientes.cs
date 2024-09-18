@@ -18,7 +18,7 @@ namespace StyleSys.Forms.Clientes
             InitializeComponent();
         }
 
-        private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
@@ -26,7 +26,7 @@ namespace StyleSys.Forms.Clientes
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             ModuloClientes modulo_clientes = new ModuloClientes(this);
-            modulo_clientes.ShowDialog();
+            _ = modulo_clientes.ShowDialog();
         }
     }
 }

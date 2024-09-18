@@ -151,7 +151,7 @@
             dgvUsuarios.RowHeadersWidth = 51;
             dgvUsuarios.Size = new System.Drawing.Size(800, 450);
             dgvUsuarios.TabIndex = 1;
-            dgvUsuarios.CellContentClick += dgvUsuarios_CellContentClick;
+            dgvUsuarios.CellContentClick += dgvClientes_CellContentClick;
             // 
             // Column1
             // 
