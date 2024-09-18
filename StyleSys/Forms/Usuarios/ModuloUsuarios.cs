@@ -1,24 +1,31 @@
 ﻿using DB;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+//using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace StyleSys.Forms.Usuarios
 {
     public partial class ModuloUsuarios : Form
     {
         private StyleSysContext _context;
-        public ModuloUsuarios()
+        ListaUsuarios _listaUsuarios;
+        public ModuloUsuarios(ListaUsuarios lu)
         {
             InitializeComponent();
             _context = new StyleSysContext(); //Conexión a la base de datos
             loadRoles(); //Carga los roles
+            _listaUsuarios = lu;
         }
 
         /*
@@ -29,48 +36,28 @@ namespace StyleSys.Forms.Usuarios
             cbRol.Items.Clear();
             cbRol.DataSource = _context.Roles.ToList();
             cbRol.DisplayMember = "rol_nombre";
-            cbRol.ValueMember = "id_rol";   
+            cbRol.ValueMember = "id_rol";
         }
 
         /*
          * Recibe los datos del formulario de nuevo usuario y lo intenta registrar en la base de datos
          */
-        private bool createUsuario(string nombre, string apellido, int dni, string email, string direccion, string telefono, string clave, DateTime fechaNac, string nick, int rol)
+        private bool createUsuario(Usuario u)
         {
             try
             {
-                if (_context == null)
-                {
-                    _context = new StyleSysContext();
-                }
-
-                //Crea el nuevo Usuario
-                var usuario = new Usuario()
-                {
-                    us_nombre = nombre,
-                    us_apellido = apellido,
-                    us_dni = dni,
-                    us_email = email,
-                    us_direccion = direccion,
-                    us_telefono = telefono,
-                    us_clave = clave,
-                    us_fechaNacimiento = fechaNac,
-                    us_nickname = nick,
-                    id_rol = rol,
-                    us_estado = true
-                };
+                //Verifica la conexión a la DB
+                if (_context == null) { _context = new StyleSysContext(); }
 
                 //Lo guarda en la base de datos
-                _context.Usuarios.Add(usuario);
+                _context.Usuarios.Add(u);
                 _context.SaveChanges();
 
-                //Agregarlo al datagridview
-                //BindDGView(_context.Usuarios.ToList());
                 return true;
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show(e.InnerException.Message);
                 return false;
             }
         }
@@ -82,17 +69,68 @@ namespace StyleSys.Forms.Usuarios
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (createUsuario(tbNombre.Text, tbApellido.Text, int.Parse(tbDni.Text), tbMail.Text, tbDireccion.Text, tbTelefono.Text, tbClave.Text, dateTimePicker.Value, tbNick.Text, cbRol.SelectedIndex))
+            if (Validacion())
             {
-                MessageBox.Show("Nuevo usuario ingresado correctamente.", "Inserción", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Se creó el nuevo usuario correctamente.", "Inserción", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                _listaUsuarios.bindDGView(_context.Usuarios.ToList());
                 this.Dispose();
-            }
-            else
-            {
-                MessageBox.Show("Ocurrió un error con el nuevo usuario", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        private bool Validacion()
+        {
+            //CHEQUEO DE CAMPOS VACÍOS
+            if (string.IsNullOrEmpty(tbNombre.Text) || string.IsNullOrEmpty(tbApellido.Text) ||
+                string.IsNullOrEmpty(tbDni.Text) || string.IsNullOrEmpty(tbNick.Text) || string.IsNullOrEmpty(tbClave.Text) ||
+                string.IsNullOrEmpty(tbDireccion.Text) || string.IsNullOrEmpty(tbMail.Text) || string.IsNullOrEmpty(tbTelefono.Text))
+            {
+                MessageBox.Show("¡Complete todos los campos!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            else
+            {
+                //BLOQUE TRY CATCH PARA VALIDAR SEGÚN LAS REGLAS DE VALIDACIÓN ESCRITAS EN LA CLASE USUARIOVALIDATOR
+                try
+                {
+                    //Crea un objeto de tipo Usuario
+                    var usuario = new Usuario()
+                    {
+                        us_nombre = tbNombre.Text,
+                        us_apellido = tbApellido.Text,
+                        us_dni = int.Parse(tbDni.Text),
+                        us_email = tbMail.Text,
+                        us_direccion = tbDireccion.Text,
+                        us_telefono = tbTelefono.Text,
+                        us_clave = tbClave.Text,
+                        us_fechaNacimiento = dateTimePicker.Value,
+                        us_nickname = tbNick.Text,
+                        id_rol = cbRol.SelectedIndex + 1,
+                        us_estado = true
+                    };
+
+                    //VALIDACIÓN DE DATOS CON LA LIBRERIA FLUENTVALIDATION
+                    var validator = new UsuarioValidator();
+                    validator.ValidateAndThrow(usuario); //Lanza una excepción cuando falla
+
+                    //Si falla la creación del usuario se lanza una exception
+                    if(!createUsuario(usuario))
+                    {
+                        throw new ValidationException("Error creando usuario.");
+                    }
+                    
+                    return true;
+                }
+                catch (ValidationException e)
+                {
+                    MessageBox.Show(e.Errors.First().ErrorMessage, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+            }
+        }
+
+        /*
+         * Limpia todos los campos del formulario
+         */
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             DialogResult msg = MessageBox.Show("¿Está seguro de borrar el formulario?", "Confirmar.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -105,7 +143,22 @@ namespace StyleSys.Forms.Usuarios
                 tbClave.Clear();
                 tbMail.Clear();
                 tbTelefono.Clear();
+                tbDni.Clear();
+                tbDireccion.Clear();
                 dateTimePicker.DataBindings.Clear();
+            }
+        }
+
+        /*
+         * Espera el evento de apretar una tecla en un textbox y solo acepta números.
+         */
+        private void numero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                //MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
             }
         }
     }

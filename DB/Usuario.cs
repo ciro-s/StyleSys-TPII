@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FluentValidation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -25,16 +26,16 @@ namespace DB
         [StringLength(20, MinimumLength = 2, ErrorMessage = "El apellido debe tener entre 2 y 20 caracteres.")]
         public string us_apellido { get; set; }
 
-        [Required(ErrorMessage = "El campo email es requerido.")]
-        [StringLength(40, ErrorMessage = "El mail debe tener máximo 20 caracteres.")]
-        [EmailAddress]
+        //[Required(ErrorMessage = "El campo email es requerido.")]
+        //[StringLength(40, ErrorMessage = "El mail debe tener máximo 20 caracteres.")]
+        //[EmailAddress]
         public string us_email { get; set; }
 
         [Required(ErrorMessage = "El campo direccion es requerido.")]
         [StringLength(50, MinimumLength=4, ErrorMessage="La dirección debe tener entre 4 y 50 caracteres.")]
         public string us_direccion { get; set; }
 
-        [RegularExpression(@"/^(?:\\+?54)?\\d{10}$", ErrorMessage = "Ingrese un número de telefono válido.")]
+        [RegularExpression(@"/^(?:(?:00)?549?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/", ErrorMessage = "Ingrese un número de telefono válido.")]
         public string us_telefono { get; set; }
 
         [Required(ErrorMessage = "El campo contraseña es requerido.")]
@@ -58,5 +59,49 @@ namespace DB
 
         [ForeignKey("id_rol")] //Se define el constraint de la relación entre tablas
         public virtual Rol Rol { get; set; }
+    }
+
+    public class UsuarioValidator : AbstractValidator<Usuario>
+    {
+        public UsuarioValidator()
+        {
+            RuleFor(usuario => usuario.us_dni)
+                .NotNull().WithMessage("El DNI es requerido.")
+                .GreaterThan(1000000).WithMessage("ingrese un DNI válido");
+
+            RuleFor(usuario => usuario.us_nombre)
+                .NotNull().WithMessage("El nombre es requerido.")
+                .Must(nombre => nombre.All(char.IsLetter)).WithMessage("El nombre solo puede contener letras.")
+                .Length(2, 20).WithMessage("El nombre debe contener entre 2 y 20 caracteres");
+
+            RuleFor(usuario => usuario.us_apellido)
+                .NotNull().WithMessage("El apellido es requerido.")
+                .Must(apellido => apellido.All(char.IsLetter))
+                .WithMessage("El apellido solo puede contener letras.")
+                .Length(2, 20).WithMessage("El nombre debe contener entre 2 y 20 caracteres");
+
+            RuleFor(usuario => usuario.us_direccion)
+                .NotNull().WithMessage("La direccion es requerida")
+                .Length(4, 50).WithMessage("La dirección debe contener entre 4 y 50 caracteres");
+
+            RuleFor(usuario => usuario.us_telefono)
+                .NotNull().WithMessage("El telefono es requerido")
+                .Length(10, 20).WithMessage("El número de teléfono debe tener entre 10 y 20 caracteres.");
+
+            RuleFor(usuario => usuario.us_email)
+                .NotNull().WithMessage("El mail es requerido.")
+                .NotEmpty().WithMessage("El mail es requerido.")
+                .EmailAddress().WithMessage("Ingrese un correo electrónico válido.");
+
+            RuleFor(usuario => usuario.us_clave)
+                .NotNull().WithMessage("La contraseña es requerido.")
+                .Must(clave => clave.Any(char.IsDigit))
+                .WithMessage("La contraseña debe contener al menos un número.");
+
+            RuleFor(usuario => usuario.us_nickname)
+                .NotNull().WithMessage("El usuario es requerido.")
+                .Must(nickname => nickname.All(char.IsLetterOrDigit))
+                .WithMessage("El nickname solo puede contener letras y números.");
+        }
     }
 }

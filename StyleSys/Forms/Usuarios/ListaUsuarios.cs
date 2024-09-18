@@ -23,7 +23,7 @@ namespace StyleSys.Forms.Usuarios
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            ModuloUsuarios moduloUsuarios = new ModuloUsuarios();
+            ModuloUsuarios moduloUsuarios = new ModuloUsuarios(this);
             moduloUsuarios.ShowDialog();
         }
 
