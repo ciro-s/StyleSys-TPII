@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace StyleSys.Forms.Clientes
 {
-    public partial class Clientes : Form
+    public partial class ListaClientes : Form
     {
-        public Clientes()
+        public ListaClientes()
         {
             InitializeComponent();
         }

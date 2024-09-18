@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using StyleSys.Forms.Productos;
 using StyleSys.Forms.Usuarios;
+using StyleSys.Forms.Clientes;
 
 namespace StyleSys.Forms.MainForms
 {
@@ -63,6 +64,11 @@ namespace StyleSys.Forms.MainForms
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
             abrirFormHijo(new ListaUsuarios());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            abrirFormHijo(new ListaClientes());
         }
     }
 }

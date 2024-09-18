@@ -52,6 +52,12 @@
             panelMain = new System.Windows.Forms.Panel();
             panelTitulo = new System.Windows.Forms.Panel();
             lbTitulo = new System.Windows.Forms.Label();
+            panel7 = new System.Windows.Forms.Panel();
+            panel8 = new System.Windows.Forms.Panel();
+            pictureBox6 = new System.Windows.Forms.PictureBox();
+            button2 = new System.Windows.Forms.Button();
+            pictureBox7 = new System.Windows.Forms.PictureBox();
+            button3 = new System.Windows.Forms.Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)burger).BeginInit();
             panelPrincipal.SuspendLayout();
@@ -67,6 +73,10 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             panelMain.SuspendLayout();
             panelTitulo.SuspendLayout();
+            panel7.SuspendLayout();
+            panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -101,7 +111,7 @@
             label1.AutoSize = true;
             label1.Location = new System.Drawing.Point(49, 5);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(141, 34);
+            label1.Size = new System.Drawing.Size(109, 26);
             label1.TabIndex = 1;
             label1.Text = " STYLESYS";
             // 
@@ -123,6 +133,7 @@
             panelPrincipal.Controls.Add(panel4);
             panelPrincipal.Controls.Add(panel3);
             panelPrincipal.Controls.Add(panel5);
+            panelPrincipal.Controls.Add(panel7);
             panelPrincipal.Dock = System.Windows.Forms.DockStyle.Left;
             panelPrincipal.Location = new System.Drawing.Point(0, 45);
             panelPrincipal.Name = "panelPrincipal";
@@ -349,9 +360,88 @@
             lbTitulo.AutoSize = true;
             lbTitulo.Location = new System.Drawing.Point(402, 8);
             lbTitulo.Name = "lbTitulo";
-            lbTitulo.Size = new System.Drawing.Size(84, 34);
+            lbTitulo.Size = new System.Drawing.Size(65, 26);
             lbTitulo.TabIndex = 1;
             lbTitulo.Text = "Titulo";
+            // 
+            // panel7
+            // 
+            panel7.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            panel7.Controls.Add(panel8);
+            panel7.Controls.Add(pictureBox7);
+            panel7.Controls.Add(button3);
+            panel7.Location = new System.Drawing.Point(3, 195);
+            panel7.Name = "panel7";
+            panel7.Size = new System.Drawing.Size(379, 42);
+            panel7.TabIndex = 7;
+            // 
+            // panel8
+            // 
+            panel8.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            panel8.Controls.Add(pictureBox6);
+            panel8.Controls.Add(button2);
+            panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            panel8.Location = new System.Drawing.Point(0, 0);
+            panel8.Name = "panel8";
+            panel8.Size = new System.Drawing.Size(379, 42);
+            panel8.TabIndex = 6;
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.Image = (System.Drawing.Image)resources.GetObject("pictureBox6.Image");
+            pictureBox6.Location = new System.Drawing.Point(3, 3);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new System.Drawing.Size(35, 35);
+            pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox6.TabIndex = 4;
+            pictureBox6.TabStop = false;
+            // 
+            // button2
+            // 
+            button2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(64, 64, 64);
+            button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(64, 64, 64);
+            button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            button2.ForeColor = System.Drawing.Color.White;
+            button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            button2.Location = new System.Drawing.Point(0, 0);
+            button2.Name = "button2";
+            button2.Size = new System.Drawing.Size(379, 42);
+            button2.TabIndex = 2;
+            button2.Text = "Clientes";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
+            // pictureBox7
+            // 
+            pictureBox7.Image = Properties.Resources.prodbtn;
+            pictureBox7.Location = new System.Drawing.Point(3, 3);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new System.Drawing.Size(35, 35);
+            pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pictureBox7.TabIndex = 4;
+            pictureBox7.TabStop = false;
+            // 
+            // button3
+            // 
+            button3.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            button3.Dock = System.Windows.Forms.DockStyle.Fill;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(64, 64, 64);
+            button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(64, 64, 64);
+            button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            button3.ForeColor = System.Drawing.Color.White;
+            button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            button3.Location = new System.Drawing.Point(0, 0);
+            button3.Name = "button3";
+            button3.Size = new System.Drawing.Size(379, 42);
+            button3.TabIndex = 2;
+            button3.Text = "Facturas";
+            button3.UseVisualStyleBackColor = false;
             // 
             // Dashboard
             // 
@@ -383,6 +473,10 @@
             panelMain.ResumeLayout(false);
             panelTitulo.ResumeLayout(false);
             panelTitulo.PerformLayout();
+            panel7.ResumeLayout(false);
+            panel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ResumeLayout(false);
         }
 
@@ -411,6 +505,12 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Button button3;
     }
 }
 

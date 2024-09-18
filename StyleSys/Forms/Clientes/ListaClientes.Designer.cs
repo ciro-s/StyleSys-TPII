@@ -1,6 +1,6 @@
 ﻿namespace StyleSys.Forms.Clientes
 {
-    partial class Clientes
+    partial class ListaClientes
     {
         /// <summary>
         /// Required designer variable.
