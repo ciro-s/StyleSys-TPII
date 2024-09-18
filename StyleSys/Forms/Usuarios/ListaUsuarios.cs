@@ -30,14 +30,32 @@ namespace StyleSys.Forms.Usuarios
         /*
          * Itera sobre los registros de usuarios de la base de datos y los agrega al DGV
          */
-        public void bindDGView(List<Usuario> usuarios) 
+        public void bindDGView(List<Usuario> usuarios)
         {
             //Limpia todos los registros para obtener los nuevos
             dgvUsuarios.Rows.Clear();
 
-            for (int i=0; i<usuarios.Count; i++)
+            for (int i = 0; i < usuarios.Count; i++)
             {
-                dgvUsuarios.Rows.Add(i+1, usuarios[i].id_usuario, usuarios[i].us_nombre, usuarios[i].us_apellido, usuarios[i].us_email, usuarios[i].us_fechaNacimiento, usuarios[i].us_telefono);
+                dgvUsuarios.Rows.Add(i + 1, usuarios[i].id_usuario, usuarios[i].us_nombre, usuarios[i].us_apellido, usuarios[i].us_email, usuarios[i].us_fechaNacimiento, usuarios[i].us_telefono);
+            }
+        }
+
+        //Maneja los botones de editar y eliminar en el grid de usuarios.
+        private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string col = dgvUsuarios.Columns[e.ColumnIndex].Name;
+
+            if (col == "editar")
+            {
+                ModuloUsuarios modulo = new ModuloUsuarios(this);
+                var id = int.Parse(dgvUsuarios[1, e.RowIndex].Value.ToString());
+
+               Usuario user = _context.Usuarios.Find(id);
+                if (user != null)
+                {
+                    modulo.tbNombre.Text = user.us_nombre;
+                }
             }
         }
     }

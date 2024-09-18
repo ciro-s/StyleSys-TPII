@@ -392,16 +392,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox cbRol;
-        private System.Windows.Forms.Button btnActualizar;
-        private System.Windows.Forms.Label lbId;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.TextBox tbClave;
-        private System.Windows.Forms.TextBox tbNick;
-        private System.Windows.Forms.TextBox tbApellido;
-        private System.Windows.Forms.TextBox tbNombre;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -410,15 +400,24 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbTelefono;
-        private System.Windows.Forms.TextBox tbMail;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DateTimePicker dateTimePicker;
-        private System.Windows.Forms.TextBox tbDni;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox tbDireccion;
         private System.Windows.Forms.Label label11;
+        public System.Windows.Forms.ComboBox cbRol;
+        public System.Windows.Forms.Button btnActualizar;
+        public System.Windows.Forms.Label lbId;
+        public System.Windows.Forms.Button btnCancelar;
+        public System.Windows.Forms.Button btnGuardar;
+        public System.Windows.Forms.TextBox tbClave;
+        public System.Windows.Forms.TextBox tbNick;
+        public System.Windows.Forms.TextBox tbApellido;
+        public System.Windows.Forms.TextBox tbNombre;
+        public System.Windows.Forms.TextBox tbTelefono;
+        public System.Windows.Forms.TextBox tbMail;
+        public System.Windows.Forms.DateTimePicker dateTimePicker;
+        public System.Windows.Forms.TextBox tbDni;
+        public System.Windows.Forms.TextBox tbDireccion;
     }
 }

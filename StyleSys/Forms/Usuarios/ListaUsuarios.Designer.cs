@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListaUsuarios));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             panel1 = new System.Windows.Forms.Panel();
             btnAgregar = new System.Windows.Forms.Button();
             pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -127,6 +128,14 @@
             dgvUsuarios.ColumnHeadersHeight = 30;
             dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1, id, us_nombre, us_apellido, us_email, us_fechaNacimiento, us_telefono, editar, Eliminar });
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            dgvUsuarios.DefaultCellStyle = dataGridViewCellStyle2;
             dgvUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             dgvUsuarios.EnableHeadersVisualStyles = false;
             dgvUsuarios.Location = new System.Drawing.Point(0, 0);
@@ -134,6 +143,7 @@
             dgvUsuarios.RowHeadersWidth = 51;
             dgvUsuarios.Size = new System.Drawing.Size(982, 453);
             dgvUsuarios.TabIndex = 1;
+            dgvUsuarios.CellContentClick += dgvUsuarios_CellContentClick;
             // 
             // Column1
             // 
@@ -150,7 +160,7 @@
             id.MinimumWidth = 6;
             id.Name = "id";
             id.Visible = false;
-            id.Width = 54;
+            id.Width = 125;
             // 
             // us_nombre
             // 
@@ -191,6 +201,7 @@
             // 
             editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             editar.HeaderText = "";
+            editar.Image = (System.Drawing.Image)resources.GetObject("editar.Image");
             editar.MinimumWidth = 6;
             editar.Name = "editar";
             editar.Width = 6;
@@ -199,6 +210,7 @@
             // 
             Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             Eliminar.HeaderText = "";
+            Eliminar.Image = (System.Drawing.Image)resources.GetObject("Eliminar.Image");
             Eliminar.MinimumWidth = 6;
             Eliminar.Name = "Eliminar";
             Eliminar.Width = 6;
