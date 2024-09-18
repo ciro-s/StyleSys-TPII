@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StyleSys.Forms.Clientes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,17 @@ namespace StyleSys.Forms.Clientes
         public ListaClientes()
         {
             InitializeComponent();
+        }
+
+        private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            ModuloClientes modulo_clientes = new ModuloClientes(this);
+            modulo_clientes.ShowDialog();
         }
     }
 }
