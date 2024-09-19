@@ -18,7 +18,7 @@ namespace StyleSys.Forms.Usuarios
         {
             InitializeComponent();
             _context = new StyleSysContext();
-            bindDGView(_context.Usuarios.ToList());
+            bindDGView(_context.Usuarios.Where(u => u.us_estado == true).ToList());
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -49,11 +49,10 @@ namespace StyleSys.Forms.Usuarios
 
             if (col == "editar")
             {
-                MessageBox.Show("entró");
                 ModuloUsuarios modulo = new ModuloUsuarios(this);
                 var id = int.Parse(dgvUsuarios[1, e.RowIndex].Value.ToString());
 
-               Usuario user = _context.Usuarios.Find(id);
+                Usuario user = _context.Usuarios.Find(id);
                 if (user != null)
                 {
                     //Deshabilitar el botón de guardar
@@ -70,6 +69,33 @@ namespace StyleSys.Forms.Usuarios
                     modulo.cbRol.SelectedIndex = user.id_rol - 1;
                     modulo.ShowDialog();
                 }
+                else
+                {
+                    MessageBox.Show("Ocurrió un error recuperando al usuario seleccionado.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else if (col == "Eliminar")
+            {
+                var id = int.Parse(dgvUsuarios[1, e.RowIndex].Value.ToString());
+                Usuario user = _context.Usuarios.Where(u => u.id_usuario == id).FirstOrDefault();
+                if (user != null && MessageBox.Show("¿Está seguro de que quiere eliminar este usuario?\n" + user.us_nombre + " " + user.us_apellido, "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    user.us_estado = false;
+                    _context.SaveChanges();
+                }
+                bindDGView(_context.Usuarios.Where(u => u.us_estado == true).ToList());
+            }
+        }
+
+        private void checkEliminados_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!checkEliminados.Checked)
+            {
+                bindDGView(_context.Usuarios.Where(u => u.us_estado == true).ToList());
+            }
+            else
+            {
+                bindDGView(_context.Usuarios.ToList());
             }
         }
     }

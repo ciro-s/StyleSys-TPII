@@ -46,6 +46,7 @@
             us_telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             editar = new System.Windows.Forms.DataGridViewImageColumn();
             Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            checkEliminados = new System.Windows.Forms.CheckBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -55,6 +56,7 @@
             // panel1
             // 
             panel1.BackColor = System.Drawing.Color.DodgerBlue;
+            panel1.Controls.Add(checkEliminados);
             panel1.Controls.Add(btnAgregar);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label1);
@@ -215,6 +217,18 @@
             Eliminar.Name = "Eliminar";
             Eliminar.Width = 6;
             // 
+            // checkEliminados
+            // 
+            checkEliminados.AutoSize = true;
+            checkEliminados.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            checkEliminados.Location = new System.Drawing.Point(637, 45);
+            checkEliminados.Name = "checkEliminados";
+            checkEliminados.Size = new System.Drawing.Size(186, 25);
+            checkEliminados.TabIndex = 5;
+            checkEliminados.Text = "Mostrar Eliminados";
+            checkEliminados.UseVisualStyleBackColor = true;
+            checkEliminados.CheckedChanged += checkEliminados_CheckedChanged;
+            // 
             // ListaUsuarios
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -249,5 +263,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn us_telefono;
         private System.Windows.Forms.DataGridViewImageColumn editar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
+        private System.Windows.Forms.CheckBox checkEliminados;
     }
 }
