@@ -24,6 +24,7 @@ namespace StyleSys.Forms.Usuarios
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             ModuloUsuarios moduloUsuarios = new ModuloUsuarios(this);
+            moduloUsuarios.btnActualizar.Enabled = false;
             moduloUsuarios.ShowDialog();
         }
 
@@ -48,13 +49,26 @@ namespace StyleSys.Forms.Usuarios
 
             if (col == "editar")
             {
+                MessageBox.Show("entró");
                 ModuloUsuarios modulo = new ModuloUsuarios(this);
                 var id = int.Parse(dgvUsuarios[1, e.RowIndex].Value.ToString());
 
                Usuario user = _context.Usuarios.Find(id);
                 if (user != null)
                 {
+                    //Deshabilitar el botón de guardar
+                    modulo.btnGuardar.Enabled = false;
+                    //Completar los campos con los datos del usuario seleccionado (EXCEPTO LA CONTRASEÑA)
                     modulo.tbNombre.Text = user.us_nombre;
+                    modulo.tbApellido.Text = user.us_apellido;
+                    modulo.tbDni.Text = user.us_dni.ToString();
+                    modulo.tbNick.Text = user.us_nickname;
+                    modulo.tbDireccion.Text = user.us_direccion;
+                    modulo.tbMail.Text = user.us_email;
+                    modulo.tbTelefono.Text = user.us_telefono;
+                    modulo.dateTimePicker.Value = user.us_fechaNacimiento;
+                    modulo.cbRol.SelectedIndex = user.id_rol - 1;
+                    modulo.ShowDialog();
                 }
             }
         }
