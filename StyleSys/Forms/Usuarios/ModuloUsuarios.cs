@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -101,7 +102,7 @@ namespace StyleSys.Forms.Usuarios
                         us_email = tbMail.Text,
                         us_direccion = tbDireccion.Text,
                         us_telefono = tbTelefono.Text,
-                        us_clave = tbClave.Text,
+                        us_clave = hashClave(tbClave.Text),
                         us_fechaNacimiento = dateTimePicker.Value,
                         us_nickname = tbNick.Text,
                         id_rol = cbRol.SelectedIndex + 1,
@@ -160,6 +161,26 @@ namespace StyleSys.Forms.Usuarios
                 e.Handled = true;
                 return;
             }
+        }
+
+        private string hashClave(string clave_original)
+        {
+            //Nueva instancia de la clase SHA256 que computa el hashing
+            SHA256 sha256Hash = SHA256.Create();
+
+            //Separa en bytes el string de la contraseña
+            byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(clave_original));
+
+            //Representa un nuevo string o vector de caracteres
+            StringBuilder builder = new StringBuilder();
+
+            //Hashea cada byte de la contraseña y lo agrega al nuevo string/builder
+            for (int i = 0; i < bytes.Length; i++)
+            {
+                builder.Append(bytes[i].ToString("x2"));
+            }
+
+            return builder.ToString();
         }
     }
 }
