@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             panel1 = new System.Windows.Forms.Panel();
+            lbUser = new System.Windows.Forms.Label();
             btnClose = new System.Windows.Forms.Button();
             label1 = new System.Windows.Forms.Label();
             burger = new System.Windows.Forms.PictureBox();
@@ -72,6 +73,7 @@
             // panel1
             // 
             panel1.BackColor = System.Drawing.Color.DodgerBlue;
+            panel1.Controls.Add(lbUser);
             panel1.Controls.Add(btnClose);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(burger);
@@ -80,6 +82,15 @@
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(1285, 45);
             panel1.TabIndex = 0;
+            // 
+            // lbUser
+            // 
+            lbUser.AutoSize = true;
+            lbUser.Location = new System.Drawing.Point(196, 5);
+            lbUser.Name = "lbUser";
+            lbUser.Size = new System.Drawing.Size(141, 34);
+            lbUser.TabIndex = 1;
+            lbUser.Text = "User - Rol";
             // 
             // btnClose
             // 
@@ -411,6 +422,7 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lbUser;
     }
 }
 
