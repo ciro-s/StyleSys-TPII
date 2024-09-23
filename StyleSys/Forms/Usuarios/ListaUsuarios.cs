@@ -46,7 +46,7 @@ namespace StyleSys.Forms.Usuarios
                 }
 
                 //Agrega el registro al grid
-                dgvUsuarios.Rows.Add(i + 1, usuarios[i].id_usuario, usuarios[i].us_nombre, usuarios[i].us_apellido, usuarios[i].us_email, usuarios[i].us_fechaNacimiento, usuarios[i].us_telefono, estado);
+                dgvUsuarios.Rows.Add(i + 1, usuarios[i].id_usuario, usuarios[i].us_nombre, usuarios[i].us_apellido, usuarios[i].us_email, usuarios[i].us_telefono, usuarios[i].us_fechaNacimiento, estado);
             }
         }
 
@@ -64,15 +64,19 @@ namespace StyleSys.Forms.Usuarios
 
                 if (user != null)
                 {
-                    //Deshabilitar el botón de guardar
-                    modulo.btnGuardar.Enabled = false;
+                    modulo.btnGuardar.Enabled = false; //Deshabilitar el botón de guardar
                     //Completar los campos con los datos del usuario seleccionado (EXCEPTO LA CONTRASEÑA)
+                    // El DNI, el mail, y el nickname al ser UNIQUE no permiten ser actualizados/editados
+                    modulo.lbId.Text = user.id_usuario.ToString();
                     modulo.tbNombre.Text = user.us_nombre;
                     modulo.tbApellido.Text = user.us_apellido;
                     modulo.tbDni.Text = user.us_dni.ToString();
+                    modulo.tbDni.Enabled = false; //Deshabilita el ingreso de dni
                     modulo.tbNick.Text = user.us_nickname;
+                    modulo.tbNick.Enabled = false; //Deshabilita el ingreso de nickname
                     modulo.tbDireccion.Text = user.us_direccion;
                     modulo.tbMail.Text = user.us_email;
+                    modulo.tbMail.Enabled = false; //Deshabilita el ingreso de email
                     modulo.tbTelefono.Text = user.us_telefono;
                     modulo.dateTimePicker.Value = user.us_fechaNacimiento;
                     modulo.cbRol.SelectedIndex = user.id_rol - 1;

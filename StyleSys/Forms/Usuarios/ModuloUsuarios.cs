@@ -73,7 +73,7 @@ namespace StyleSys.Forms.Usuarios
             if (Validacion())
             {
                 MessageBox.Show("Se creó el nuevo usuario correctamente.", "Inserción", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                _listaUsuarios.bindDGView(_context.Usuarios.ToList());
+                _listaUsuarios.bindDGView(_context.Usuarios.Where(u => u.us_estado == true).ToList());
                 this.Dispose();
             }
         }
@@ -109,16 +109,26 @@ namespace StyleSys.Forms.Usuarios
                         us_estado = true
                     };
 
-                    //VALIDACIÓN DE DATOS CON LA LIBRERIA FLUENTVALIDATION
-                    var validator = new UsuarioValidator();
-                    validator.ValidateAndThrow(usuario); //Lanza una excepción cuando falla
-
-                    //Si falla la creación del usuario se lanza una exception
-                    if(!createUsuario(usuario))
+                    //Verifica si el formulario contiene un id, significa que se está EDITANDO un usuario
+                    if (int.TryParse(lbId.Text, out int id))
                     {
-                        throw new ValidationException("Error creando usuario.");
+                        //VALIDACIÓN DE DATOS CON LA LIBRERIA FLUENTVALIDATION
+                        var validator = new UsuarioValidator(_context.Usuarios.Select(u => u.us_dni).ToList(), _context.Usuarios.Select(u => u.us_email).ToList(), _context.Usuarios.Select(u => u.us_nickname).ToList(), true);
+                        validator.ValidateAndThrow(usuario); //Lanza una excepción cuando falla
+                        updateUsuario(usuario, id);
+                    }
+                    else
+                    {
+                        //VALIDACIÓN DE DATOS CON LA LIBRERIA FLUENTVALIDATION
+                        var validator = new UsuarioValidator(_context.Usuarios.Select(u => u.us_dni).ToList(), _context.Usuarios.Select(u => u.us_email).ToList(), _context.Usuarios.Select(u => u.us_nickname).ToList(), false);
+                        validator.ValidateAndThrow(usuario); //Lanza una excepción cuando falla
+                        if (!createUsuario(usuario))
+                        {
+                            throw new ValidationException("Error creando usuario."); //Si falla la creación del usuario se lanza una exception
+                        }
                     }
                     
+
                     return true;
                 }
                 catch (ValidationException e)
@@ -157,7 +167,6 @@ namespace StyleSys.Forms.Usuarios
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
-                //MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
@@ -181,6 +190,54 @@ namespace StyleSys.Forms.Usuarios
             }
 
             return builder.ToString();
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            if(DialogResult.Yes == MessageBox.Show("¿Está seguro que quiere actualizar la información de este usuario?", "Actualización.", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            {
+                if (Validacion())
+                {
+                    MessageBox.Show("Se actualizó al usuario correctamente.", "Actualización.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _listaUsuarios.bindDGView(_context.Usuarios.Where(u => u.us_estado == true).ToList());
+                    this.Dispose();
+                }
+            }
+        }
+
+        private void updateUsuario(Usuario u, int id)
+        {
+            try
+            {
+                //Verifica la conexión a la DB
+                if (_context == null) { _context = new StyleSysContext(); }
+
+                //Busca el usuario en la base de datos
+                Usuario userUpdate = _context.Usuarios.Where(x => x.id_usuario == id).FirstOrDefault();
+
+                if (userUpdate != null) //Chequea que se haya encontrado el usuario
+                {
+                    //Asigna los valores traidos desde el formulario al usuario
+                    userUpdate.us_nombre = u.us_nombre;
+                    userUpdate.us_apellido = u.us_apellido;
+                    userUpdate.us_direccion = u.us_direccion;
+                    userUpdate.us_telefono = u.us_telefono;
+                    userUpdate.us_clave = u.us_clave;
+                    userUpdate.us_fechaNacimiento = u.us_fechaNacimiento;
+                    userUpdate.id_rol = u.id_rol;
+                    //_context.Usuarios.Update(usuario);
+                    _context.SaveChanges();
+                    //_context.Dispose();
+                }                
+                else
+                {
+                    throw new Exception("No se encontró al usuario");
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
     }
 }
