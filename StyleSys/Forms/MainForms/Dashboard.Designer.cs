@@ -112,9 +112,9 @@
             label1.AutoSize = true;
             label1.Location = new System.Drawing.Point(49, 5);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(141, 34);
+            label1.Size = new System.Drawing.Size(161, 34);
             label1.TabIndex = 1;
-            label1.Text = " STYLESYS";
+            label1.Text = " STYLESYS -";
             // 
             // burger
             // 
