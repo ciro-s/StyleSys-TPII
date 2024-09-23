@@ -79,7 +79,7 @@ namespace StyleSys.Forms.MainForms
                     //Muestra el dashboard
                     MessageBox.Show("Bienvenido: " + user, "Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.None);
                     this.Hide();
-                    Dashboard dashboard = new Dashboard();
+                    Dashboard dashboard = new Dashboard(user);
                     dashboard.Show();
                 }
                 else

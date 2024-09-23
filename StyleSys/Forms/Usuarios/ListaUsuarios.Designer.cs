@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             panel1 = new System.Windows.Forms.Panel();
+            checkEliminados = new System.Windows.Forms.CheckBox();
             btnAgregar = new System.Windows.Forms.Button();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             label1 = new System.Windows.Forms.Label();
@@ -42,10 +43,12 @@
             us_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             us_apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             us_email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            us_fechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             us_telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            us_fechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             editar = new System.Windows.Forms.DataGridViewImageColumn();
             Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            restaurar = new System.Windows.Forms.DataGridViewImageColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -55,6 +58,7 @@
             // panel1
             // 
             panel1.BackColor = System.Drawing.Color.DodgerBlue;
+            panel1.Controls.Add(checkEliminados);
             panel1.Controls.Add(btnAgregar);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label1);
@@ -63,6 +67,18 @@
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(982, 100);
             panel1.TabIndex = 5;
+            // 
+            // checkEliminados
+            // 
+            checkEliminados.AutoSize = true;
+            checkEliminados.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            checkEliminados.Location = new System.Drawing.Point(635, 42);
+            checkEliminados.Name = "checkEliminados";
+            checkEliminados.Size = new System.Drawing.Size(186, 25);
+            checkEliminados.TabIndex = 5;
+            checkEliminados.Text = "Mostrar Eliminados";
+            checkEliminados.UseVisualStyleBackColor = true;
+            checkEliminados.CheckedChanged += checkEliminados_CheckedChanged;
             // 
             // btnAgregar
             // 
@@ -73,7 +89,7 @@
             btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnAgregar.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             btnAgregar.Image = (System.Drawing.Image)resources.GetObject("btnAgregar.Image");
-            btnAgregar.Location = new System.Drawing.Point(834, 28);
+            btnAgregar.Location = new System.Drawing.Point(832, 28);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new System.Drawing.Size(123, 53);
             btnAgregar.TabIndex = 4;
@@ -127,7 +143,7 @@
             dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvUsuarios.ColumnHeadersHeight = 30;
             dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1, id, us_nombre, us_apellido, us_email, us_fechaNacimiento, us_telefono, editar, Eliminar });
+            dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1, id, us_nombre, us_apellido, us_email, us_telefono, us_fechaNacimiento, estado, editar, Eliminar, restaurar });
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
@@ -160,7 +176,7 @@
             id.MinimumWidth = 6;
             id.Name = "id";
             id.Visible = false;
-            id.Width = 125;
+            id.Width = 54;
             // 
             // us_nombre
             // 
@@ -183,6 +199,13 @@
             us_email.MinimumWidth = 6;
             us_email.Name = "us_email";
             // 
+            // us_telefono
+            // 
+            us_telefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            us_telefono.HeaderText = "Telefono";
+            us_telefono.MinimumWidth = 6;
+            us_telefono.Name = "us_telefono";
+            // 
             // us_fechaNacimiento
             // 
             us_fechaNacimiento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -190,12 +213,14 @@
             us_fechaNacimiento.MinimumWidth = 6;
             us_fechaNacimiento.Name = "us_fechaNacimiento";
             // 
-            // us_telefono
+            // estado
             // 
-            us_telefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            us_telefono.HeaderText = "Telefono";
-            us_telefono.MinimumWidth = 6;
-            us_telefono.Name = "us_telefono";
+            estado.HeaderText = "Estado";
+            estado.MinimumWidth = 6;
+            estado.Name = "estado";
+            estado.ReadOnly = true;
+            estado.Visible = false;
+            estado.Width = 125;
             // 
             // editar
             // 
@@ -214,6 +239,16 @@
             Eliminar.MinimumWidth = 6;
             Eliminar.Name = "Eliminar";
             Eliminar.Width = 6;
+            // 
+            // restaurar
+            // 
+            restaurar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            restaurar.HeaderText = "";
+            restaurar.Image = (System.Drawing.Image)resources.GetObject("restaurar.Image");
+            restaurar.MinimumWidth = 6;
+            restaurar.Name = "restaurar";
+            restaurar.Visible = false;
+            restaurar.Width = 6;
             // 
             // ListaUsuarios
             // 
@@ -240,14 +275,17 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgvUsuarios;
+        private System.Windows.Forms.CheckBox checkEliminados;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn us_nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn us_apellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn us_email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn us_fechaNacimiento;
         private System.Windows.Forms.DataGridViewTextBoxColumn us_telefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn us_fechaNacimiento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.DataGridViewImageColumn editar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
+        private System.Windows.Forms.DataGridViewImageColumn restaurar;
     }
 }

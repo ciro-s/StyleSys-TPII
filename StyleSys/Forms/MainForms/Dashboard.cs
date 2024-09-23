@@ -9,15 +9,52 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using StyleSys.Forms.Productos;
 using StyleSys.Forms.Usuarios;
+using DB;
 using StyleSys.Forms.Clientes;
 
 namespace StyleSys.Forms.MainForms
 {
     public partial class Dashboard : Form
     {
-        public Dashboard()
+        private Usuario activeUser = null;
+        private StyleSysContext _context;
+        public Dashboard(string username)
         {
             InitializeComponent();
+            using (_context = new StyleSysContext())
+            {
+                activeUser = _context.Usuarios.Where(u => u.us_nickname == username).FirstOrDefault();
+                if (activeUser != null)
+                    lbUser.Text = activeUser.us_nombre.ToUpper() + " " + activeUser.us_apellido.ToUpper();
+            }
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            switch (activeUser.id_rol)
+            {
+                case 1:
+                    btnProductos.Enabled = true;
+                    btnFacturas.Enabled = true;
+                    btnProveedores.Enabled = false;
+                    btnUsuarios.Enabled = false;
+                    break;
+                case 2:
+                    btnProductos.Enabled = true;
+                    btnFacturas.Enabled = true;
+                    btnProveedores.Enabled = true;
+                    btnUsuarios.Enabled=true;
+                    break;
+                case 3:
+                    btnProductos.Enabled = true;
+                    btnFacturas.Enabled = true;
+                    btnProveedores.Enabled = true;
+                    btnUsuarios.Enabled = true;
+                    break;
+
+            }
         }
 
         //Atributo que guarda el formulario activo dentro del dashboard.

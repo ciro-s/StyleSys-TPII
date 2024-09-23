@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -6,6 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static DB.UsuarioValidator;
 
 namespace DB
 {
@@ -63,12 +65,34 @@ namespace DB
 
     public class UsuarioValidator : AbstractValidator<Usuario>
     {
-        public UsuarioValidator()
+        private readonly List<int> _dnisExistentes;
+        private readonly List<string> _emailExistentes;
+        private readonly List<string> _nicksExistentes;
+        public UsuarioValidator(List<int> dnisExistentes, List<string> emailExistentes, List<string> nicksExistentes, bool updating)
         {
+            _dnisExistentes = dnisExistentes;
+            _emailExistentes = emailExistentes;
+            _nicksExistentes = nicksExistentes;
+
+            if (!updating)
+            {
+                RuleFor(usuario => usuario.us_dni)
+                    .Must(dni => !_dnisExistentes.Contains(dni))
+                    .WithMessage("Ya existe un usuario con ese DNI.");
+
+                RuleFor(usuario => usuario.us_email)
+                    .Must(mail => !_emailExistentes.Contains(mail))
+                    .WithMessage("Ya existe un usuario con ese eMail.");
+
+                RuleFor(usuario => usuario.us_nickname)
+                    .Must(nick => !_nicksExistentes.Contains(nick))
+                    .WithMessage("Ya existe un usuario con ese nickname.");
+            }
+            
             RuleFor(usuario => usuario.us_dni)
                 .NotNull().WithMessage("El DNI es requerido.")
                 .GreaterThan(1000000).WithMessage("ingrese un DNI válido");
-
+                
             RuleFor(usuario => usuario.us_nombre)
                 .NotNull().WithMessage("El nombre es requerido.")
                 .Must(nombre => nombre.All(char.IsLetter)).WithMessage("El nombre solo puede contener letras.")
