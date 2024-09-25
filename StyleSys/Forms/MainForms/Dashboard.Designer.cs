@@ -47,18 +47,18 @@
             panel5 = new System.Windows.Forms.Panel();
             panel6 = new System.Windows.Forms.Panel();
             pictureBox5 = new System.Windows.Forms.PictureBox();
-            button1 = new System.Windows.Forms.Button();
+            btnListaFacturas = new System.Windows.Forms.Button();
             pictureBox4 = new System.Windows.Forms.PictureBox();
             btnFacturas = new System.Windows.Forms.Button();
-            panelMain = new System.Windows.Forms.Panel();
-            panelTitulo = new System.Windows.Forms.Panel();
-            lbTitulo = new System.Windows.Forms.Label();
             panel7 = new System.Windows.Forms.Panel();
             panel8 = new System.Windows.Forms.Panel();
             pictureBox6 = new System.Windows.Forms.PictureBox();
-            button2 = new System.Windows.Forms.Button();
+            btnClientes = new System.Windows.Forms.Button();
             pictureBox7 = new System.Windows.Forms.PictureBox();
             button3 = new System.Windows.Forms.Button();
+            panelMain = new System.Windows.Forms.Panel();
+            panelTitulo = new System.Windows.Forms.Panel();
+            lbTitulo = new System.Windows.Forms.Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)burger).BeginInit();
             panelPrincipal.SuspendLayout();
@@ -72,12 +72,12 @@
             panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            panelMain.SuspendLayout();
-            panelTitulo.SuspendLayout();
             panel7.SuspendLayout();
             panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            panelMain.SuspendLayout();
+            panelTitulo.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -284,7 +284,7 @@
             // 
             panel6.BackColor = System.Drawing.SystemColors.InactiveCaption;
             panel6.Controls.Add(pictureBox5);
-            panel6.Controls.Add(button1);
+            panel6.Controls.Add(btnListaFacturas);
             panel6.Dock = System.Windows.Forms.DockStyle.Top;
             panel6.Location = new System.Drawing.Point(0, 0);
             panel6.Name = "panel6";
@@ -301,23 +301,24 @@
             pictureBox5.TabIndex = 4;
             pictureBox5.TabStop = false;
             // 
-            // button1
+            // btnListaFacturas
             // 
-            button1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(64, 64, 64);
-            button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(64, 64, 64);
-            button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            button1.ForeColor = System.Drawing.Color.White;
-            button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            button1.Location = new System.Drawing.Point(0, 0);
-            button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(379, 42);
-            button1.TabIndex = 2;
-            button1.Text = "Facturas";
-            button1.UseVisualStyleBackColor = false;
+            btnListaFacturas.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            btnListaFacturas.Dock = System.Windows.Forms.DockStyle.Fill;
+            btnListaFacturas.FlatAppearance.BorderSize = 0;
+            btnListaFacturas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(64, 64, 64);
+            btnListaFacturas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(64, 64, 64);
+            btnListaFacturas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnListaFacturas.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            btnListaFacturas.ForeColor = System.Drawing.Color.White;
+            btnListaFacturas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            btnListaFacturas.Location = new System.Drawing.Point(0, 0);
+            btnListaFacturas.Name = "btnListaFacturas";
+            btnListaFacturas.Size = new System.Drawing.Size(379, 42);
+            btnListaFacturas.TabIndex = 2;
+            btnListaFacturas.Text = "Facturas";
+            btnListaFacturas.UseVisualStyleBackColor = false;
+            btnListaFacturas.Click += btnFacturas_Click;
             // 
             // pictureBox4
             // 
@@ -347,34 +348,6 @@
             btnFacturas.Text = "Facturas";
             btnFacturas.UseVisualStyleBackColor = false;
             // 
-            // panelMain
-            // 
-            panelMain.Controls.Add(panelTitulo);
-            panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            panelMain.Location = new System.Drawing.Point(382, 45);
-            panelMain.Name = "panelMain";
-            panelMain.Size = new System.Drawing.Size(903, 611);
-            panelMain.TabIndex = 4;
-            // 
-            // panelTitulo
-            // 
-            panelTitulo.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            panelTitulo.Controls.Add(lbTitulo);
-            panelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
-            panelTitulo.Location = new System.Drawing.Point(0, 0);
-            panelTitulo.Name = "panelTitulo";
-            panelTitulo.Size = new System.Drawing.Size(903, 50);
-            panelTitulo.TabIndex = 0;
-            // 
-            // lbTitulo
-            // 
-            lbTitulo.AutoSize = true;
-            lbTitulo.Location = new System.Drawing.Point(402, 8);
-            lbTitulo.Name = "lbTitulo";
-            lbTitulo.Size = new System.Drawing.Size(65, 26);
-            lbTitulo.TabIndex = 1;
-            lbTitulo.Text = "Titulo";
-            // 
             // panel7
             // 
             panel7.BackColor = System.Drawing.SystemColors.InactiveCaption;
@@ -390,7 +363,7 @@
             // 
             panel8.BackColor = System.Drawing.SystemColors.InactiveCaption;
             panel8.Controls.Add(pictureBox6);
-            panel8.Controls.Add(button2);
+            panel8.Controls.Add(btnClientes);
             panel8.Dock = System.Windows.Forms.DockStyle.Top;
             panel8.Location = new System.Drawing.Point(0, 0);
             panel8.Name = "panel8";
@@ -407,24 +380,24 @@
             pictureBox6.TabIndex = 4;
             pictureBox6.TabStop = false;
             // 
-            // button2
+            // btnClientes
             // 
-            button2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(64, 64, 64);
-            button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(64, 64, 64);
-            button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            button2.ForeColor = System.Drawing.Color.White;
-            button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            button2.Location = new System.Drawing.Point(0, 0);
-            button2.Name = "button2";
-            button2.Size = new System.Drawing.Size(379, 42);
-            button2.TabIndex = 2;
-            button2.Text = "Clientes";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            btnClientes.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            btnClientes.Dock = System.Windows.Forms.DockStyle.Fill;
+            btnClientes.FlatAppearance.BorderSize = 0;
+            btnClientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(64, 64, 64);
+            btnClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(64, 64, 64);
+            btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnClientes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            btnClientes.ForeColor = System.Drawing.Color.White;
+            btnClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            btnClientes.Location = new System.Drawing.Point(0, 0);
+            btnClientes.Name = "btnClientes";
+            btnClientes.Size = new System.Drawing.Size(379, 42);
+            btnClientes.TabIndex = 2;
+            btnClientes.Text = "Clientes";
+            btnClientes.UseVisualStyleBackColor = false;
+            btnClientes.Click += button2_Click;
             // 
             // pictureBox7
             // 
@@ -454,6 +427,34 @@
             button3.Text = "Facturas";
             button3.UseVisualStyleBackColor = false;
             // 
+            // panelMain
+            // 
+            panelMain.Controls.Add(panelTitulo);
+            panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            panelMain.Location = new System.Drawing.Point(382, 45);
+            panelMain.Name = "panelMain";
+            panelMain.Size = new System.Drawing.Size(903, 611);
+            panelMain.TabIndex = 4;
+            // 
+            // panelTitulo
+            // 
+            panelTitulo.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            panelTitulo.Controls.Add(lbTitulo);
+            panelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            panelTitulo.Location = new System.Drawing.Point(0, 0);
+            panelTitulo.Name = "panelTitulo";
+            panelTitulo.Size = new System.Drawing.Size(903, 50);
+            panelTitulo.TabIndex = 0;
+            // 
+            // lbTitulo
+            // 
+            lbTitulo.AutoSize = true;
+            lbTitulo.Location = new System.Drawing.Point(402, 8);
+            lbTitulo.Name = "lbTitulo";
+            lbTitulo.Size = new System.Drawing.Size(84, 34);
+            lbTitulo.TabIndex = 1;
+            lbTitulo.Text = "Titulo";
+            // 
             // Dashboard
             // 
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -481,13 +482,13 @@
             panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            panelMain.ResumeLayout(false);
-            panelTitulo.ResumeLayout(false);
-            panelTitulo.PerformLayout();
             panel7.ResumeLayout(false);
             panel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            panelMain.ResumeLayout(false);
+            panelTitulo.ResumeLayout(false);
+            panelTitulo.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -515,12 +516,12 @@
         private System.Windows.Forms.Label lbTitulo;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnListaFacturas;
         private System.Windows.Forms.Label lbUser;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Button button3;
     }

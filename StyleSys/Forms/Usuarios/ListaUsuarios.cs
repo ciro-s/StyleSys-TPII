@@ -28,9 +28,10 @@ namespace StyleSys.Forms.Usuarios
             moduloUsuarios.ShowDialog();
         }
 
-        /*
-         * Itera sobre los registros de usuarios de la base de datos y los agrega al DGV
-         */
+        /// <summary>
+        /// Itera sobre los registros de usuarios de la base de datos y los agrega al DGV
+        /// </summary>
+        /// <param name="usuarios">la lista de usuarios a mostrar recibida desde la bd</param>
         public void bindDGView(List<Usuario> usuarios)
         {
             //Limpia todos los registros para obtener los nuevos
@@ -50,7 +51,9 @@ namespace StyleSys.Forms.Usuarios
             }
         }
 
-        //Maneja los botones de editar y eliminar en el grid de usuarios.
+        /// <summary>
+        /// Chequea qué celda se clickeó. Si es el botón de editar, eliminar, o restaurar, se maneja la acción solicitada.
+        /// </summary>
         private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string col = dgvUsuarios.Columns[e.ColumnIndex].Name;
