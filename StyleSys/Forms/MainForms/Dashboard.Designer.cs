@@ -62,7 +62,7 @@
             panelCarrito = new System.Windows.Forms.Panel();
             panel3 = new System.Windows.Forms.Panel();
             pictureBox8 = new System.Windows.Forms.PictureBox();
-            button1 = new System.Windows.Forms.Button();
+            btnVenta = new System.Windows.Forms.Button();
             pictureBox9 = new System.Windows.Forms.PictureBox();
             button2 = new System.Windows.Forms.Button();
             panel1.SuspendLayout();
@@ -481,7 +481,7 @@
             // 
             panel3.BackColor = System.Drawing.SystemColors.InactiveCaption;
             panel3.Controls.Add(pictureBox8);
-            panel3.Controls.Add(button1);
+            panel3.Controls.Add(btnVenta);
             panel3.Dock = System.Windows.Forms.DockStyle.Top;
             panel3.Location = new System.Drawing.Point(0, 0);
             panel3.Name = "panel3";
@@ -498,23 +498,24 @@
             pictureBox8.TabIndex = 4;
             pictureBox8.TabStop = false;
             // 
-            // button1
+            // btnVenta
             // 
-            button1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(64, 64, 64);
-            button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(64, 64, 64);
-            button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            button1.ForeColor = System.Drawing.Color.White;
-            button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            button1.Location = new System.Drawing.Point(0, 0);
-            button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(379, 42);
-            button1.TabIndex = 2;
-            button1.Text = "Nueva Venta";
-            button1.UseVisualStyleBackColor = false;
+            btnVenta.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            btnVenta.Dock = System.Windows.Forms.DockStyle.Fill;
+            btnVenta.FlatAppearance.BorderSize = 0;
+            btnVenta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(64, 64, 64);
+            btnVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(64, 64, 64);
+            btnVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnVenta.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            btnVenta.ForeColor = System.Drawing.Color.White;
+            btnVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            btnVenta.Location = new System.Drawing.Point(0, 0);
+            btnVenta.Name = "btnVenta";
+            btnVenta.Size = new System.Drawing.Size(379, 42);
+            btnVenta.TabIndex = 2;
+            btnVenta.Text = "Nueva Venta";
+            btnVenta.UseVisualStyleBackColor = false;
+            btnVenta.Click += btnVenta_Click;
             // 
             // pictureBox9
             // 
@@ -620,7 +621,7 @@
         private System.Windows.Forms.Panel panelCarrito;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnVenta;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Button button2;
     }

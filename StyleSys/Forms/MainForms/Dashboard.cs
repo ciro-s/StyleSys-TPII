@@ -12,6 +12,7 @@ using StyleSys.Forms.Usuarios;
 using DB;
 using StyleSys.Forms.Clientes;
 using StyleSys.Forms.Facturas;
+using StyleSys.Forms.Ventas_Carrito;
 
 namespace StyleSys.Forms.MainForms
 {
@@ -22,7 +23,7 @@ namespace StyleSys.Forms.MainForms
         public Dashboard(string username)
         {
             InitializeComponent();
-            
+
             //Muestra el nombre del usuario que inició sesión y guarda el usuario en una variable
             using (_context = new StyleSysContext())
             {
@@ -98,7 +99,10 @@ namespace StyleSys.Forms.MainForms
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if(DialogResult.Yes == MessageBox.Show("¿Seguro que quiere salir?", "Salir", MessageBoxButtons.YesNo))
+            {
+                Application.Exit();
+            }
         }
 
         private void btnProveedores_Click(object sender, EventArgs e)
@@ -119,6 +123,11 @@ namespace StyleSys.Forms.MainForms
         private void btnFacturas_Click(object sender, EventArgs e)
         {
             abrirFormHijo(new ListaFacturas());
+        }
+
+        private void btnVenta_Click(object sender, EventArgs e)
+        {
+            abrirFormHijo(new CarritoVenta());
         }
     }
 }
