@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StyleSys.Forms.Facturas;
 using StyleSys.Forms.MainForms;
 using StyleSys.Forms.Productos;
+using StyleSys.Forms.Ventas_Carrito;
 
 
 namespace StyleSys

@@ -44,22 +44,37 @@ namespace StyleSys.Forms.MainForms
             switch (activeUser.id_rol)
             {
                 case 1:
-                    panelProductos.Visible = true;
-                    panelFacturas.Visible = true;
+                    panelProductos.Visible = false;
                     panelProveedores.Visible = false;
                     panelUsuarios.Visible = false;
+                    panelFacturas.Visible = true;
+                    panelClientes.Visible = true;
+                    panelCarrito.Visible = true;
+                    panelReportes.Visible = false;
+                    panelBackup.Visible = false;
+
                     break;
                 case 2:
                     panelProductos.Visible = true;
-                    panelFacturas.Visible = true;
                     panelProveedores.Visible = true;
                     panelUsuarios.Visible = false;
+                    panelFacturas.Visible = true;
+                    panelClientes.Visible = false;
+                    panelCarrito.Visible = false;
+                    panelReportes.Visible = true;
+                    panelBackup.Visible = false;
+
                     break;
                 case 3:
-                    panelProductos.Visible = true;
-                    panelFacturas.Visible = true;
-                    panelProveedores.Visible = true;
+                    panelProductos.Visible = false;
+                    panelProveedores.Visible = false;
                     panelUsuarios.Visible = true;
+                    panelFacturas.Visible = true;
+                    panelClientes.Visible = false;
+                    panelCarrito.Visible = false;
+                    panelReportes.Visible = true;
+                    panelBackup.Visible = true;
+
                     break;
 
             }
@@ -99,7 +114,7 @@ namespace StyleSys.Forms.MainForms
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            if(DialogResult.Yes == MessageBox.Show("¿Seguro que quiere salir?", "Salir", MessageBoxButtons.YesNo))
+            if (DialogResult.Yes == MessageBox.Show("¿Seguro que quiere salir?", "Salir", MessageBoxButtons.YesNo))
             {
                 Application.Exit();
             }
@@ -115,7 +130,7 @@ namespace StyleSys.Forms.MainForms
             abrirFormHijo(new ListaUsuarios());
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnClientes_Click(object sender, EventArgs e)
         {
             abrirFormHijo(new ListaClientes());
         }

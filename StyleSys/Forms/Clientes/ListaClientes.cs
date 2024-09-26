@@ -26,7 +26,7 @@ namespace StyleSys.Forms.Clientes
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             ModuloClientes modulo_clientes = new ModuloClientes(this);
-            _ = modulo_clientes.ShowDialog();
+            modulo_clientes.ShowDialog();
         }
     }
 }

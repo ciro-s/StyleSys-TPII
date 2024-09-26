@@ -39,16 +39,14 @@
             dgvUsuarios = new System.Windows.Forms.DataGridView();
             Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            cl_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            cl_apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            cl_email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            cl_fechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            cl_telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            cl_DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            cl_estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            cl_fechaAlta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            editar = new System.Windows.Forms.DataGridViewImageColumn();
-            Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            us_telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            mail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            fechaalta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            tbBuscar = new System.Windows.Forms.TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -58,14 +56,14 @@
             // panel1
             // 
             panel1.BackColor = System.Drawing.Color.DodgerBlue;
+            panel1.Controls.Add(tbBuscar);
             panel1.Controls.Add(btnAgregar);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label1);
             panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            panel1.Location = new System.Drawing.Point(0, 375);
-            panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            panel1.Location = new System.Drawing.Point(0, 353);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(800, 75);
+            panel1.Size = new System.Drawing.Size(982, 100);
             panel1.TabIndex = 7;
             // 
             // btnAgregar
@@ -77,10 +75,9 @@
             btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnAgregar.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             btnAgregar.Image = (System.Drawing.Image)resources.GetObject("btnAgregar.Image");
-            btnAgregar.Location = new System.Drawing.Point(692, 23);
-            btnAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            btnAgregar.Location = new System.Drawing.Point(828, 23);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new System.Drawing.Size(108, 40);
+            btnAgregar.Size = new System.Drawing.Size(123, 53);
             btnAgregar.TabIndex = 4;
             btnAgregar.Text = "Agregar";
             btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -90,10 +87,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = (System.Drawing.Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new System.Drawing.Point(10, 11);
-            pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            pictureBox1.Location = new System.Drawing.Point(12, 15);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(61, 52);
+            pictureBox1.Size = new System.Drawing.Size(70, 70);
             pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
@@ -103,9 +99,9 @@
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label1.ForeColor = System.Drawing.Color.White;
-            label1.Location = new System.Drawing.Point(77, 26);
+            label1.Location = new System.Drawing.Point(84, 32);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(206, 26);
+            label1.Size = new System.Drawing.Size(263, 34);
             label1.TabIndex = 2;
             label1.Text = "Gestionar Clientes";
             // 
@@ -114,9 +110,8 @@
             panel2.Controls.Add(dgvUsuarios);
             panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             panel2.Location = new System.Drawing.Point(0, 0);
-            panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new System.Drawing.Size(800, 450);
+            panel2.Size = new System.Drawing.Size(982, 453);
             panel2.TabIndex = 8;
             // 
             // dgvUsuarios
@@ -134,7 +129,7 @@
             dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvUsuarios.ColumnHeadersHeight = 30;
             dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1, id, cl_nombre, cl_apellido, cl_email, cl_fechaNacimiento, cl_telefono, cl_DNI, cl_estado, cl_fechaAlta, editar, Eliminar });
+            dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1, id, nombre, apellido, dni, us_telefono, mail, direccion, fechaalta });
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
@@ -146,12 +141,10 @@
             dgvUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             dgvUsuarios.EnableHeadersVisualStyles = false;
             dgvUsuarios.Location = new System.Drawing.Point(0, 0);
-            dgvUsuarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             dgvUsuarios.Name = "dgvUsuarios";
             dgvUsuarios.RowHeadersWidth = 51;
-            dgvUsuarios.Size = new System.Drawing.Size(800, 450);
+            dgvUsuarios.Size = new System.Drawing.Size(982, 453);
             dgvUsuarios.TabIndex = 1;
-            dgvUsuarios.CellContentClick += dgvClientes_CellContentClick;
             // 
             // Column1
             // 
@@ -159,7 +152,7 @@
             Column1.HeaderText = "No";
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
-            Column1.Width = 52;
+            Column1.Width = 62;
             // 
             // id
             // 
@@ -168,83 +161,76 @@
             id.MinimumWidth = 6;
             id.Name = "id";
             id.Visible = false;
-            id.Width = 45;
+            id.Width = 54;
             // 
-            // cl_nombre
+            // nombre
             // 
-            cl_nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            cl_nombre.HeaderText = "Nombre";
-            cl_nombre.MinimumWidth = 6;
-            cl_nombre.Name = "cl_nombre";
+            nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            nombre.HeaderText = "Nombre";
+            nombre.MinimumWidth = 6;
+            nombre.Name = "nombre";
             // 
-            // cl_apellido
+            // apellido
             // 
-            cl_apellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            cl_apellido.HeaderText = "Apellido";
-            cl_apellido.MinimumWidth = 6;
-            cl_apellido.Name = "cl_apellido";
+            apellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            apellido.HeaderText = "Apellido";
+            apellido.MinimumWidth = 6;
+            apellido.Name = "apellido";
             // 
-            // cl_email
+            // dni
             // 
-            cl_email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            cl_email.HeaderText = "e-Mail";
-            cl_email.MinimumWidth = 6;
-            cl_email.Name = "cl_email";
+            dni.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dni.HeaderText = "DNI";
+            dni.MinimumWidth = 6;
+            dni.Name = "dni";
             // 
-            // cl_fechaNacimiento
+            // us_telefono
             // 
-            cl_fechaNacimiento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            cl_fechaNacimiento.HeaderText = "Nacimiento";
-            cl_fechaNacimiento.MinimumWidth = 6;
-            cl_fechaNacimiento.Name = "cl_fechaNacimiento";
+            us_telefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            us_telefono.HeaderText = "Telefono";
+            us_telefono.MinimumWidth = 6;
+            us_telefono.Name = "us_telefono";
             // 
-            // cl_telefono
+            // mail
             // 
-            cl_telefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            cl_telefono.HeaderText = "Telefono";
-            cl_telefono.MinimumWidth = 6;
-            cl_telefono.Name = "cl_telefono";
+            mail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            mail.HeaderText = "e-Mail";
+            mail.MinimumWidth = 6;
+            mail.Name = "mail";
             // 
-            // cl_DNI
+            // direccion
             // 
-            cl_DNI.HeaderText = "DNI";
-            cl_DNI.Name = "cl_DNI";
+            direccion.HeaderText = "Direccion";
+            direccion.MinimumWidth = 6;
+            direccion.Name = "direccion";
+            direccion.Width = 125;
             // 
-            // cl_estado
+            // fechaalta
             // 
-            cl_estado.HeaderText = "Estado";
-            cl_estado.Name = "cl_estado";
+            fechaalta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            fechaalta.HeaderText = "Alta";
+            fechaalta.MinimumWidth = 6;
+            fechaalta.Name = "fechaalta";
+            fechaalta.ReadOnly = true;
+            fechaalta.Width = 71;
             // 
-            // cl_fechaAlta
+            // tbBuscar
             // 
-            cl_fechaAlta.HeaderText = "Fecha Alta";
-            cl_fechaAlta.Name = "cl_fechaAlta";
-            // 
-            // editar
-            // 
-            editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            editar.HeaderText = "";
-            editar.Image = (System.Drawing.Image)resources.GetObject("editar.Image");
-            editar.MinimumWidth = 6;
-            editar.Name = "editar";
-            editar.Width = 6;
-            // 
-            // Eliminar
-            // 
-            Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            Eliminar.HeaderText = "";
-            Eliminar.Image = (System.Drawing.Image)resources.GetObject("Eliminar.Image");
-            Eliminar.MinimumWidth = 6;
-            Eliminar.Name = "Eliminar";
-            Eliminar.Width = 6;
+            tbBuscar.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            tbBuscar.Location = new System.Drawing.Point(392, 37);
+            tbBuscar.Name = "tbBuscar";
+            tbBuscar.PlaceholderText = "Buscar un cliente...";
+            tbBuscar.Size = new System.Drawing.Size(382, 28);
+            tbBuscar.TabIndex = 5;
             // 
             // ListaClientes
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(800, 450);
+            ClientSize = new System.Drawing.Size(982, 453);
             Controls.Add(panel1);
             Controls.Add(panel2);
+            Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             Name = "ListaClientes";
             Text = "Clientes";
             panel1.ResumeLayout(false);
@@ -265,15 +251,13 @@
         private System.Windows.Forms.DataGridView dgvUsuarios;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_apellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_fechaNacimiento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_telefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_DNI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_estado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_fechaAlta;
-        private System.Windows.Forms.DataGridViewImageColumn editar;
-        private System.Windows.Forms.DataGridViewImageColumn Eliminar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dni;
+        private System.Windows.Forms.DataGridViewTextBoxColumn us_telefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn direccion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaalta;
+        private System.Windows.Forms.TextBox tbBuscar;
     }
 }
