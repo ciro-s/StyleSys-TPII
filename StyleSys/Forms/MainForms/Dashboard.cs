@@ -35,6 +35,7 @@ namespace StyleSys.Forms.MainForms
         /// <summary>
         /// Desactiva los botones del dashboard según el rol del usuario activo
         /// </summary>
+        /// <param name="e">Contiene el evento que se disparó.</param>
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -42,22 +43,22 @@ namespace StyleSys.Forms.MainForms
             switch (activeUser.id_rol)
             {
                 case 1:
-                    btnProductos.Enabled = true;
-                    btnFacturas.Enabled = true;
-                    btnProveedores.Enabled = false;
-                    btnUsuarios.Enabled = false;
+                    panelProductos.Visible = true;
+                    panelFacturas.Visible = true;
+                    panelProveedores.Visible = false;
+                    panelUsuarios.Visible = false;
                     break;
                 case 2:
-                    btnProductos.Enabled = true;
-                    btnFacturas.Enabled = true;
-                    btnProveedores.Enabled = true;
-                    btnUsuarios.Enabled = true;
+                    panelProductos.Visible = true;
+                    panelFacturas.Visible = true;
+                    panelProveedores.Visible = true;
+                    panelUsuarios.Visible = false;
                     break;
                 case 3:
-                    btnProductos.Enabled = true;
-                    btnFacturas.Enabled = true;
-                    btnProveedores.Enabled = true;
-                    btnUsuarios.Enabled = true;
+                    panelProductos.Visible = true;
+                    panelFacturas.Visible = true;
+                    panelProveedores.Visible = true;
+                    panelUsuarios.Visible = true;
                     break;
 
             }
