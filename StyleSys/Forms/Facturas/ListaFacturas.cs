@@ -27,7 +27,7 @@ namespace StyleSys.Forms.Facturas
         /// <param name="facturas">la lista de usuarios a mostrar recibida desde la bd</param>
         public void bindDGView()
         {
-            dgvFacturas.Rows.Add(1, 12345, "$5000", "Cliente Prueba", "Crédito", "Empleado prueba", "25/09/24");
+            dgvFacturas.Rows.Add(1, 12345, "$44000", "Cliente Prueba", "Crédito", "Empleado prueba", "25/09/24");
             //Limpia todos los registros para obtener los nuevos
             //dgvUsuarios.Rows.Clear();
 
@@ -57,7 +57,6 @@ namespace StyleSys.Forms.Facturas
             //CLICK EN BOTON DETALLES
             if (col == "detalles")
             {
-                MessageBox.Show("hice click");
                 DetalleFactura modulo = new DetalleFactura(); //Crea un formulario de detalles
 
                 //if (f != null)

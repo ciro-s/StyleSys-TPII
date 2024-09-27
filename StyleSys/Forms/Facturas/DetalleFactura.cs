@@ -23,7 +23,7 @@ namespace StyleSys.Forms.Facturas
             //SOLO PARA PRUEBA
             dgvDetalles.Rows.Add(1, 12345, 1, "Nuevo Producto", 1, "$20.000", "$20.000");
             dgvDetalles.Rows.Add(1, 12345, 2, "Otro Producto", 2, "$12.000", "$24.000");
-            lbTotal.Text = "$44.000";
+            lbTotal.Text = "TOTAL: $44.000";
         }
 
         private void btnClose_Click(object sender, EventArgs e)

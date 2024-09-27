@@ -126,7 +126,7 @@
             // lbUser
             // 
             lbUser.AutoSize = true;
-            lbUser.Location = new System.Drawing.Point(196, 5);
+            lbUser.Location = new System.Drawing.Point(572, 5);
             lbUser.Name = "lbUser";
             lbUser.Size = new System.Drawing.Size(141, 34);
             lbUser.TabIndex = 1;
@@ -152,9 +152,9 @@
             label1.AutoSize = true;
             label1.Location = new System.Drawing.Point(49, 5);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(161, 34);
+            label1.Size = new System.Drawing.Size(141, 34);
             label1.TabIndex = 1;
-            label1.Text = " STYLESYS -";
+            label1.Text = " STYLESYS";
             // 
             // burger
             // 
@@ -722,6 +722,7 @@
             lbTitulo.Size = new System.Drawing.Size(84, 34);
             lbTitulo.TabIndex = 1;
             lbTitulo.Text = "Titulo";
+            lbTitulo.Visible = false;
             // 
             // Dashboard
             // 

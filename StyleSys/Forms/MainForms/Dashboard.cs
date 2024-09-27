@@ -28,8 +28,9 @@ namespace StyleSys.Forms.MainForms
             using (_context = new StyleSysContext())
             {
                 activeUser = _context.Usuarios.Where(u => u.us_nickname == username).FirstOrDefault();
+                Rol rol = _context.Roles.Find(activeUser.id_rol);
                 if (activeUser != null)
-                    lbUser.Text = activeUser.us_nombre.ToUpper() + " " + activeUser.us_apellido.ToUpper();
+                    lbUser.Text = activeUser.us_nombre.ToUpper() + " " + activeUser.us_apellido.ToUpper() + " - " + rol.rol_nombre;
             }
         }
 
@@ -100,6 +101,7 @@ namespace StyleSys.Forms.MainForms
             hijo.FormBorderStyle = FormBorderStyle.None;
             hijo.Dock = DockStyle.Fill;
             lbTitulo.Text = hijo.Text;
+            lbTitulo.Visible = true;
 
             //Agrega el formulario al panel del dashboard
             panelMain.Controls.Add(hijo);

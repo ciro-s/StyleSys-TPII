@@ -174,7 +174,7 @@
             lbTotal.AutoSize = true;
             lbTotal.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             lbTotal.ForeColor = System.Drawing.Color.White;
-            lbTotal.Location = new System.Drawing.Point(642, 14);
+            lbTotal.Location = new System.Drawing.Point(469, 14);
             lbTotal.Name = "lbTotal";
             lbTotal.Size = new System.Drawing.Size(110, 34);
             lbTotal.TabIndex = 1;
