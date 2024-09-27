@@ -79,6 +79,36 @@ namespace DB
                     us_estado = true,
                     us_fechaNacimiento = DateTime.Now,
                     us_telefono = "3794143742"
+                },
+                new Usuario
+                {
+                    id_usuario = 2,
+                    us_nombre = "Maximiliano",
+                    us_apellido = "Luna",
+                    us_dni = 41333654,
+                    us_nickname = "mluna",
+                    us_direccion = "Calle Ficticia 123",
+                    us_clave = "ae571eafd64e7aed0e74610a624cb273ccb741334913730acc1717ef04e28857", //Clave Hasheada: mluna123
+                    us_email = "mluna@maill.com",
+                    id_rol = 2,
+                    us_estado = true,
+                    us_fechaNacimiento = DateTime.Now,
+                    us_telefono = "3794253368"
+                },
+                new Usuario
+                {
+                    id_usuario = 3,
+                    us_nombre = "Lucas",
+                    us_apellido = "Lopez",
+                    us_dni = 32541569,
+                    us_nickname = "llopez",
+                    us_direccion = "Calle Ficticia 123",
+                    us_clave = "37705012ac2afebf8b66739074b7b4401c48d9497e42bc588d176870fa738f70", //Clave Hasheada: llopez
+                    us_email = "llopez@maill.com",
+                    id_rol = 1,
+                    us_estado = true,
+                    us_fechaNacimiento = DateTime.Now,
+                    us_telefono = "3795266551"
                 }
             );
         }
