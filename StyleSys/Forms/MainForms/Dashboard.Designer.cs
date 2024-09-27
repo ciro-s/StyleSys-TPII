@@ -667,6 +667,7 @@
             btnBackup.TabIndex = 2;
             btnBackup.Text = "Backup";
             btnBackup.UseVisualStyleBackColor = false;
+            btnBackup.Click += btnBackup_Click;
             // 
             // pictureBox13
             // 

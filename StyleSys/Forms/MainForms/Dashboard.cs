@@ -14,6 +14,7 @@ using StyleSys.Forms.Clientes;
 using StyleSys.Forms.Facturas;
 using StyleSys.Forms.Ventas_Carrito;
 using StyleSys.Forms.Reportes;
+using StyleSys.Forms.Backup;
 
 namespace StyleSys.Forms.MainForms
 {
@@ -151,6 +152,11 @@ namespace StyleSys.Forms.MainForms
         private void btnReportes_Click(object sender, EventArgs e)
         {
             abrirFormHijo(new MainReportes());
+        }
+
+        private void btnBackup_Click(object sender, EventArgs e)
+        {
+            abrirFormHijo(new SetupBackup());
         }
     }
 }

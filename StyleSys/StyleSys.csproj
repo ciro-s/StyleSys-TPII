@@ -7,6 +7,11 @@
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Forms\BackupForms\**" />
+    <EmbeddedResource Remove="Forms\BackupForms\**" />
+    <None Remove="Forms\BackupForms\**" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\DB\DB.csproj" />
   </ItemGroup>
   <ItemGroup>

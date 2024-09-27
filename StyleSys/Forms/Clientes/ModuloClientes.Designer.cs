@@ -307,6 +307,7 @@
             Controls.Add(panel1);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Name = "ModuloClientes";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "ModuloClientes";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
