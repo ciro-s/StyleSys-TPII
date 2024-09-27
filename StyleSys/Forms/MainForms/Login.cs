@@ -28,8 +28,8 @@ namespace StyleSys.Forms.MainForms
             // this.dbContext.Database.EnsureCreated();
 
             //Aplica las migraciones pendientes - COMENTAR SI NO HACE FALTA MIGRAR
-            //this.dbContext.Database.Migrate();
-            
+            this.dbContext.Database.Migrate();
+
         }
 
         public Login()
