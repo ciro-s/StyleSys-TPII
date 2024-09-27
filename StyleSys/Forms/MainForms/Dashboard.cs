@@ -13,6 +13,7 @@ using DB;
 using StyleSys.Forms.Clientes;
 using StyleSys.Forms.Facturas;
 using StyleSys.Forms.Ventas_Carrito;
+using StyleSys.Forms.Reportes;
 
 namespace StyleSys.Forms.MainForms
 {
@@ -145,6 +146,11 @@ namespace StyleSys.Forms.MainForms
         private void btnVenta_Click(object sender, EventArgs e)
         {
             abrirFormHijo(new CarritoVenta());
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            abrirFormHijo(new MainReportes());
         }
     }
 }

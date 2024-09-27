@@ -588,6 +588,7 @@
             btnReportes.TabIndex = 2;
             btnReportes.Text = "Reportes";
             btnReportes.UseVisualStyleBackColor = false;
+            btnReportes.Click += btnReportes_Click;
             // 
             // pictureBox11
             // 
