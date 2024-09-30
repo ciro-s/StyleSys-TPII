@@ -95,13 +95,12 @@ namespace DB
                 
             RuleFor(usuario => usuario.us_nombre)
                 .NotNull().WithMessage("El nombre es requerido.")
-                .Must(nombre => nombre.All(char.IsLetter)).WithMessage("El nombre solo puede contener letras.")
+                .Matches(@"^[a-zA-Z\s]+$").WithMessage("El nombre solo puede contener letras y espacios.")
                 .Length(2, 20).WithMessage("El nombre debe contener entre 2 y 20 caracteres");
 
             RuleFor(usuario => usuario.us_apellido)
                 .NotNull().WithMessage("El apellido es requerido.")
-                .Must(apellido => apellido.All(char.IsLetter))
-                .WithMessage("El apellido solo puede contener letras.")
+                .Matches(@"^[a-zA-Z\s]+$").WithMessage("El apellido solo puede contener letras y espacios.")
                 .Length(2, 20).WithMessage("El nombre debe contener entre 2 y 20 caracteres");
 
             RuleFor(usuario => usuario.us_direccion)
@@ -110,6 +109,7 @@ namespace DB
 
             RuleFor(usuario => usuario.us_telefono)
                 .NotNull().WithMessage("El telefono es requerido")
+                .Matches(@"^(54)?([1-9][0-9]{3})([1-9][0-9]{5})$").WithMessage("Ingrese un número de teléfono válido")
                 .Length(10, 20).WithMessage("El número de teléfono debe tener entre 10 y 20 caracteres.");
 
             RuleFor(usuario => usuario.us_email)
