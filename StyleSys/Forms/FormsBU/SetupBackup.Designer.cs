@@ -94,7 +94,7 @@
             btnRutaBack.Location = new System.Drawing.Point(26, 114);
             btnRutaBack.Name = "btnRutaBack";
             btnRutaBack.Size = new System.Drawing.Size(126, 46);
-            btnRutaBack.TabIndex = 4;
+            btnRutaBack.TabIndex = 1;
             btnRutaBack.Text = "BUSCAR";
             btnRutaBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             btnRutaBack.UseVisualStyleBackColor = false;

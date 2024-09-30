@@ -120,7 +120,7 @@
             tbDireccion.Location = new System.Drawing.Point(193, 216);
             tbDireccion.Name = "tbDireccion";
             tbDireccion.Size = new System.Drawing.Size(523, 28);
-            tbDireccion.TabIndex = 30;
+            tbDireccion.TabIndex = 4;
             // 
             // tbRazonSocial
             // 
@@ -128,7 +128,7 @@
             tbRazonSocial.Location = new System.Drawing.Point(193, 170);
             tbRazonSocial.Name = "tbRazonSocial";
             tbRazonSocial.Size = new System.Drawing.Size(523, 28);
-            tbRazonSocial.TabIndex = 29;
+            tbRazonSocial.TabIndex = 3;
             // 
             // tbCUIT
             // 
@@ -136,7 +136,7 @@
             tbCUIT.Location = new System.Drawing.Point(193, 122);
             tbCUIT.Name = "tbCUIT";
             tbCUIT.Size = new System.Drawing.Size(523, 28);
-            tbCUIT.TabIndex = 28;
+            tbCUIT.TabIndex = 2;
             // 
             // tbNombre
             // 
@@ -144,7 +144,7 @@
             tbNombre.Location = new System.Drawing.Point(193, 79);
             tbNombre.Name = "tbNombre";
             tbNombre.Size = new System.Drawing.Size(523, 28);
-            tbNombre.TabIndex = 27;
+            tbNombre.TabIndex = 1;
             // 
             // label7
             // 
@@ -252,7 +252,7 @@
             tbTelefono.Location = new System.Drawing.Point(193, 263);
             tbTelefono.Name = "tbTelefono";
             tbTelefono.Size = new System.Drawing.Size(523, 28);
-            tbTelefono.TabIndex = 37;
+            tbTelefono.TabIndex = 5;
             // 
             // tbDescripcion
             // 
@@ -260,7 +260,7 @@
             tbDescripcion.Multiline = true;
             tbDescripcion.Name = "tbDescripcion";
             tbDescripcion.Size = new System.Drawing.Size(523, 81);
-            tbDescripcion.TabIndex = 38;
+            tbDescripcion.TabIndex = 6;
             // 
             // ModuloProveedores
             // 

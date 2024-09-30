@@ -156,7 +156,7 @@
             tbNombre.Location = new System.Drawing.Point(193, 93);
             tbNombre.Name = "tbNombre";
             tbNombre.Size = new System.Drawing.Size(523, 28);
-            tbNombre.TabIndex = 9;
+            tbNombre.TabIndex = 1;
             // 
             // tbPrecioCompra
             // 
@@ -164,7 +164,7 @@
             tbPrecioCompra.Location = new System.Drawing.Point(193, 136);
             tbPrecioCompra.Name = "tbPrecioCompra";
             tbPrecioCompra.Size = new System.Drawing.Size(523, 28);
-            tbPrecioCompra.TabIndex = 10;
+            tbPrecioCompra.TabIndex = 2;
             // 
             // tbPrecioVenta
             // 
@@ -172,7 +172,7 @@
             tbPrecioVenta.Location = new System.Drawing.Point(193, 184);
             tbPrecioVenta.Name = "tbPrecioVenta";
             tbPrecioVenta.Size = new System.Drawing.Size(523, 28);
-            tbPrecioVenta.TabIndex = 11;
+            tbPrecioVenta.TabIndex = 3;
             // 
             // tbStock
             // 
@@ -180,7 +180,7 @@
             tbStock.Location = new System.Drawing.Point(193, 230);
             tbStock.Name = "tbStock";
             tbStock.Size = new System.Drawing.Size(523, 28);
-            tbStock.TabIndex = 12;
+            tbStock.TabIndex = 4;
             // 
             // btnGuardar
             // 
@@ -253,7 +253,7 @@
             cbCategoria.Location = new System.Drawing.Point(193, 276);
             cbCategoria.Name = "cbCategoria";
             cbCategoria.Size = new System.Drawing.Size(523, 27);
-            cbCategoria.TabIndex = 18;
+            cbCategoria.TabIndex = 5;
             // 
             // cbProveedor
             // 
@@ -263,7 +263,7 @@
             cbProveedor.Location = new System.Drawing.Point(193, 315);
             cbProveedor.Name = "cbProveedor";
             cbProveedor.Size = new System.Drawing.Size(523, 27);
-            cbProveedor.TabIndex = 19;
+            cbProveedor.TabIndex = 6;
             // 
             // ModuloProductos
             // 

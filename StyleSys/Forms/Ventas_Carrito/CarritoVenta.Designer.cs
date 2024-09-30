@@ -154,7 +154,7 @@
             lbTimer.AutoSize = true;
             lbTimer.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             lbTimer.ForeColor = System.Drawing.Color.White;
-            lbTimer.Location = new System.Drawing.Point(63, 11);
+            lbTimer.Location = new System.Drawing.Point(48, 11);
             lbTimer.Name = "lbTimer";
             lbTimer.Size = new System.Drawing.Size(174, 47);
             lbTimer.TabIndex = 9;

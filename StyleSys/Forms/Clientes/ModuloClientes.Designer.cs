@@ -59,7 +59,7 @@
             tbDireccion.Location = new System.Drawing.Point(110, 210);
             tbDireccion.Name = "tbDireccion";
             tbDireccion.Size = new System.Drawing.Size(601, 28);
-            tbDireccion.TabIndex = 77;
+            tbDireccion.TabIndex = 4;
             // 
             // label11
             // 
@@ -78,7 +78,7 @@
             tbDni.Location = new System.Drawing.Point(110, 165);
             tbDni.Name = "tbDni";
             tbDni.Size = new System.Drawing.Size(601, 28);
-            tbDni.TabIndex = 76;
+            tbDni.TabIndex = 3;
             // 
             // label10
             // 
@@ -97,7 +97,7 @@
             dateTimePicker.Location = new System.Drawing.Point(110, 342);
             dateTimePicker.Name = "dateTimePicker";
             dateTimePicker.Size = new System.Drawing.Size(250, 27);
-            dateTimePicker.TabIndex = 81;
+            dateTimePicker.TabIndex = 7;
             // 
             // label9
             // 
@@ -116,7 +116,7 @@
             tbTelefono.Location = new System.Drawing.Point(110, 297);
             tbTelefono.Name = "tbTelefono";
             tbTelefono.Size = new System.Drawing.Size(601, 28);
-            tbTelefono.TabIndex = 80;
+            tbTelefono.TabIndex = 6;
             // 
             // tbMail
             // 
@@ -124,7 +124,7 @@
             tbMail.Location = new System.Drawing.Point(110, 254);
             tbMail.Name = "tbMail";
             tbMail.Size = new System.Drawing.Size(601, 28);
-            tbMail.TabIndex = 78;
+            tbMail.TabIndex = 5;
             // 
             // label6
             // 
@@ -215,7 +215,7 @@
             tbApellido.Location = new System.Drawing.Point(461, 118);
             tbApellido.Name = "tbApellido";
             tbApellido.Size = new System.Drawing.Size(250, 28);
-            tbApellido.TabIndex = 75;
+            tbApellido.TabIndex = 2;
             // 
             // tbNombre
             // 
@@ -223,7 +223,7 @@
             tbNombre.Location = new System.Drawing.Point(110, 118);
             tbNombre.Name = "tbNombre";
             tbNombre.Size = new System.Drawing.Size(250, 28);
-            tbNombre.TabIndex = 74;
+            tbNombre.TabIndex = 1;
             // 
             // label3
             // 

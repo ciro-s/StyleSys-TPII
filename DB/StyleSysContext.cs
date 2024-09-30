@@ -103,7 +103,7 @@ namespace DB
                     us_dni = 32541569,
                     us_nickname = "llopez",
                     us_direccion = "Calle Ficticia 123",
-                    us_clave = "37705012ac2afebf8b66739074b7b4401c48d9497e42bc588d176870fa738f70", //Clave Hasheada: llopez
+                    us_clave = "37705012ac2afebf8b66739074b7b4401c48d9497e42bc588d176870fa738f70", //Clave Hasheada: llopez123
                     us_email = "llopez@maill.com",
                     id_rol = 1,
                     us_estado = true,

@@ -66,7 +66,7 @@
             cbRol.Location = new System.Drawing.Point(461, 402);
             cbRol.Name = "cbRol";
             cbRol.Size = new System.Drawing.Size(250, 27);
-            cbRol.TabIndex = 36;
+            cbRol.TabIndex = 10;
             // 
             // btnActualizar
             // 
@@ -139,7 +139,7 @@
             tbClave.Name = "tbClave";
             tbClave.PasswordChar = '*';
             tbClave.Size = new System.Drawing.Size(601, 28);
-            tbClave.TabIndex = 31;
+            tbClave.TabIndex = 5;
             tbClave.UseSystemPasswordChar = true;
             // 
             // tbNick
@@ -148,7 +148,7 @@
             tbNick.Location = new System.Drawing.Point(110, 178);
             tbNick.Name = "tbNick";
             tbNick.Size = new System.Drawing.Size(601, 28);
-            tbNick.TabIndex = 30;
+            tbNick.TabIndex = 4;
             // 
             // tbApellido
             // 
@@ -156,7 +156,7 @@
             tbApellido.Location = new System.Drawing.Point(461, 83);
             tbApellido.Name = "tbApellido";
             tbApellido.Size = new System.Drawing.Size(250, 28);
-            tbApellido.TabIndex = 28;
+            tbApellido.TabIndex = 2;
             // 
             // tbNombre
             // 
@@ -164,7 +164,7 @@
             tbNombre.Location = new System.Drawing.Point(110, 83);
             tbNombre.Name = "tbNombre";
             tbNombre.Size = new System.Drawing.Size(250, 28);
-            tbNombre.TabIndex = 27;
+            tbNombre.TabIndex = 1;
             // 
             // label7
             // 
@@ -261,7 +261,7 @@
             tbTelefono.Location = new System.Drawing.Point(110, 357);
             tbTelefono.Name = "tbTelefono";
             tbTelefono.Size = new System.Drawing.Size(601, 28);
-            tbTelefono.TabIndex = 34;
+            tbTelefono.TabIndex = 8;
             tbTelefono.KeyPress += numero_KeyPress;
             // 
             // tbMail
@@ -270,7 +270,7 @@
             tbMail.Location = new System.Drawing.Point(110, 314);
             tbMail.Name = "tbMail";
             tbMail.Size = new System.Drawing.Size(601, 28);
-            tbMail.TabIndex = 33;
+            tbMail.TabIndex = 7;
             // 
             // label6
             // 
@@ -311,7 +311,7 @@
             dateTimePicker.Location = new System.Drawing.Point(110, 402);
             dateTimePicker.Name = "dateTimePicker";
             dateTimePicker.Size = new System.Drawing.Size(250, 27);
-            dateTimePicker.TabIndex = 35;
+            dateTimePicker.TabIndex = 9;
             // 
             // tbDni
             // 
@@ -319,7 +319,7 @@
             tbDni.Location = new System.Drawing.Point(110, 130);
             tbDni.Name = "tbDni";
             tbDni.Size = new System.Drawing.Size(601, 28);
-            tbDni.TabIndex = 29;
+            tbDni.TabIndex = 3;
             tbDni.KeyPress += numero_KeyPress;
             // 
             // label10
@@ -339,7 +339,7 @@
             tbDireccion.Location = new System.Drawing.Point(110, 270);
             tbDireccion.Name = "tbDireccion";
             tbDireccion.Size = new System.Drawing.Size(601, 28);
-            tbDireccion.TabIndex = 32;
+            tbDireccion.TabIndex = 6;
             // 
             // label11
             // 
