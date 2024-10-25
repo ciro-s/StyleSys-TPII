@@ -76,7 +76,7 @@ namespace DB
                     us_email = "admin@maill.com",
                     id_rol = 3,
                     us_estado = true,
-                    us_fechaNacimiento = DateTime.Now,
+                    us_fechaNacimiento = new DateTime(2024, 10, 25, 12, 42, 44, 359, DateTimeKind.Local).AddTicks(5385),
                     us_telefono = "3794143742"
                 },
                 new Usuario
@@ -91,7 +91,7 @@ namespace DB
                     us_email = "mluna@maill.com",
                     id_rol = 2,
                     us_estado = true,
-                    us_fechaNacimiento = DateTime.Now,
+                    us_fechaNacimiento = new DateTime(2024, 10, 25, 12, 42, 44, 359, DateTimeKind.Local).AddTicks(5397),
                     us_telefono = "3794253368"
                 },
                 new Usuario
@@ -106,8 +106,48 @@ namespace DB
                     us_email = "llopez@maill.com",
                     id_rol = 1,
                     us_estado = true,
-                    us_fechaNacimiento = DateTime.Now,
+                    us_fechaNacimiento = new DateTime(2024, 10, 25, 12, 42, 44, 359, DateTimeKind.Local).AddTicks(5399),
                     us_telefono = "3795266551"
+                }
+            );
+
+            //Seeding categorias
+            modelBuilder.Entity<Categoria>().HasData(
+                new Categoria
+                {
+                    id_categoria = 1,
+                    cat_nombre = "Buzos",
+                    cat_descripcion = "Abrigos rusticos y frizados.",
+                    cat_estado = true
+                },
+                new Categoria
+                {
+                    id_categoria = 2,
+                    cat_nombre = "Remeras",
+                    cat_descripcion = "Remeras unisex.",
+                    cat_estado = true
+                },
+                new Categoria
+                {
+                    id_categoria = 3,
+                    cat_nombre = "Pantalones",
+                    cat_descripcion = "Jeans, joggins y pantalones.",
+                    cat_estado = true
+                }
+            );
+
+            //Seeding proveedores
+            modelBuilder.Entity<Proveedor>().HasData(
+                new Proveedor
+                {
+                    id_proveedor = 1,
+                    prov_cuit = 27369665228,
+                    prov_razonSocial = "Semillero textil S.A.",
+                    prov_nombre = "Semillero",
+                    prov_descripcion = "Talleristas, tejedores, bordadores y estampadores.",
+                    prov_estado = true,
+                    prov_telefono = "3794558866",
+                    prov_direccion = "Brasil 865"
                 }
             );
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -33,7 +34,7 @@ namespace DB.Migrations
                     id_proveedor = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     prov_razonSocial = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
-                    prov_cuit = table.Column<int>(type: "int", nullable: false),
+                    prov_cuit = table.Column<long>(type: "bigint", nullable: false),
                     prov_nombre = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     prov_descripcion = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
                     prov_telefono = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),

@@ -20,7 +20,7 @@ namespace DB
         public string prov_razonSocial { get; set; }
 
         [Required]
-        public int prov_cuit { get; set; }
+        public long prov_cuit { get; set; }
 
         [Required]
         [StringLength(20, MinimumLength = 3)]
