@@ -8,13 +8,6 @@ namespace DB
      */
     public class StyleSysContext : DbContext
     {
-        //Constructor de la clase
-        //public StyleSysContext()
-        //    : base("options") 
-        //{
-            
-        //}
-
         /*
          * Sobreescribe el método "OnModelCreating" para crear las tablas con nombres personalizados
          */
@@ -23,6 +16,8 @@ namespace DB
             //Se configura el nombre de las tablas
             modelBuilder.Entity<Rol>().ToTable("Rol");
             modelBuilder.Entity<Usuario>().ToTable("Usuario");
+            modelBuilder.Entity<Categoria>().ToTable("Categoria");
+            modelBuilder.Entity<Proveedor>().ToTable("Proveedor");
 
             //Constraints de UNIQUE
             modelBuilder.Entity<Usuario>()
@@ -37,7 +32,11 @@ namespace DB
                 .HasAlternateKey(u => u.us_dni)
                 .HasName("UNQ_DNI");
 
-            //Inicia el data seeding (Datos iniciales en la base de datos)
+            modelBuilder.Entity<Proveedor>()
+                .HasAlternateKey(p => p.prov_cuit)
+                .HasName("UNQ_CUIT");
+
+            /**************** Inicia el data seeding (Datos iniciales en la base de datos) **********************/
             //Seeding de Roles
             modelBuilder.Entity<Rol>().HasData(
                 new Rol
@@ -112,9 +111,14 @@ namespace DB
                 }
             );
         }
+        /******************************** FIN SEEDING *****************************************/
+
+
 
         public DbSet<Rol> Roles { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Categoria> Categorias { get; set; }
+        public DbSet<Proveedor> Proveedores { get; set; }
 
         /*
          * Configuración del Connection String para la base de datos 
