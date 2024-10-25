@@ -132,7 +132,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
-        YAAAAWABINkT2gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAATtSURBVHhe7Zs/
+        XgAAAV4BX2xuegAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAATtSURBVHhe7Zs/
         qBxVFIdDElQCQgrFaCxSpgiSRrCIELGxCmnENkWKFIkQA5J0KVOIBG0khWhnl2ARQiwMqKAQJFZqIQQh
         qCRFBLGxeP6+4ZzN2cuZfTM7s7M7b/fAN+/ec++5c+b35s6f++bt2traWmtSZ0R2U9wfKTezY4qkzojs
         nqAwRu5lxxRJnREGscH2Z+19ITsgDom94jkrPyP2W7kJB2wsYiiMSoA7th8O5DMrHxeXrdyEOzbWKAW4
@@ -172,16 +172,48 @@
   <metadata name="razonsocial.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="telefono.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="direccion.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="telefono.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="estado.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="editar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="editar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAA0T4AANE+ARQvPPIAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
+        AAACdklEQVRIS7VVTWsUQRDd36GI/gONM8EPIogfhxw0evAgoh5yUrLm5MGDIv4DDyJ+gBcRFCXgwTXu
+        jm7EhMQQQyRBdglKTMQYJZrNJnGTXZ9VXW1mertnd3LwwYOp7lfVPdVV3alGQG/rFmT9LmIGWe8DsaxJ
+        3zxGc6TR8uRAsH0zOd+iQGtENGENOe8RMju2affGwAv/KDmV6oIkYYl9dRg3SJQm1iJO8XxzBHh/CQh2
+        R8f5by7ocCYQ+O0kqEbE8cwfBH7PAWuLQKkADJyIztMG/Q4dViA530BavgVA5QfQdxiY6QGqK/RHHVEN
+        patlkw7PeffuRiYbc+Iq7bwMLE8Di0VJU20VGDxp6nLeHQmuSjFhajjvHHz8CvByH/DlKRRmnrj0VVXC
+        9MEH6xKYzLUCP0eB2Ww4NnUfWJqixdpMbcg0pWfnM8eEzckbcrD5A2KPnJPUvD1ra9fpZ/gPivZEHQdP
+        UbAK8C4t9qv9wMpXWvSmrTVZ5AUaV0+whw5zktLxIByb7QUWJihtu0ytzXLzBT4/BMofaaG9Yo9fprJc
+        BvqP21qbaoFC3WDIkfOS56HTYr9uB1YXqFSv2Vo3C/GHrLr1O1C8LjZX0fwwMJe3tbFUh8zXsWOSy5HL
+        kgOzzQtV5qV767Wx9LvcjcYNxeg/JjZ3KVfRaHeoaU5pNNXN1NbGJAfEH9k9dyxX0fTjqHMS3lbBGdZl
+        N9wpO/50Tw6Vb8z4bnXRvOwYxnXNDcX4NQaMXQzPIRlrsQ8PPxZK0HeISvOMy7kZKbjXrcO58V+fzH/g
+        /FGJbezRD1q2avfk0CXM1/lzInf8kiZ/81h6vRSdSKX+Aq5gmVdbNKoiAAAAAElFTkSuQmCC
+</value>
+  </data>
   <metadata name="Eliminar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="Eliminar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAALAAAACwARRqq2kAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
+        AAABLUlEQVRIS7XVvy5EQRzF8avQrkqrohIvQIlKpdAoSVBTkPjT0tDslpsoeARqPS+BFyAkVP58T8wk
+        Y3fsnOtykk/yy8w9M9nNbm5lZBjneMFHoPkM2mucVbxhF2vBHt6xgsY5xP3X+C1a056dUWxnXOGhZ020
+        pr3eddFZfZlC/I6b0ll9+fcLRrD0R3TWj5nE3C+pW0wHuY/taKOYA+TKjn0Us4Fc2bGOYhaRlrpYDrP+
+        zaJZa9pLn1W3mBmkpR2MhXkh0Kw17aXPTqOYCaSlOheMoxj9htNSnQtasPKKWHIvUMfOHWLRveAWdm4Q
+        i+4F17BziVh0L7iAnVPEol6Pj2F+DjRrLX2NqmPnCLHoqvV220LukEE2YWceuUMGmYWdIZzgCbnDUnrm
+        GJlU1SeUEf9ynxxQVQAAAABJRU5ErkJggg==
+</value>
+  </data>
 </root>

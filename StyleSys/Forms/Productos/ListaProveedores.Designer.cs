@@ -41,8 +41,9 @@
             nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             cuit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             razonsocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             editar = new System.Windows.Forms.DataGridViewImageColumn();
             Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             panel1.SuspendLayout();
@@ -126,7 +127,7 @@
             dgvProveedores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvProveedores.ColumnHeadersHeight = 30;
             dgvProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvProveedores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1, id, nombre, cuit, razonsocial, direccion, telefono, editar, Eliminar });
+            dgvProveedores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1, id, nombre, cuit, razonsocial, telefono, direccion, estado, editar, Eliminar });
             dgvProveedores.Dock = System.Windows.Forms.DockStyle.Fill;
             dgvProveedores.EnableHeadersVisualStyles = false;
             dgvProveedores.Location = new System.Drawing.Point(0, 0);
@@ -150,7 +151,7 @@
             id.MinimumWidth = 6;
             id.Name = "id";
             id.Visible = false;
-            id.Width = 125;
+            id.Width = 54;
             // 
             // nombre
             // 
@@ -173,13 +174,6 @@
             razonsocial.MinimumWidth = 6;
             razonsocial.Name = "razonsocial";
             // 
-            // direccion
-            // 
-            direccion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            direccion.HeaderText = "Direccion";
-            direccion.MinimumWidth = 6;
-            direccion.Name = "direccion";
-            // 
             // telefono
             // 
             telefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -187,10 +181,26 @@
             telefono.MinimumWidth = 6;
             telefono.Name = "telefono";
             // 
+            // direccion
+            // 
+            direccion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            direccion.HeaderText = "Direccion";
+            direccion.MinimumWidth = 6;
+            direccion.Name = "direccion";
+            // 
+            // estado
+            // 
+            estado.HeaderText = "Estado";
+            estado.MinimumWidth = 6;
+            estado.Name = "estado";
+            estado.Visible = false;
+            estado.Width = 125;
+            // 
             // editar
             // 
             editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             editar.HeaderText = "";
+            editar.Image = (System.Drawing.Image)resources.GetObject("editar.Image");
             editar.MinimumWidth = 6;
             editar.Name = "editar";
             editar.Width = 6;
@@ -199,6 +209,7 @@
             // 
             Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             Eliminar.HeaderText = "";
+            Eliminar.Image = (System.Drawing.Image)resources.GetObject("Eliminar.Image");
             Eliminar.MinimumWidth = 6;
             Eliminar.Name = "Eliminar";
             Eliminar.Width = 6;
@@ -233,8 +244,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn cuit;
         private System.Windows.Forms.DataGridViewTextBoxColumn razonsocial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn direccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn direccion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.DataGridViewImageColumn editar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
     }

@@ -295,24 +295,24 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Label lbId;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.TextBox tbDireccion;
-        private System.Windows.Forms.TextBox tbRazonSocial;
-        private System.Windows.Forms.TextBox tbCUIT;
-        private System.Windows.Forms.TextBox tbNombre;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbTelefono;
-        private System.Windows.Forms.TextBox tbDescripcion;
+        public System.Windows.Forms.Button btnActualizar;
+        public System.Windows.Forms.Button btnCancelar;
+        public System.Windows.Forms.Button btnGuardar;
+        public System.Windows.Forms.TextBox tbDireccion;
+        public System.Windows.Forms.TextBox tbRazonSocial;
+        public System.Windows.Forms.TextBox tbCUIT;
+        public System.Windows.Forms.TextBox tbNombre;
+        public System.Windows.Forms.Label label7;
+        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.TextBox tbTelefono;
+        public System.Windows.Forms.TextBox tbDescripcion;
     }
 }
