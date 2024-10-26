@@ -295,7 +295,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label lbId;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label1;
@@ -314,5 +313,6 @@
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.TextBox tbTelefono;
         public System.Windows.Forms.TextBox tbDescripcion;
+        public System.Windows.Forms.Label lbId;
     }
 }

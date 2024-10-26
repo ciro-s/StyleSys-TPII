@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListaProveedores));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             panel1 = new System.Windows.Forms.Panel();
+            checkEliminados = new System.Windows.Forms.CheckBox();
             btnAgregar = new System.Windows.Forms.Button();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             label1 = new System.Windows.Forms.Label();
@@ -46,6 +47,7 @@
             estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             editar = new System.Windows.Forms.DataGridViewImageColumn();
             Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            restaurar = new System.Windows.Forms.DataGridViewImageColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -55,6 +57,7 @@
             // panel1
             // 
             panel1.BackColor = System.Drawing.Color.DodgerBlue;
+            panel1.Controls.Add(checkEliminados);
             panel1.Controls.Add(btnAgregar);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label1);
@@ -63,6 +66,18 @@
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(982, 100);
             panel1.TabIndex = 3;
+            // 
+            // checkEliminados
+            // 
+            checkEliminados.AutoSize = true;
+            checkEliminados.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            checkEliminados.Location = new System.Drawing.Point(614, 43);
+            checkEliminados.Name = "checkEliminados";
+            checkEliminados.Size = new System.Drawing.Size(186, 25);
+            checkEliminados.TabIndex = 6;
+            checkEliminados.Text = "Mostrar Eliminados";
+            checkEliminados.UseVisualStyleBackColor = true;
+            checkEliminados.CheckedChanged += checkEliminados_CheckedChanged;
             // 
             // btnAgregar
             // 
@@ -127,7 +142,7 @@
             dgvProveedores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvProveedores.ColumnHeadersHeight = 30;
             dgvProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvProveedores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1, id, nombre, cuit, razonsocial, telefono, direccion, estado, editar, Eliminar });
+            dgvProveedores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1, id, nombre, cuit, razonsocial, telefono, direccion, estado, editar, Eliminar, restaurar });
             dgvProveedores.Dock = System.Windows.Forms.DockStyle.Fill;
             dgvProveedores.EnableHeadersVisualStyles = false;
             dgvProveedores.Location = new System.Drawing.Point(0, 0);
@@ -135,6 +150,7 @@
             dgvProveedores.RowHeadersWidth = 51;
             dgvProveedores.Size = new System.Drawing.Size(982, 453);
             dgvProveedores.TabIndex = 1;
+            dgvProveedores.CellContentClick += dgvProveedores_CellContentClick;
             // 
             // Column1
             // 
@@ -151,7 +167,7 @@
             id.MinimumWidth = 6;
             id.Name = "id";
             id.Visible = false;
-            id.Width = 54;
+            id.Width = 125;
             // 
             // nombre
             // 
@@ -214,6 +230,16 @@
             Eliminar.Name = "Eliminar";
             Eliminar.Width = 6;
             // 
+            // restaurar
+            // 
+            restaurar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            restaurar.HeaderText = "";
+            restaurar.Image = (System.Drawing.Image)resources.GetObject("restaurar.Image");
+            restaurar.MinimumWidth = 6;
+            restaurar.Name = "restaurar";
+            restaurar.Visible = false;
+            restaurar.Width = 125;
+            // 
             // ListaProveedores
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -239,6 +265,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgvProveedores;
+        private System.Windows.Forms.CheckBox checkEliminados;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
@@ -249,5 +276,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.DataGridViewImageColumn editar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
+        private System.Windows.Forms.DataGridViewImageColumn restaurar;
     }
 }
