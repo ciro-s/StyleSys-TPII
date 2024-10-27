@@ -67,6 +67,7 @@
             btnActualizar.Text = "Actualizar";
             btnActualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             btnActualizar.UseVisualStyleBackColor = false;
+            btnActualizar.Click += btnActualizar_Click;
             // 
             // lbId
             // 
