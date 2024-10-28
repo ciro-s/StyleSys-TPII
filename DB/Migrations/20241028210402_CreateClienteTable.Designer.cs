@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DB.Migrations
 {
     [DbContext(typeof(StyleSysContext))]
-    [Migration("20241028204107_CreateClientesTable")]
-    partial class CreateClientesTable
+    [Migration("20241028210402_CreateClienteTable")]
+    partial class CreateClienteTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -203,7 +203,7 @@ namespace DB.Migrations
                             us_dni = 43205377,
                             us_email = "admin@maill.com",
                             us_estado = true,
-                            us_fechaNacimiento = new DateTime(2024, 10, 28, 17, 41, 6, 612, DateTimeKind.Local).AddTicks(6518),
+                            us_fechaNacimiento = new DateTime(2024, 10, 28, 18, 4, 2, 59, DateTimeKind.Local).AddTicks(5444),
                             us_nickname = "admin",
                             us_nombre = "Ciro",
                             us_telefono = "3794143742"

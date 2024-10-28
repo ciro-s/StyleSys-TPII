@@ -23,7 +23,7 @@ namespace DB
             //Se configura el nombre de las tablas
             modelBuilder.Entity<Rol>().ToTable("Rol");
             modelBuilder.Entity<Usuario>().ToTable("Usuario");
-            modelBuilder.Entity<Cliente>().ToTable("Cliente"); ;
+            modelBuilder.Entity<Cliente>().ToTable("Cliente"); 
 
             //Constraints de UNIQUE
             modelBuilder.Entity<Usuario>()
