@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListaProveedores));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             panel1 = new System.Windows.Forms.Panel();
             checkEliminados = new System.Windows.Forms.CheckBox();
             btnAgregar = new System.Windows.Forms.Button();
@@ -143,6 +144,14 @@
             dgvProveedores.ColumnHeadersHeight = 30;
             dgvProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvProveedores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1, id, nombre, cuit, razonsocial, telefono, direccion, estado, editar, Eliminar, restaurar });
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            dgvProveedores.DefaultCellStyle = dataGridViewCellStyle2;
             dgvProveedores.Dock = System.Windows.Forms.DockStyle.Fill;
             dgvProveedores.EnableHeadersVisualStyles = false;
             dgvProveedores.Location = new System.Drawing.Point(0, 0);
