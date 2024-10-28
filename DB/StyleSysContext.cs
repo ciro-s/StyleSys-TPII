@@ -23,6 +23,7 @@ namespace DB
             //Se configura el nombre de las tablas
             modelBuilder.Entity<Rol>().ToTable("Rol");
             modelBuilder.Entity<Usuario>().ToTable("Usuario");
+            modelBuilder.Entity<Cliente>().ToTable("Cliente"); ;
 
             //Constraints de UNIQUE
             modelBuilder.Entity<Usuario>()
@@ -36,6 +37,14 @@ namespace DB
             modelBuilder.Entity<Usuario>()
                 .HasAlternateKey(u => u.us_dni)
                 .HasName("UNQ_DNI");
+
+            modelBuilder.Entity<Cliente>()
+                .HasAlternateKey(c => c.cl_email)
+                .HasName("UNQ_EMAILCliente");
+
+            modelBuilder.Entity<Cliente>()
+                .HasAlternateKey(c => c.cl_dni)
+                .HasName("UNQ_DNIcliente");
 
             //Inicia el data seeding (Datos iniciales en la base de datos)
             //Seeding de Roles
@@ -85,6 +94,8 @@ namespace DB
 
         public DbSet<Rol> Roles { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+
+        public  DbSet<Cliente> Clientes { get; set; }
 
         /*
          * Configuración del Connection String para la base de datos 

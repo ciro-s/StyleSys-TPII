@@ -19,18 +19,18 @@ namespace StyleSys.Forms.Clientes
     public partial class ModuloClientes : Form
     {
         private StyleSysContext _context;
-        ListaClientes _listaUsuarios;
-        public ModuloClientes(ListaClientes lu)
+        ListaClientes _listaClientes;
+        public ModuloClientes(ListaClientes lc)
         {
             //InitializeComponent();
             _context = new StyleSysContext(); //Conexión a la base de dato
-            _listaUsuarios = lu;
+            _listaClientes = lc;
         }
 
         /*
          * Recibe los datos del formulario de nuevo usuario y lo intenta registrar en la base de datos
          */
-        private bool createUsuario(Usuario u)
+        private bool createCliente(Usuario u)
         {
             try
             {
@@ -55,8 +55,14 @@ namespace StyleSys.Forms.Clientes
             this.Dispose();
         }
 
-       
+        private void panelClientes_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
 
+        private void InitializeComponent()
+        {
+
+        }
     }
 }
