@@ -31,10 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListaProductos));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             panel1 = new System.Windows.Forms.Panel();
+            checkEliminados = new System.Windows.Forms.CheckBox();
             btnAgregar = new System.Windows.Forms.Button();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             label1 = new System.Windows.Forms.Label();
             dgvProductos = new System.Windows.Forms.DataGridView();
+            panel2 = new System.Windows.Forms.Panel();
             Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,9 +45,10 @@
             stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             stockmin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             editar = new System.Windows.Forms.DataGridViewImageColumn();
             Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
-            panel2 = new System.Windows.Forms.Panel();
+            restaurar = new System.Windows.Forms.DataGridViewImageColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
@@ -55,6 +58,7 @@
             // panel1
             // 
             panel1.BackColor = System.Drawing.Color.DodgerBlue;
+            panel1.Controls.Add(checkEliminados);
             panel1.Controls.Add(btnAgregar);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label1);
@@ -63,6 +67,18 @@
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(982, 100);
             panel1.TabIndex = 0;
+            // 
+            // checkEliminados
+            // 
+            checkEliminados.AutoSize = true;
+            checkEliminados.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            checkEliminados.Location = new System.Drawing.Point(573, 43);
+            checkEliminados.Name = "checkEliminados";
+            checkEliminados.Size = new System.Drawing.Size(186, 25);
+            checkEliminados.TabIndex = 7;
+            checkEliminados.Text = "Mostrar Eliminados";
+            checkEliminados.UseVisualStyleBackColor = true;
+            checkEliminados.CheckedChanged += checkEliminados_CheckedChanged;
             // 
             // btnAgregar
             // 
@@ -80,7 +96,7 @@
             btnAgregar.Text = "Agregar";
             btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             btnAgregar.UseVisualStyleBackColor = false;
-            btnAgregar.Click += bntAdd_Click;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // pictureBox1
             // 
@@ -119,7 +135,7 @@
             dgvProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvProductos.ColumnHeadersHeight = 30;
             dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1, id, nombre, preciocompra, precioventa, stock, stockmin, categoria, editar, Eliminar });
+            dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1, id, nombre, preciocompra, precioventa, stock, stockmin, categoria, estado, editar, Eliminar, restaurar });
             dgvProductos.Dock = System.Windows.Forms.DockStyle.Fill;
             dgvProductos.EnableHeadersVisualStyles = false;
             dgvProductos.Location = new System.Drawing.Point(0, 0);
@@ -127,6 +143,16 @@
             dgvProductos.RowHeadersWidth = 51;
             dgvProductos.Size = new System.Drawing.Size(982, 453);
             dgvProductos.TabIndex = 1;
+            dgvProductos.CellContentClick += dgvProductos_CellContentClick;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(dgvProductos);
+            panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel2.Location = new System.Drawing.Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new System.Drawing.Size(982, 453);
+            panel2.TabIndex = 2;
             // 
             // Column1
             // 
@@ -143,7 +169,7 @@
             id.MinimumWidth = 6;
             id.Name = "id";
             id.Visible = false;
-            id.Width = 125;
+            id.Width = 54;
             // 
             // nombre
             // 
@@ -187,10 +213,19 @@
             categoria.MinimumWidth = 6;
             categoria.Name = "categoria";
             // 
+            // estado
+            // 
+            estado.HeaderText = "Estado";
+            estado.MinimumWidth = 6;
+            estado.Name = "estado";
+            estado.Visible = false;
+            estado.Width = 125;
+            // 
             // editar
             // 
             editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             editar.HeaderText = "";
+            editar.Image = (System.Drawing.Image)resources.GetObject("editar.Image");
             editar.MinimumWidth = 6;
             editar.Name = "editar";
             editar.Width = 6;
@@ -199,18 +234,20 @@
             // 
             Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             Eliminar.HeaderText = "";
+            Eliminar.Image = (System.Drawing.Image)resources.GetObject("Eliminar.Image");
             Eliminar.MinimumWidth = 6;
             Eliminar.Name = "Eliminar";
             Eliminar.Width = 6;
             // 
-            // panel2
+            // restaurar
             // 
-            panel2.Controls.Add(dgvProductos);
-            panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel2.Location = new System.Drawing.Point(0, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new System.Drawing.Size(982, 453);
-            panel2.TabIndex = 2;
+            restaurar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            restaurar.HeaderText = "";
+            restaurar.Image = (System.Drawing.Image)resources.GetObject("restaurar.Image");
+            restaurar.MinimumWidth = 6;
+            restaurar.Name = "restaurar";
+            restaurar.Visible = false;
+            restaurar.Width = 6;
             // 
             // ListaProductos
             // 
@@ -238,6 +275,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.CheckBox checkEliminados;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
@@ -246,7 +284,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn stock;
         private System.Windows.Forms.DataGridViewTextBoxColumn stockmin;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.DataGridViewImageColumn editar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
+        private System.Windows.Forms.DataGridViewImageColumn restaurar;
     }
 }

@@ -244,12 +244,12 @@
             btnActualizar.Text = "Actualizar";
             btnActualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             btnActualizar.UseVisualStyleBackColor = false;
+            btnActualizar.Click += btnActualizar_Click;
             // 
             // cbCategoria
             // 
             cbCategoria.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             cbCategoria.FormattingEnabled = true;
-            cbCategoria.Items.AddRange(new object[] { "Calzados", "Pantalones", "Buzos", "Remeras", "Vestidos" });
             cbCategoria.Location = new System.Drawing.Point(193, 276);
             cbCategoria.Name = "cbCategoria";
             cbCategoria.Size = new System.Drawing.Size(523, 27);
@@ -259,7 +259,6 @@
             // 
             cbProveedor.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             cbProveedor.FormattingEnabled = true;
-            cbProveedor.Items.AddRange(new object[] { "Proveedor de prueba 1", "Proveedor de prueba 1" });
             cbProveedor.Location = new System.Drawing.Point(193, 315);
             cbProveedor.Name = "cbProveedor";
             cbProveedor.Size = new System.Drawing.Size(523, 27);
@@ -304,22 +303,22 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox tbNombre;
-        private System.Windows.Forms.TextBox tbPrecioCompra;
-        private System.Windows.Forms.TextBox tbPrecioVenta;
-        private System.Windows.Forms.TextBox tbStock;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Label lbId;
-        private System.Windows.Forms.Button btnActualizar;
-        private System.Windows.Forms.ComboBox cbCategoria;
-        private System.Windows.Forms.ComboBox cbProveedor;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Label label7;
+        public System.Windows.Forms.TextBox tbNombre;
+        public System.Windows.Forms.TextBox tbPrecioCompra;
+        public System.Windows.Forms.TextBox tbPrecioVenta;
+        public System.Windows.Forms.TextBox tbStock;
+        public System.Windows.Forms.Button btnGuardar;
+        public System.Windows.Forms.Button btnCancelar;
+        public System.Windows.Forms.Label lbId;
+        public System.Windows.Forms.Button btnActualizar;
+        public System.Windows.Forms.ComboBox cbCategoria;
+        public System.Windows.Forms.ComboBox cbProveedor;
     }
 }

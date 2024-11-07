@@ -13,6 +13,7 @@ namespace StyleSys.Forms.Productos
 {
     public partial class ListaProveedores : Form
     {
+        //
         private StyleSysContext _context;
 
         public ListaProveedores()
