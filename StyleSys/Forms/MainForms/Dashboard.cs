@@ -46,7 +46,7 @@ namespace StyleSys.Forms.MainForms
 
             switch (activeUser.id_rol)
             {
-                case 1:
+                case 1: //rol empleado-vendedor
                     panelProductos.Visible = false;
                     panelProveedores.Visible = false;
                     panelUsuarios.Visible = false;
@@ -55,9 +55,9 @@ namespace StyleSys.Forms.MainForms
                     panelCarrito.Visible = true;
                     panelReportes.Visible = false;
                     panelBackup.Visible = false;
-
+                    panelCompras.Visible = true;
                     break;
-                case 2:
+                case 2: //rol gerente
                     panelProductos.Visible = true;
                     panelProveedores.Visible = true;
                     panelUsuarios.Visible = false;
@@ -66,10 +66,10 @@ namespace StyleSys.Forms.MainForms
                     panelCarrito.Visible = false;
                     panelReportes.Visible = true;
                     panelBackup.Visible = false;
-
+                    panelCompras.Visible = true;
                     break;
-                case 3:
-                    panelProductos.Visible = false;
+                case 3: //rol super admin
+                    panelProductos.Visible = true;
                     panelProveedores.Visible = false;
                     panelUsuarios.Visible = true;
                     panelFacturas.Visible = true;
@@ -77,7 +77,7 @@ namespace StyleSys.Forms.MainForms
                     panelCarrito.Visible = false;
                     panelReportes.Visible = true;
                     panelBackup.Visible = true;
-
+                    panelCompras.Visible = false;
                     break;
 
             }
@@ -157,6 +157,11 @@ namespace StyleSys.Forms.MainForms
         private void btnBackup_Click(object sender, EventArgs e)
         {
             abrirFormHijo(new SetupBackup());
+        }
+
+        private void btnCompras_Click(object sender, EventArgs e)
+        {
+            abrirFormHijo(new Compras());
         }
     }
 }

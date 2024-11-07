@@ -74,6 +74,12 @@
             btnBackup = new System.Windows.Forms.Button();
             pictureBox13 = new System.Windows.Forms.PictureBox();
             button6 = new System.Windows.Forms.Button();
+            panelCompras = new System.Windows.Forms.Panel();
+            panel5 = new System.Windows.Forms.Panel();
+            pictureBox14 = new System.Windows.Forms.PictureBox();
+            btnCompras = new System.Windows.Forms.Button();
+            pictureBox15 = new System.Windows.Forms.PictureBox();
+            button5 = new System.Windows.Forms.Button();
             panelMain = new System.Windows.Forms.Panel();
             panelTitulo = new System.Windows.Forms.Panel();
             lbTitulo = new System.Windows.Forms.Label();
@@ -106,6 +112,10 @@
             panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
+            panelCompras.SuspendLayout();
+            panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox15).BeginInit();
             panelMain.SuspendLayout();
             panelTitulo.SuspendLayout();
             SuspendLayout();
@@ -178,6 +188,7 @@
             panelPrincipal.Controls.Add(panelCarrito);
             panelPrincipal.Controls.Add(panelReportes);
             panelPrincipal.Controls.Add(panelBackup);
+            panelPrincipal.Controls.Add(panelCompras);
             panelPrincipal.Dock = System.Windows.Forms.DockStyle.Left;
             panelPrincipal.Location = new System.Drawing.Point(0, 45);
             panelPrincipal.Name = "panelPrincipal";
@@ -697,6 +708,85 @@
             button6.Text = "Facturas";
             button6.UseVisualStyleBackColor = false;
             // 
+            // panelCompras
+            // 
+            panelCompras.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            panelCompras.Controls.Add(panel5);
+            panelCompras.Controls.Add(pictureBox15);
+            panelCompras.Controls.Add(button5);
+            panelCompras.Location = new System.Drawing.Point(3, 387);
+            panelCompras.Name = "panelCompras";
+            panelCompras.Size = new System.Drawing.Size(379, 42);
+            panelCompras.TabIndex = 11;
+            // 
+            // panel5
+            // 
+            panel5.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            panel5.Controls.Add(pictureBox14);
+            panel5.Controls.Add(btnCompras);
+            panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            panel5.Location = new System.Drawing.Point(0, 0);
+            panel5.Name = "panel5";
+            panel5.Size = new System.Drawing.Size(379, 42);
+            panel5.TabIndex = 6;
+            // 
+            // pictureBox14
+            // 
+            pictureBox14.Image = (System.Drawing.Image)resources.GetObject("pictureBox14.Image");
+            pictureBox14.Location = new System.Drawing.Point(3, 3);
+            pictureBox14.Name = "pictureBox14";
+            pictureBox14.Size = new System.Drawing.Size(35, 35);
+            pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox14.TabIndex = 4;
+            pictureBox14.TabStop = false;
+            // 
+            // btnCompras
+            // 
+            btnCompras.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            btnCompras.Dock = System.Windows.Forms.DockStyle.Fill;
+            btnCompras.FlatAppearance.BorderSize = 0;
+            btnCompras.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(64, 64, 64);
+            btnCompras.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(64, 64, 64);
+            btnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnCompras.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            btnCompras.ForeColor = System.Drawing.Color.White;
+            btnCompras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            btnCompras.Location = new System.Drawing.Point(0, 0);
+            btnCompras.Name = "btnCompras";
+            btnCompras.Size = new System.Drawing.Size(379, 42);
+            btnCompras.TabIndex = 2;
+            btnCompras.Text = "Compras";
+            btnCompras.UseVisualStyleBackColor = false;
+            btnCompras.Click += btnCompras_Click;
+            // 
+            // pictureBox15
+            // 
+            pictureBox15.Image = Properties.Resources.prodbtn;
+            pictureBox15.Location = new System.Drawing.Point(3, 3);
+            pictureBox15.Name = "pictureBox15";
+            pictureBox15.Size = new System.Drawing.Size(35, 35);
+            pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pictureBox15.TabIndex = 4;
+            pictureBox15.TabStop = false;
+            // 
+            // button5
+            // 
+            button5.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            button5.Dock = System.Windows.Forms.DockStyle.Fill;
+            button5.FlatAppearance.BorderSize = 0;
+            button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(64, 64, 64);
+            button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(64, 64, 64);
+            button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            button5.ForeColor = System.Drawing.Color.White;
+            button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            button5.Location = new System.Drawing.Point(0, 0);
+            button5.Name = "button5";
+            button5.Size = new System.Drawing.Size(379, 42);
+            button5.TabIndex = 2;
+            button5.Text = "Facturas";
+            button5.UseVisualStyleBackColor = false;
+            // 
             // panelMain
             // 
             panelMain.Controls.Add(panelTitulo);
@@ -769,6 +859,10 @@
             panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
+            panelCompras.ResumeLayout(false);
+            panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox15).EndInit();
             panelMain.ResumeLayout(false);
             panelTitulo.ResumeLayout(false);
             panelTitulo.PerformLayout();
@@ -825,6 +919,12 @@
         private System.Windows.Forms.Button btnBackup;
         private System.Windows.Forms.PictureBox pictureBox13;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Panel panelCompras;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.PictureBox pictureBox14;
+        private System.Windows.Forms.Button btnCompras;
+        private System.Windows.Forms.PictureBox pictureBox15;
+        private System.Windows.Forms.Button button5;
     }
 }
 
