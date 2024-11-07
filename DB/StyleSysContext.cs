@@ -18,6 +18,8 @@ namespace DB
             modelBuilder.Entity<Usuario>().ToTable("Usuario");
             modelBuilder.Entity<Categoria>().ToTable("Categoria");
             modelBuilder.Entity<Proveedor>().ToTable("Proveedor");
+            modelBuilder.Entity<Producto>().ToTable("Producto");
+
 
             //Constraints de UNIQUE
             modelBuilder.Entity<Usuario>()
@@ -159,6 +161,7 @@ namespace DB
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Proveedor> Proveedores { get; set; }
+        public DbSet<Producto> Productos { get; set; }
 
         /*
          * Configuración del Connection String para la base de datos 

@@ -4,6 +4,7 @@ using DB;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DB.Migrations
 {
     [DbContext(typeof(StyleSysContext))]
-    partial class StyleSysContextModelSnapshot : ModelSnapshot
+    [Migration("20241028161654_CreateProductoTable")]
+    partial class CreateProductoTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -82,34 +85,17 @@ namespace DB.Migrations
                     b.Property<int>("id_categoria")
                         .HasColumnType("int");
 
-                    b.Property<int>("id_proveedor")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("pr_estado")
+                    b.Property<bool>("prod_estado")
                         .HasColumnType("bit");
 
-                    b.Property<string>("pr_nombre")
+                    b.Property<string>("prod_nombre")
                         .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<float>("pr_precioCompra")
-                        .HasColumnType("real");
-
-                    b.Property<float>("pr_precioVenta")
-                        .HasColumnType("real");
-
-                    b.Property<int>("pr_stock")
-                        .HasColumnType("int");
-
-                    b.Property<int>("pr_stockMinimo")
-                        .HasColumnType("int");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("id_producto");
 
                     b.HasIndex("id_categoria");
-
-                    b.HasIndex("id_proveedor");
 
                     b.ToTable("Producto", (string)null);
                 });
@@ -348,15 +334,7 @@ namespace DB.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DB.Proveedor", "proveedor")
-                        .WithMany()
-                        .HasForeignKey("id_proveedor")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("categoria");
-
-                    b.Navigation("proveedor");
                 });
 
             modelBuilder.Entity("DB.Usuario", b =>

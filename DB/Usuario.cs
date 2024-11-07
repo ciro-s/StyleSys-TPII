@@ -28,9 +28,9 @@ namespace DB
         [StringLength(20, MinimumLength = 2, ErrorMessage = "El apellido debe tener entre 2 y 20 caracteres.")]
         public string us_apellido { get; set; }
 
-        //[Required(ErrorMessage = "El campo email es requerido.")]
-        //[StringLength(40, ErrorMessage = "El mail debe tener máximo 20 caracteres.")]
-        //[EmailAddress]
+        [Required(ErrorMessage = "El campo email es requerido.")]
+        [StringLength(40, ErrorMessage = "El mail debe tener máximo 20 caracteres.")]
+        [EmailAddress]
         public string us_email { get; set; }
 
         [Required(ErrorMessage = "El campo direccion es requerido.")]
