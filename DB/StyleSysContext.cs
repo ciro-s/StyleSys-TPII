@@ -19,7 +19,8 @@ namespace DB
             modelBuilder.Entity<Categoria>().ToTable("Categoria");
             modelBuilder.Entity<Proveedor>().ToTable("Proveedor");
             modelBuilder.Entity<Producto>().ToTable("Producto");
-
+            modelBuilder.Entity<CompraCabecera>().ToTable("Compra");
+            modelBuilder.Entity<CompraDetalle>().ToTable("CompraDetalle");
 
             //Constraints de UNIQUE
             modelBuilder.Entity<Usuario>()
@@ -37,6 +38,10 @@ namespace DB
             modelBuilder.Entity<Proveedor>()
                 .HasAlternateKey(p => p.prov_cuit)
                 .HasName("UNQ_CUIT");
+
+            modelBuilder.Entity<CompraCabecera>()
+                .HasAlternateKey(c => c.cod_cabecera)
+                .HasName("UNQ_COD");
 
             /**************** Inicia el data seeding (Datos iniciales en la base de datos) **********************/
             //Seeding de Roles
@@ -152,6 +157,34 @@ namespace DB
                     prov_direccion = "Brasil 865"
                 }
             );
+
+            //Seeding productos
+            modelBuilder.Entity<Producto>().HasData(
+                new Producto
+                {
+                    id_producto = 3,
+                    id_categoria = 3,
+                    id_proveedor = 1,
+                    pr_nombre = "Shorts adidas sharp 33",
+                    pr_estado = true,
+                    pr_precioCompra = 9560,
+                    pr_precioVenta = 17110,
+                    pr_stock = 0,
+                    pr_stockMinimo = 2
+                },
+                new Producto
+                {
+                    id_producto = 4,
+                    id_categoria = 2,
+                    id_proveedor = 1,
+                    pr_nombre = "Campera Nike urbana",
+                    pr_estado = true,
+                    pr_precioCompra = 20100,
+                    pr_precioVenta = 37990,
+                    pr_stock = 0,
+                    pr_stockMinimo = 3
+                }
+            );
         }
         /******************************** FIN SEEDING *****************************************/
 
@@ -162,6 +195,8 @@ namespace DB
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Proveedor> Proveedores { get; set; }
         public DbSet<Producto> Productos { get; set; }
+        public DbSet<CompraCabecera> compraCabeceras { get; set; }
+        public DbSet<CompraDetalle> compraDetalles { get; set; }
 
         /*
          * Configuración del Connection String para la base de datos 

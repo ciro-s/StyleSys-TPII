@@ -4,6 +4,7 @@ using DB;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DB.Migrations
 {
     [DbContext(typeof(StyleSysContext))]
-    partial class StyleSysContextModelSnapshot : ModelSnapshot
+    [Migration("20241108165337_CreateComprasTable")]
+    partial class CreateComprasTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -99,35 +102,6 @@ namespace DB.Migrations
                     b.HasIndex("id_usuario");
 
                     b.ToTable("Compra", (string)null);
-                });
-
-            modelBuilder.Entity("DB.CompraDetalle", b =>
-                {
-                    b.Property<int>("id_detalle")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id_detalle"));
-
-                    b.Property<int>("cantidad")
-                        .HasColumnType("int");
-
-                    b.Property<int>("id_cabecera")
-                        .HasColumnType("int");
-
-                    b.Property<int>("id_producto")
-                        .HasColumnType("int");
-
-                    b.Property<float>("precio_compra")
-                        .HasColumnType("real");
-
-                    b.HasKey("id_detalle");
-
-                    b.HasIndex("id_cabecera");
-
-                    b.HasIndex("id_producto");
-
-                    b.ToTable("CompraDetalle", (string)null);
                 });
 
             modelBuilder.Entity("DB.Producto", b =>
@@ -434,25 +408,6 @@ namespace DB.Migrations
                         .IsRequired();
 
                     b.Navigation("usuario");
-                });
-
-            modelBuilder.Entity("DB.CompraDetalle", b =>
-                {
-                    b.HasOne("DB.CompraCabecera", "cabecera")
-                        .WithMany()
-                        .HasForeignKey("id_cabecera")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DB.Producto", "producto")
-                        .WithMany()
-                        .HasForeignKey("id_producto")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("cabecera");
-
-                    b.Navigation("producto");
                 });
 
             modelBuilder.Entity("DB.Producto", b =>
