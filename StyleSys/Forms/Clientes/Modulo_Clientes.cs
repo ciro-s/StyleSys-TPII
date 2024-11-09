@@ -55,14 +55,7 @@ namespace StyleSys.Forms.Clientes
             this.Dispose();
         }
 
-        private void panelClientes_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void InitializeComponent()
-        {
-
-        }
+       
     }
+
 }
