@@ -35,14 +35,12 @@
             panel2 = new System.Windows.Forms.Panel();
             lbTotal = new System.Windows.Forms.Label();
             dgvDetalles = new System.Windows.Forms.DataGridView();
+            panel1 = new System.Windows.Forms.Panel();
             Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            cod_detalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             preciounitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             precioparcial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            panel1 = new System.Windows.Forms.Panel();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDetalles).BeginInit();
             panel1.SuspendLayout();
@@ -108,7 +106,7 @@
             dgvDetalles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvDetalles.ColumnHeadersHeight = 30;
             dgvDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvDetalles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1, cod_detalle, id_producto, producto, cantidad, preciounitario, precioparcial });
+            dgvDetalles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1, producto, cantidad, preciounitario, precioparcial });
             dgvDetalles.Dock = System.Windows.Forms.DockStyle.Top;
             dgvDetalles.EnableHeadersVisualStyles = false;
             dgvDetalles.Location = new System.Drawing.Point(0, 70);
@@ -117,6 +115,17 @@
             dgvDetalles.Size = new System.Drawing.Size(746, 463);
             dgvDetalles.TabIndex = 5;
             // 
+            // panel1
+            // 
+            panel1.BackColor = System.Drawing.Color.DodgerBlue;
+            panel1.Controls.Add(btnClose);
+            panel1.Controls.Add(lbFactura);
+            panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            panel1.Location = new System.Drawing.Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(746, 70);
+            panel1.TabIndex = 4;
+            // 
             // Column1
             // 
             Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -124,23 +133,6 @@
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
             Column1.Width = 62;
-            // 
-            // cod_detalle
-            // 
-            cod_detalle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            cod_detalle.HeaderText = "Código";
-            cod_detalle.MinimumWidth = 6;
-            cod_detalle.Name = "cod_detalle";
-            cod_detalle.Visible = false;
-            cod_detalle.Width = 125;
-            // 
-            // id_producto
-            // 
-            id_producto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            id_producto.HeaderText = "cod prod";
-            id_producto.MinimumWidth = 6;
-            id_producto.Name = "id_producto";
-            id_producto.Visible = false;
             // 
             // producto
             // 
@@ -170,17 +162,6 @@
             precioparcial.MinimumWidth = 6;
             precioparcial.Name = "precioparcial";
             // 
-            // panel1
-            // 
-            panel1.BackColor = System.Drawing.Color.DodgerBlue;
-            panel1.Controls.Add(btnClose);
-            panel1.Controls.Add(lbFactura);
-            panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            panel1.Location = new System.Drawing.Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(746, 70);
-            panel1.TabIndex = 4;
-            // 
             // DetalleCompra
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -208,13 +189,11 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lbTotal;
         private System.Windows.Forms.DataGridView dgvDetalles;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cod_detalle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn preciounitario;
         private System.Windows.Forms.DataGridViewTextBoxColumn precioparcial;
-        private System.Windows.Forms.Panel panel1;
     }
 }

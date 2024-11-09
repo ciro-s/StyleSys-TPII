@@ -29,25 +29,24 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Compras));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             panel1 = new System.Windows.Forms.Panel();
             tbBuscarCompra = new System.Windows.Forms.TextBox();
             btnAgregar = new System.Windows.Forms.Button();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             label1 = new System.Windows.Forms.Label();
             panel2 = new System.Windows.Forms.Panel();
-            dgvFacturas = new System.Windows.Forms.DataGridView();
+            dgvCompras = new System.Windows.Forms.DataGridView();
             Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             cod_factura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             montototal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             cf_fechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             detalles = new System.Windows.Forms.DataGridViewImageColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvFacturas).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvCompras).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -71,6 +70,8 @@
             tbBuscarCompra.PlaceholderText = "Busca una compra...";
             tbBuscarCompra.Size = new System.Drawing.Size(407, 32);
             tbBuscarCompra.TabIndex = 6;
+            tbBuscarCompra.TextChanged += tbBuscarCompra_TextChanged;
+            tbBuscarCompra.KeyPress += numero_KeyPress;
             // 
             // btnAgregar
             // 
@@ -113,37 +114,38 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(dgvFacturas);
+            panel2.Controls.Add(dgvCompras);
             panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             panel2.Location = new System.Drawing.Point(0, 0);
             panel2.Name = "panel2";
             panel2.Size = new System.Drawing.Size(982, 453);
             panel2.TabIndex = 6;
             // 
-            // dgvFacturas
+            // dgvCompras
             // 
-            dgvFacturas.AllowUserToAddRows = false;
-            dgvFacturas.BackgroundColor = System.Drawing.Color.White;
-            dgvFacturas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dgvFacturas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dgvFacturas.ColumnHeadersHeight = 30;
-            dgvFacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvFacturas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1, cod_factura, montototal, usuario, proveedor, cf_fechaRegistro, detalles });
-            dgvFacturas.Dock = System.Windows.Forms.DockStyle.Fill;
-            dgvFacturas.EnableHeadersVisualStyles = false;
-            dgvFacturas.Location = new System.Drawing.Point(0, 0);
-            dgvFacturas.Name = "dgvFacturas";
-            dgvFacturas.RowHeadersWidth = 51;
-            dgvFacturas.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            dgvFacturas.Size = new System.Drawing.Size(982, 453);
-            dgvFacturas.TabIndex = 1;
+            dgvCompras.AllowUserToAddRows = false;
+            dgvCompras.BackgroundColor = System.Drawing.Color.White;
+            dgvCompras.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dgvCompras.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dgvCompras.ColumnHeadersHeight = 30;
+            dgvCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvCompras.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1, cod_factura, montototal, usuario, cf_fechaRegistro, detalles });
+            dgvCompras.Dock = System.Windows.Forms.DockStyle.Fill;
+            dgvCompras.EnableHeadersVisualStyles = false;
+            dgvCompras.Location = new System.Drawing.Point(0, 0);
+            dgvCompras.Name = "dgvCompras";
+            dgvCompras.RowHeadersWidth = 51;
+            dgvCompras.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            dgvCompras.Size = new System.Drawing.Size(982, 453);
+            dgvCompras.TabIndex = 1;
+            dgvCompras.CellContentClick += dgvCompras_CellContentClick;
             // 
             // Column1
             // 
@@ -175,13 +177,6 @@
             usuario.MinimumWidth = 6;
             usuario.Name = "usuario";
             // 
-            // proveedor
-            // 
-            proveedor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            proveedor.HeaderText = "Proveedor";
-            proveedor.MinimumWidth = 6;
-            proveedor.Name = "proveedor";
-            // 
             // cf_fechaRegistro
             // 
             cf_fechaRegistro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -211,7 +206,7 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvFacturas).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvCompras).EndInit();
             ResumeLayout(false);
         }
 
@@ -221,14 +216,13 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dgvFacturas;
+        private System.Windows.Forms.DataGridView dgvCompras;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.TextBox tbBuscarCompra;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn cod_factura;
         private System.Windows.Forms.DataGridViewTextBoxColumn montototal;
         private System.Windows.Forms.DataGridViewTextBoxColumn usuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn proveedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn cf_fechaRegistro;
         private System.Windows.Forms.DataGridViewImageColumn detalles;
     }

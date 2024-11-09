@@ -161,7 +161,7 @@ namespace StyleSys.Forms.MainForms
 
         private void btnCompras_Click(object sender, EventArgs e)
         {
-            abrirFormHijo(new Compras());
+            abrirFormHijo(new Compras(activeUser));
         }
     }
 }

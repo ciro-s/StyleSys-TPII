@@ -64,7 +64,20 @@ namespace StyleSys.Forms.Facturas
                     }
                 }
             }
-            
+        }
+
+        private void tbBuscarProv_TextChanged(object sender, EventArgs e)
+        {
+            var nombre_buscando = tbBuscarProd.Text.ToUpper(); // Convertimos a mayúsculas para una comparación insensible a mayúsculas/minúsculas
+
+            foreach (DataGridViewRow row in dgvProveedores.Rows)
+            {
+                if (row.Cells["nombre"].Value != null) // Asegurarse de que la celda existe y tiene un valor
+                {
+                    string codigoCompra = row.Cells["nombre"].Value.ToString().ToUpper();
+                    row.Visible = codigoCompra.Contains(nombre_buscando);
+                }
+            }
         }
     }
 }

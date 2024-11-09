@@ -137,6 +137,7 @@
             tbBuscarProd.PlaceholderText = "Busca un producto...";
             tbBuscarProd.Size = new System.Drawing.Size(407, 32);
             tbBuscarProd.TabIndex = 5;
+            tbBuscarProd.TextChanged += tbBuscarProd_TextChanged;
             // 
             // btnCancelar
             // 
