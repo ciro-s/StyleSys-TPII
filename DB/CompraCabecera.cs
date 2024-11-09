@@ -29,5 +29,7 @@ namespace DB
         [Required]
         [DataType(DataType.Date)]
         public DateTime fecha_registro { get; set; }
+
+        //public List<CompraDetalle> Detalles { get; set; }
     }
 }

@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListaProductos));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             panel1 = new System.Windows.Forms.Panel();
             checkEliminados = new System.Windows.Forms.CheckBox();
             btnAgregar = new System.Windows.Forms.Button();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             label1 = new System.Windows.Forms.Label();
             dgvProductos = new System.Windows.Forms.DataGridView();
-            panel2 = new System.Windows.Forms.Panel();
             Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +49,7 @@
             editar = new System.Windows.Forms.DataGridViewImageColumn();
             Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             restaurar = new System.Windows.Forms.DataGridViewImageColumn();
+            panel2 = new System.Windows.Forms.Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
@@ -136,6 +137,14 @@
             dgvProductos.ColumnHeadersHeight = 30;
             dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1, id, nombre, preciocompra, precioventa, stock, stockmin, categoria, estado, editar, Eliminar, restaurar });
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            dgvProductos.DefaultCellStyle = dataGridViewCellStyle2;
             dgvProductos.Dock = System.Windows.Forms.DockStyle.Fill;
             dgvProductos.EnableHeadersVisualStyles = false;
             dgvProductos.Location = new System.Drawing.Point(0, 0);
@@ -144,15 +153,6 @@
             dgvProductos.Size = new System.Drawing.Size(982, 453);
             dgvProductos.TabIndex = 1;
             dgvProductos.CellContentClick += dgvProductos_CellContentClick;
-            // 
-            // panel2
-            // 
-            panel2.Controls.Add(dgvProductos);
-            panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel2.Location = new System.Drawing.Point(0, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new System.Drawing.Size(982, 453);
-            panel2.TabIndex = 2;
             // 
             // Column1
             // 
@@ -169,7 +169,7 @@
             id.MinimumWidth = 6;
             id.Name = "id";
             id.Visible = false;
-            id.Width = 54;
+            id.Width = 125;
             // 
             // nombre
             // 
@@ -247,7 +247,16 @@
             restaurar.MinimumWidth = 6;
             restaurar.Name = "restaurar";
             restaurar.Visible = false;
-            restaurar.Width = 6;
+            restaurar.Width = 125;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(dgvProductos);
+            panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel2.Location = new System.Drawing.Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new System.Drawing.Size(982, 453);
+            panel2.TabIndex = 2;
             // 
             // ListaProductos
             // 
