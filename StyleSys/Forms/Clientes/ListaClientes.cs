@@ -40,87 +40,91 @@ namespace StyleSys.Forms.Clientes
                 }
 
                 //Agrega el registro al grid
-                dgvClientes.Rows.Add(i + 1, clientes[i].id_cliente, clientes[i].cl_nombre, clientes[i].cl_apellido, clientes[i].cl_email, clientes[i].cl_telefono, clientes[i].cl_fechaNacimiento, estado);
+                dgvClientes.Rows.Add(i + 1, clientes[i].id_cliente, clientes[i].cl_dni, clientes[i].cl_nombre +" "+ clientes[i].cl_apellido, clientes[i].cl_email, clientes[i].cl_telefono, clientes[i].cl_fechaAlta, estado);
             }
         }
 
         //Maneja los botones de editar y eliminar en el grid de usuarios.
         private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string col = dgvClientes.Columns[e.ColumnIndex].Name;
-            var id = int.Parse(dgvClientes[1, e.RowIndex].Value.ToString());
-            Cliente user = _context.Clientes.Find(id);
-
-            //CLICK EN BOTON EDITAR
-            if (col == "editar")
+            if (e.RowIndex >= 0 && e.ColumnIndex > 0)
             {
-                Modulo_Clientes modulo = new Modulo_Clientes(this);
+                string col = dgvClientes.Columns[e.ColumnIndex].Name;
+                var id = int.Parse(dgvClientes[1, e.RowIndex].Value.ToString());
+                Cliente user = _context.Clientes.Find(id);
 
-                if (user != null)
+                //CLICK EN BOTON EDITAR
+                if (col == "editar")
                 {
-                    //modulo.btnGuardar.Enabled = false; //Deshabilitar el botón de guardar
-                    //Completar los campos con los datos del usuario seleccionado (EXCEPTO LA CONTRASEÑA)
-                    // El DNI, el mail, y el nickname al ser UNIQUE no permiten ser actualizados/editados
-                    //modulo.lbId.Text = user.id_cliente.ToString();
-                   // modulo.tbCnombre.Text = user.cl_nombre;
-                   // modulo.tbCapellido.Text = user.cl_apellido;
-                    //modulo.tbDni.Text = user.cl_dni.ToString();
-                    //modulo.tbDni.Enabled = false; //Deshabilita el ingreso de dni
-                    //modulo.tbMail.Text = user.cl_email;
-                    //modulo.tbMail.Enabled = false; //Deshabilita el ingreso de email
-                    //modulo.tbTelefono.Text = user.cl_telefono;
-                    //modulo.dateTimePicker.Value = user.cl_fechaNacimiento;
-                    modulo.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show("Ocurrió un error recuperando al usuario seleccionado.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else if (col == "Eliminar") //CLICK EN BOTÓN ELIMINAR
-            {
-                //Verificar que existe el usuario y está habilitado
-                if (user != null && user.cl_estado)
-                {
-                    if (MessageBox.Show("¿Está seguro de que quiere eliminar este usuario?\n" + user.cl_nombre + " " + user.cl_apellido, "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    ModuloClientes modulo = new ModuloClientes(this);
+
+                    if (user != null)
                     {
-                        user.cl_estado = false; //deshabilita al usuario
-                        _context.SaveChanges(); //guarda la actualización
+                        modulo.btnGuardar.Enabled = false; //Deshabilitar el botón de guardar
+                                                           //Completar los campos con los datos del usuario seleccionado (EXCEPTO LA CONTRASEÑA)
+                                                           // El DNI, el mail, y el nickname al ser UNIQUE no permiten ser actualizados/editados
+                        modulo.lbId.Text = user.id_cliente.ToString();
+                        modulo.tbNombre.Text = user.cl_nombre;
+                        modulo.tbApellido.Text = user.cl_apellido;
+                        modulo.tbDni.Text = user.cl_dni.ToString();
+                        modulo.tbDni.Enabled = false; //Deshabilita el ingreso de dni
+                        modulo.tbMail.Text = user.cl_email;
+                        modulo.tbMail.Enabled = false; //Deshabilita el ingreso de email
+                        modulo.tbTelefono.Text = user.cl_telefono;
+                        modulo.dateTimePicker.Value = user.cl_fechaNacimiento;
+                        modulo.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocurrió un error recuperando al usuario seleccionado.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                else if (!user.cl_estado)
+                else if (col == "Eliminar") //CLICK EN BOTÓN ELIMINAR
                 {
-                    MessageBox.Show("Este usuario ya está deshabilitado.", "No se pudo eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                bindDGView(_context.Clientes.ToList());
-                checkEliminadosCL.Checked = true;
-            }
-            else if (col == "restaurar")
-            {
-                //Verificar que existe el usuario y está deshabilitado
-                if (user != null && !user.cl_estado)
-                {
-                    if (MessageBox.Show("¿Está seguro de que quiere RESTAURAR este usuario?\n" + user.cl_nombre + " " + user.cl_apellido, "Restaurar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    //Verificar que existe el usuario y está habilitado
+                    if (user != null && user.cl_estado)
                     {
-                        user.cl_estado = true; //habilita al usuario
-                        _context.SaveChanges(); //guarda la actualización
+                        if (MessageBox.Show("¿Está seguro de que quiere eliminar este usuario?\n" + user.cl_nombre + " " + user.cl_apellido, "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            user.cl_estado = false; //deshabilita al usuario
+                            _context.SaveChanges(); //guarda la actualización
+                        }
                     }
+                    else if (!user.cl_estado)
+                    {
+                        MessageBox.Show("Este usuario ya está deshabilitado.", "No se pudo eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    bindDGView(_context.Clientes.ToList());
+                    checkEliminadosCL.Checked = true;
                 }
-                else if (user.cl_estado)
+                else if (col == "restaurar")
                 {
-                    MessageBox.Show("Este usuario ya está habilitado.", "No se pudo restaurar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                    //Verificar que existe el usuario y está deshabilitado
+                    if (user != null && !user.cl_estado)
+                    {
+                        if (MessageBox.Show("¿Está seguro de que quiere RESTAURAR este usuario?\n" + user.cl_nombre + " " + user.cl_apellido, "Restaurar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            user.cl_estado = true; //habilita al usuario
+                            _context.SaveChanges(); //guarda la actualización
+                        }
+                    }
+                    else if (user.cl_estado)
+                    {
+                        MessageBox.Show("Este usuario ya está habilitado.", "No se pudo restaurar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    bindDGView(_context.Clientes.ToList());//Muestra todos los usuarios en el grid
+                    checkEliminadosCL.Checked = true;
                 }
-                bindDGView(_context.Clientes.ToList());//Muestra todos los usuarios en el grid
-                checkEliminadosCL.Checked = true;
             }
+
         }
 
         private void checkEliminados_CheckedChanged(object sender, EventArgs e)
         {
             //Si el checkbox no está seleccionado...
-            if (checkEliminadosCL.Checked)
+            if (!checkEliminadosCL.Checked)
             {
                 //Se muestran solo los usuarios habilitados
                 bindDGView(_context.Clientes.Where(c => c.cl_estado == true).ToList());
@@ -138,7 +142,9 @@ namespace StyleSys.Forms.Clientes
 
         private void btnCAgregar_Click(object sender, EventArgs e)
         {
-            Modulo_Clientes modulo_clientes = new Modulo_Clientes(this);
+            ModuloClientes modulo_clientes = new ModuloClientes(this);
+            modulo_clientes.btnActualizar.Enabled = false;
+            modulo_clientes.btnGuardar.Enabled = true;
             modulo_clientes.ShowDialog();
         }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StyleSys.Forms.Clientes;
 using StyleSys.Forms.Facturas;
 using StyleSys.Forms.MainForms;
 using StyleSys.Forms.Productos;
@@ -21,7 +22,7 @@ namespace StyleSys
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            Application.Run(new ListaClientes());
         }
     }
 }
