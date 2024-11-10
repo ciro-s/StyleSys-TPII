@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnAgregar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnCAgregar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
         qAAAAKgBefSzxgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAD9SURBVEhL7ZUx
@@ -162,7 +162,7 @@
   <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="id_cl.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="cl_nombre.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -195,7 +195,7 @@
   <data name="editar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAADR
-        OQAA0TkBRmuajQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAJpSURBVEhLtZZN
+        NAAA0TQBT1v3HgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAJpSURBVEhLtZZN
         a1NBFIb7OxTRf6D13uIHCuLHogutLlyIqAtXSmJXLlwo4j9wIaIV3IigKIILYzO5NZVWWkstlZbSEJTY
         irVKtUnamqbxkXMnmtyZe3vThQdeyJl55z1zz5wzk7a2dYzeji0oN4FyUyhnCuWU65jSY25COOa6WMPb
         vhnl3kE5VZRDDGpknMekdmwzdUKNtHsM5RRDhOJQlLWmXsBQTtLfkb3YxsBReH8FvN3N4/I1l0xd3/Dc
@@ -215,7 +215,7 @@
   <data name="Eliminar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        qwAAAKsB1E2SqwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEsSURBVEhLtZW9
+        qAAAAKgBefSzxgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEsSURBVEhLtZW9
         LkZBEIYfhZZKq6ISN0CJSqXQKElQU5D4aWloKCUKLoFaz03gBggJlZ+8yUg28823u/bwJG8ymdn3nZyT
         c7JQZhC4BN6AL5PqC5t1ZgX4AHaAVdMu8Aks+8MtHACPvmk9zaoZAbYC3QBPQV89zXxfUlYPk8k77ipl
         9fDvC4aBxT+SsvoyAcw2St4ip8Ej1+rEh0XsB8Za7fmwiPXAWKs1Hxax4ExnwJLV+psl1epplp6Vt8i0

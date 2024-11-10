@@ -32,13 +32,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             panel1 = new System.Windows.Forms.Panel();
-            btnAgregar = new System.Windows.Forms.Button();
+            checkEliminadosCL = new System.Windows.Forms.CheckBox();
+            btnCAgregar = new System.Windows.Forms.Button();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             label1 = new System.Windows.Forms.Label();
             panel2 = new System.Windows.Forms.Panel();
-            dgvUsuarios = new System.Windows.Forms.DataGridView();
+            dgvClientes = new System.Windows.Forms.DataGridView();
             Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            id_cl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             cl_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             cl_apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             cl_email = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,13 +53,14 @@
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = System.Drawing.Color.DodgerBlue;
-            panel1.Controls.Add(btnAgregar);
+            panel1.Controls.Add(checkEliminadosCL);
+            panel1.Controls.Add(btnCAgregar);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label1);
             panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -68,24 +70,34 @@
             panel1.Size = new System.Drawing.Size(800, 75);
             panel1.TabIndex = 7;
             // 
-            // btnAgregar
+            // checkEliminadosCL
             // 
-            btnAgregar.BackColor = System.Drawing.Color.Transparent;
-            btnAgregar.FlatAppearance.BorderSize = 0;
-            btnAgregar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(224, 224, 224);
-            btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnAgregar.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            btnAgregar.Image = (System.Drawing.Image)resources.GetObject("btnAgregar.Image");
-            btnAgregar.Location = new System.Drawing.Point(692, 23);
-            btnAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new System.Drawing.Size(108, 40);
-            btnAgregar.TabIndex = 4;
-            btnAgregar.Text = "Agregar";
-            btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            btnAgregar.UseVisualStyleBackColor = false;
-            btnAgregar.Click += btnAgregar_Click;
+            checkEliminadosCL.AutoSize = true;
+            checkEliminadosCL.Location = new System.Drawing.Point(451, 33);
+            checkEliminadosCL.Name = "checkEliminadosCL";
+            checkEliminadosCL.Size = new System.Drawing.Size(128, 19);
+            checkEliminadosCL.TabIndex = 5;
+            checkEliminadosCL.Text = "Mostrar Eliminados";
+            checkEliminadosCL.UseVisualStyleBackColor = true;
+            // 
+            // btnCAgregar
+            // 
+            btnCAgregar.BackColor = System.Drawing.Color.Transparent;
+            btnCAgregar.FlatAppearance.BorderSize = 0;
+            btnCAgregar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(224, 224, 224);
+            btnCAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            btnCAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnCAgregar.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            btnCAgregar.Image = (System.Drawing.Image)resources.GetObject("btnCAgregar.Image");
+            btnCAgregar.Location = new System.Drawing.Point(692, 23);
+            btnCAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            btnCAgregar.Name = "btnCAgregar";
+            btnCAgregar.Size = new System.Drawing.Size(108, 40);
+            btnCAgregar.TabIndex = 4;
+            btnCAgregar.Text = "Agregar";
+            btnCAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            btnCAgregar.UseVisualStyleBackColor = false;
+            btnCAgregar.Click += btnCAgregar_Click;
             // 
             // pictureBox1
             // 
@@ -111,7 +123,7 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(dgvUsuarios);
+            panel2.Controls.Add(dgvClientes);
             panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             panel2.Location = new System.Drawing.Point(0, 0);
             panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -119,11 +131,11 @@
             panel2.Size = new System.Drawing.Size(800, 450);
             panel2.TabIndex = 8;
             // 
-            // dgvUsuarios
+            // dgvClientes
             // 
-            dgvUsuarios.AllowUserToAddRows = false;
-            dgvUsuarios.BackgroundColor = System.Drawing.Color.White;
-            dgvUsuarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dgvClientes.AllowUserToAddRows = false;
+            dgvClientes.BackgroundColor = System.Drawing.Color.White;
+            dgvClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.DodgerBlue;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
@@ -131,10 +143,10 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkGray;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dgvUsuarios.ColumnHeadersHeight = 30;
-            dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1, id, cl_nombre, cl_apellido, cl_email, cl_fechaNacimiento, cl_telefono, cl_DNI, cl_estado, cl_fechaAlta, editar, Eliminar });
+            dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvClientes.ColumnHeadersHeight = 30;
+            dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1, id_cl, cl_nombre, cl_apellido, cl_email, cl_fechaNacimiento, cl_telefono, cl_DNI, cl_estado, cl_fechaAlta, editar, Eliminar });
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
@@ -142,16 +154,16 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            dgvUsuarios.DefaultCellStyle = dataGridViewCellStyle2;
-            dgvUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
-            dgvUsuarios.EnableHeadersVisualStyles = false;
-            dgvUsuarios.Location = new System.Drawing.Point(0, 0);
-            dgvUsuarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            dgvUsuarios.Name = "dgvUsuarios";
-            dgvUsuarios.RowHeadersWidth = 51;
-            dgvUsuarios.Size = new System.Drawing.Size(800, 450);
-            dgvUsuarios.TabIndex = 1;
-            dgvUsuarios.CellContentClick += dgvClientes_CellContentClick;
+            dgvClientes.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvClientes.Dock = System.Windows.Forms.DockStyle.Fill;
+            dgvClientes.EnableHeadersVisualStyles = false;
+            dgvClientes.Location = new System.Drawing.Point(0, 0);
+            dgvClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            dgvClientes.Name = "dgvClientes";
+            dgvClientes.RowHeadersWidth = 51;
+            dgvClientes.Size = new System.Drawing.Size(800, 450);
+            dgvClientes.TabIndex = 1;
+            dgvClientes.CellContentClick += dgvClientes_CellContentClick;
             // 
             // Column1
             // 
@@ -161,14 +173,13 @@
             Column1.Name = "Column1";
             Column1.Width = 52;
             // 
-            // id
+            // id_cl
             // 
-            id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            id.HeaderText = "Id";
-            id.MinimumWidth = 6;
-            id.Name = "id";
-            id.Visible = false;
-            id.Width = 45;
+            id_cl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            id_cl.HeaderText = "Id";
+            id_cl.MinimumWidth = 6;
+            id_cl.Name = "id_cl";
+            id_cl.Visible = false;
             // 
             // cl_nombre
             // 
@@ -251,20 +262,20 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnCAgregar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dgvUsuarios;
+        private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_cl;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_apellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_email;
@@ -275,5 +286,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_fechaAlta;
         private System.Windows.Forms.DataGridViewImageColumn editar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
+        private System.Windows.Forms.CheckBox checkEliminadosCL;
     }
 }

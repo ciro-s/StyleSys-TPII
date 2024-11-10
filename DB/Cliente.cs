@@ -36,13 +36,13 @@ namespace DB
 
         [Required]
         [DataType(DataType.Date)]
-        public string cl_fechaNacimiento { get; set; }
+        public DateTime cl_fechaNacimiento { get; set; }
 
         [Required]
-        public string cl_fechaAlta { get; set; }
+        public DateTime cl_fechaAlta { get; set; }
 
         [Required]
-        public string cl_estado { get; set; }
+        public bool cl_estado { get; set; }
     }
 
     public class ClienteValidator : AbstractValidator<Cliente>

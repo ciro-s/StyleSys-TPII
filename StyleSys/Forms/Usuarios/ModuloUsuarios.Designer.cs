@@ -63,9 +63,10 @@
             // 
             cbRol.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             cbRol.FormattingEnabled = true;
-            cbRol.Location = new System.Drawing.Point(461, 402);
+            cbRol.Location = new System.Drawing.Point(403, 302);
+            cbRol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             cbRol.Name = "cbRol";
-            cbRol.Size = new System.Drawing.Size(250, 27);
+            cbRol.Size = new System.Drawing.Size(219, 25);
             cbRol.TabIndex = 36;
             // 
             // btnActualizar
@@ -77,9 +78,10 @@
             btnActualizar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             btnActualizar.ForeColor = System.Drawing.Color.White;
             btnActualizar.Image = (System.Drawing.Image)resources.GetObject("btnActualizar.Image");
-            btnActualizar.Location = new System.Drawing.Point(315, 454);
+            btnActualizar.Location = new System.Drawing.Point(276, 340);
+            btnActualizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new System.Drawing.Size(128, 47);
+            btnActualizar.Size = new System.Drawing.Size(112, 35);
             btnActualizar.TabIndex = 37;
             btnActualizar.Text = "Actualizar";
             btnActualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -89,12 +91,13 @@
             // lbId
             // 
             lbId.AutoSize = true;
-            lbId.Location = new System.Drawing.Point(26, 467);
+            lbId.Location = new System.Drawing.Point(23, 350);
             lbId.Name = "lbId";
-            lbId.Size = new System.Drawing.Size(22, 20);
+            lbId.Size = new System.Drawing.Size(17, 15);
             lbId.TabIndex = 33;
             lbId.Text = "Id";
             lbId.Visible = false;
+            lbId.Click += lbId_Click;
             // 
             // btnCancelar
             // 
@@ -105,9 +108,10 @@
             btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             btnCancelar.ForeColor = System.Drawing.Color.White;
             btnCancelar.Image = (System.Drawing.Image)resources.GetObject("btnCancelar.Image");
-            btnCancelar.Location = new System.Drawing.Point(583, 454);
+            btnCancelar.Location = new System.Drawing.Point(510, 340);
+            btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new System.Drawing.Size(128, 47);
+            btnCancelar.Size = new System.Drawing.Size(112, 35);
             btnCancelar.TabIndex = 39;
             btnCancelar.Text = "Cancelar";
             btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -123,9 +127,10 @@
             btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             btnGuardar.ForeColor = System.Drawing.Color.White;
             btnGuardar.Image = (System.Drawing.Image)resources.GetObject("btnGuardar.Image");
-            btnGuardar.Location = new System.Drawing.Point(449, 454);
+            btnGuardar.Location = new System.Drawing.Point(393, 340);
+            btnGuardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new System.Drawing.Size(128, 47);
+            btnGuardar.Size = new System.Drawing.Size(112, 35);
             btnGuardar.TabIndex = 38;
             btnGuardar.Text = "Guardar";
             btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -135,45 +140,49 @@
             // tbClave
             // 
             tbClave.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            tbClave.Location = new System.Drawing.Point(110, 224);
+            tbClave.Location = new System.Drawing.Point(96, 168);
+            tbClave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             tbClave.Name = "tbClave";
             tbClave.PasswordChar = '*';
-            tbClave.Size = new System.Drawing.Size(601, 28);
+            tbClave.Size = new System.Drawing.Size(526, 24);
             tbClave.TabIndex = 31;
             tbClave.UseSystemPasswordChar = true;
             // 
             // tbNick
             // 
             tbNick.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            tbNick.Location = new System.Drawing.Point(110, 178);
+            tbNick.Location = new System.Drawing.Point(96, 134);
+            tbNick.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             tbNick.Name = "tbNick";
-            tbNick.Size = new System.Drawing.Size(601, 28);
+            tbNick.Size = new System.Drawing.Size(526, 24);
             tbNick.TabIndex = 30;
             // 
             // tbApellido
             // 
             tbApellido.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            tbApellido.Location = new System.Drawing.Point(461, 83);
+            tbApellido.Location = new System.Drawing.Point(403, 62);
+            tbApellido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             tbApellido.Name = "tbApellido";
-            tbApellido.Size = new System.Drawing.Size(250, 28);
+            tbApellido.Size = new System.Drawing.Size(219, 24);
             tbApellido.TabIndex = 28;
             // 
             // tbNombre
             // 
             tbNombre.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            tbNombre.Location = new System.Drawing.Point(110, 83);
+            tbNombre.Location = new System.Drawing.Point(96, 62);
+            tbNombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             tbNombre.Name = "tbNombre";
-            tbNombre.Size = new System.Drawing.Size(250, 28);
+            tbNombre.Size = new System.Drawing.Size(219, 24);
             tbNombre.TabIndex = 27;
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            label7.Location = new System.Drawing.Point(414, 406);
-            label7.Margin = new System.Windows.Forms.Padding(20);
+            label7.Location = new System.Drawing.Point(362, 304);
+            label7.Margin = new System.Windows.Forms.Padding(18, 15, 18, 15);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(34, 19);
+            label7.Size = new System.Drawing.Size(29, 17);
             label7.TabIndex = 26;
             label7.Text = "Rol";
             // 
@@ -181,10 +190,10 @@
             // 
             label5.AutoSize = true;
             label5.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            label5.Location = new System.Drawing.Point(2, 227);
-            label5.Margin = new System.Windows.Forms.Padding(20);
+            label5.Location = new System.Drawing.Point(2, 170);
+            label5.Margin = new System.Windows.Forms.Padding(18, 15, 18, 15);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(103, 19);
+            label5.Size = new System.Drawing.Size(85, 17);
             label5.TabIndex = 24;
             label5.Text = "Contraseña";
             // 
@@ -192,10 +201,10 @@
             // 
             label4.AutoSize = true;
             label4.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            label4.Location = new System.Drawing.Point(14, 183);
-            label4.Margin = new System.Windows.Forms.Padding(20);
+            label4.Location = new System.Drawing.Point(12, 137);
+            label4.Margin = new System.Windows.Forms.Padding(18, 15, 18, 15);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(91, 19);
+            label4.Size = new System.Drawing.Size(76, 17);
             label4.TabIndex = 23;
             label4.Text = "Username";
             // 
@@ -203,10 +212,10 @@
             // 
             label3.AutoSize = true;
             label3.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            label3.Location = new System.Drawing.Point(383, 88);
-            label3.Margin = new System.Windows.Forms.Padding(20);
+            label3.Location = new System.Drawing.Point(335, 66);
+            label3.Margin = new System.Windows.Forms.Padding(18, 15, 18, 15);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(78, 19);
+            label3.Size = new System.Drawing.Size(66, 17);
             label3.TabIndex = 22;
             label3.Text = "Apellido";
             // 
@@ -214,10 +223,10 @@
             // 
             label2.AutoSize = true;
             label2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            label2.Location = new System.Drawing.Point(29, 88);
-            label2.Margin = new System.Windows.Forms.Padding(20);
+            label2.Location = new System.Drawing.Point(25, 66);
+            label2.Margin = new System.Windows.Forms.Padding(18, 15, 18, 15);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(76, 19);
+            label2.Size = new System.Drawing.Size(63, 17);
             label2.TabIndex = 21;
             label2.Text = "Nombre";
             // 
@@ -228,8 +237,9 @@
             panel1.Controls.Add(label1);
             panel1.Dock = System.Windows.Forms.DockStyle.Top;
             panel1.Location = new System.Drawing.Point(0, 0);
+            panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(764, 70);
+            panel1.Size = new System.Drawing.Size(668, 52);
             panel1.TabIndex = 20;
             // 
             // btnClose
@@ -237,9 +247,10 @@
             btnClose.FlatAppearance.BorderSize = 0;
             btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnClose.Image = (System.Drawing.Image)resources.GetObject("btnClose.Image");
-            btnClose.Location = new System.Drawing.Point(715, 9);
+            btnClose.Location = new System.Drawing.Point(626, 7);
+            btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             btnClose.Name = "btnClose";
-            btnClose.Size = new System.Drawing.Size(55, 55);
+            btnClose.Size = new System.Drawing.Size(48, 41);
             btnClose.TabIndex = 16;
             btnClose.UseVisualStyleBackColor = true;
             btnClose.Click += btnClose_Click;
@@ -249,37 +260,39 @@
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label1.ForeColor = System.Drawing.Color.White;
-            label1.Location = new System.Drawing.Point(12, 19);
+            label1.Location = new System.Drawing.Point(10, 14);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(126, 34);
+            label1.Size = new System.Drawing.Size(100, 26);
             label1.TabIndex = 1;
             label1.Text = "Usuarios";
             // 
             // tbTelefono
             // 
             tbTelefono.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            tbTelefono.Location = new System.Drawing.Point(110, 357);
+            tbTelefono.Location = new System.Drawing.Point(96, 268);
+            tbTelefono.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             tbTelefono.Name = "tbTelefono";
-            tbTelefono.Size = new System.Drawing.Size(601, 28);
+            tbTelefono.Size = new System.Drawing.Size(526, 24);
             tbTelefono.TabIndex = 34;
             tbTelefono.KeyPress += numero_KeyPress;
             // 
             // tbMail
             // 
             tbMail.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            tbMail.Location = new System.Drawing.Point(110, 314);
+            tbMail.Location = new System.Drawing.Point(96, 236);
+            tbMail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             tbMail.Name = "tbMail";
-            tbMail.Size = new System.Drawing.Size(601, 28);
+            tbMail.Size = new System.Drawing.Size(526, 24);
             tbMail.TabIndex = 33;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            label6.Location = new System.Drawing.Point(26, 360);
-            label6.Margin = new System.Windows.Forms.Padding(20);
+            label6.Location = new System.Drawing.Point(23, 270);
+            label6.Margin = new System.Windows.Forms.Padding(18, 15, 18, 15);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(79, 19);
+            label6.Size = new System.Drawing.Size(66, 17);
             label6.TabIndex = 38;
             label6.Text = "Teléfono";
             // 
@@ -287,10 +300,10 @@
             // 
             label8.AutoSize = true;
             label8.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            label8.Location = new System.Drawing.Point(44, 317);
-            label8.Margin = new System.Windows.Forms.Padding(20);
+            label8.Location = new System.Drawing.Point(38, 238);
+            label8.Margin = new System.Windows.Forms.Padding(18, 15, 18, 15);
             label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(61, 19);
+            label8.Size = new System.Drawing.Size(53, 17);
             label8.TabIndex = 37;
             label8.Text = "e-Mail";
             // 
@@ -298,27 +311,29 @@
             // 
             label9.AutoSize = true;
             label9.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            label9.Location = new System.Drawing.Point(1, 406);
-            label9.Margin = new System.Windows.Forms.Padding(20);
+            label9.Location = new System.Drawing.Point(1, 304);
+            label9.Margin = new System.Windows.Forms.Padding(18, 15, 18, 15);
             label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(104, 19);
+            label9.Size = new System.Drawing.Size(88, 17);
             label9.TabIndex = 41;
             label9.Text = "Nacimiento";
             // 
             // dateTimePicker
             // 
             dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            dateTimePicker.Location = new System.Drawing.Point(110, 402);
+            dateTimePicker.Location = new System.Drawing.Point(96, 302);
+            dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             dateTimePicker.Name = "dateTimePicker";
-            dateTimePicker.Size = new System.Drawing.Size(250, 27);
+            dateTimePicker.Size = new System.Drawing.Size(219, 23);
             dateTimePicker.TabIndex = 35;
             // 
             // tbDni
             // 
             tbDni.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            tbDni.Location = new System.Drawing.Point(110, 130);
+            tbDni.Location = new System.Drawing.Point(96, 98);
+            tbDni.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             tbDni.Name = "tbDni";
-            tbDni.Size = new System.Drawing.Size(601, 28);
+            tbDni.Size = new System.Drawing.Size(526, 24);
             tbDni.TabIndex = 29;
             tbDni.KeyPress += numero_KeyPress;
             // 
@@ -326,37 +341,38 @@
             // 
             label10.AutoSize = true;
             label10.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            label10.Location = new System.Drawing.Point(66, 133);
-            label10.Margin = new System.Windows.Forms.Padding(20);
+            label10.Location = new System.Drawing.Point(58, 100);
+            label10.Margin = new System.Windows.Forms.Padding(18, 15, 18, 15);
             label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(39, 19);
+            label10.Size = new System.Drawing.Size(32, 17);
             label10.TabIndex = 43;
             label10.Text = "DNI";
             // 
             // tbDireccion
             // 
             tbDireccion.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            tbDireccion.Location = new System.Drawing.Point(110, 270);
+            tbDireccion.Location = new System.Drawing.Point(96, 202);
+            tbDireccion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             tbDireccion.Name = "tbDireccion";
-            tbDireccion.Size = new System.Drawing.Size(601, 28);
+            tbDireccion.Size = new System.Drawing.Size(526, 24);
             tbDireccion.TabIndex = 32;
             // 
             // label11
             // 
             label11.AutoSize = true;
             label11.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            label11.Location = new System.Drawing.Point(17, 273);
-            label11.Margin = new System.Windows.Forms.Padding(20);
+            label11.Location = new System.Drawing.Point(15, 205);
+            label11.Margin = new System.Windows.Forms.Padding(18, 15, 18, 15);
             label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(88, 19);
+            label11.Size = new System.Drawing.Size(74, 17);
             label11.TabIndex = 45;
             label11.Text = "Direccion";
             // 
             // ModuloUsuarios
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(764, 525);
+            ClientSize = new System.Drawing.Size(668, 394);
             Controls.Add(tbDireccion);
             Controls.Add(label11);
             Controls.Add(tbDni);
@@ -383,6 +399,7 @@
             Controls.Add(label2);
             Controls.Add(panel1);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             Name = "ModuloUsuarios";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "ModuloUsuarios";

@@ -1,5 +1,6 @@
 ﻿using DB;
 using FluentValidation;
+using StyleSys.Forms.Usuarios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,13 +17,13 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace StyleSys.Forms.Clientes
 {
-    public partial class ModuloClientes : Form
+    public partial class Modulo_Clientes : Form
     {
         private StyleSysContext _context;
         ListaClientes _listaClientes;
-        public ModuloClientes(ListaClientes lc)
+        public Modulo_Clientes(ListaClientes lc)
         {
-            //InitializeComponent();
+            InitializeComponent();
             _context = new StyleSysContext(); //Conexión a la base de dato
             _listaClientes = lc;
         }
@@ -30,7 +31,7 @@ namespace StyleSys.Forms.Clientes
         /*
          * Recibe los datos del formulario de nuevo usuario y lo intenta registrar en la base de datos
          */
-        private bool createCliente(Usuario u)
+        private bool createCliente(Cliente c)
         {
             try
             {
@@ -38,7 +39,7 @@ namespace StyleSys.Forms.Clientes
                 if (_context == null) { _context = new StyleSysContext(); }
 
                 //Lo guarda en la base de datos
-                _context.Usuarios.Add(u);
+                _context.Clientes.Add(c);
                 _context.SaveChanges();
 
                 return true;
@@ -67,13 +68,13 @@ namespace StyleSys.Forms.Clientes
             tbCTelefono = new TextBox();
             tbCEmail = new TextBox();
             panel1 = new Panel();
+            btnClose = new Button();
             label8 = new Label();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            btnGuardarCli = new Button();
+            btnActualizarCli = new Button();
+            btnCancelarCli = new Button();
             dateFechaNac = new DateTimePicker();
             dateFechAlta = new DateTimePicker();
-            btnClose = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -146,6 +147,7 @@ namespace StyleSys.Forms.Clientes
             tbCnombre.Name = "tbCnombre";
             tbCnombre.Size = new Size(177, 23);
             tbCnombre.TabIndex = 7;
+            tbCnombre.TextChanged += tbCnombre_TextChanged;
             // 
             // tbCapellido
             // 
@@ -185,6 +187,18 @@ namespace StyleSys.Forms.Clientes
             panel1.Size = new Size(754, 51);
             panel1.TabIndex = 14;
             // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.DodgerBlue;
+            btnClose.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClose.Location = new Point(700, 7);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(44, 41);
+            btnClose.TabIndex = 20;
+            btnClose.Text = "X";
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click_1;
+            // 
             // label8
             // 
             label8.AutoEllipsis = true;
@@ -194,37 +208,38 @@ namespace StyleSys.Forms.Clientes
             label8.ForeColor = SystemColors.ButtonHighlight;
             label8.Location = new Point(3, 7);
             label8.Name = "label8";
-            label8.Size = new Size(100, 32);
+            label8.Size = new Size(168, 32);
             label8.TabIndex = 1;
-            label8.Text = "Clientes";
+            label8.Text = "Nuevo Cliente";
             // 
-            // button1
+            // btnGuardarCli
             // 
-            button1.Location = new Point(395, 345);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 15;
-            button1.Text = "Guardar";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnGuardarCli.Location = new Point(395, 345);
+            btnGuardarCli.Name = "btnGuardarCli";
+            btnGuardarCli.Size = new Size(75, 23);
+            btnGuardarCli.TabIndex = 15;
+            btnGuardarCli.Text = "Guardar";
+            btnGuardarCli.UseVisualStyleBackColor = true;
+            btnGuardarCli.Click += btnGuardarCli_Click;
             // 
-            // button2
+            // btnActualizarCli
             // 
-            button2.Location = new Point(508, 345);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 16;
-            button2.Text = "Actualizar";
-            button2.UseVisualStyleBackColor = true;
+            btnActualizarCli.Location = new Point(508, 345);
+            btnActualizarCli.Name = "btnActualizarCli";
+            btnActualizarCli.Size = new Size(75, 23);
+            btnActualizarCli.TabIndex = 16;
+            btnActualizarCli.Text = "Actualizar";
+            btnActualizarCli.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnCancelarCli
             // 
-            button3.Location = new Point(612, 345);
-            button3.Name = "button3";
-            button3.Size = new Size(75, 23);
-            button3.TabIndex = 17;
-            button3.Text = "Cancelar";
-            button3.UseVisualStyleBackColor = true;
+            btnCancelarCli.Location = new Point(612, 345);
+            btnCancelarCli.Name = "btnCancelarCli";
+            btnCancelarCli.Size = new Size(75, 23);
+            btnCancelarCli.TabIndex = 17;
+            btnCancelarCli.Text = "Cancelar";
+            btnCancelarCli.UseVisualStyleBackColor = true;
+            btnCancelarCli.Click += btnCancelarCli_Click;
             // 
             // dateFechaNac
             // 
@@ -244,26 +259,14 @@ namespace StyleSys.Forms.Clientes
             dateFechAlta.TabIndex = 19;
             dateFechAlta.Value = new DateTime(2024, 11, 9, 11, 36, 0, 0);
             // 
-            // btnClose
-            // 
-            btnClose.BackColor = Color.DodgerBlue;
-            btnClose.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnClose.Location = new Point(700, 7);
-            btnClose.Name = "btnClose";
-            btnClose.Size = new Size(44, 41);
-            btnClose.TabIndex = 20;
-            btnClose.Text = "X";
-            btnClose.UseVisualStyleBackColor = false;
-            btnClose.Click += btnClose_Click_1;
-            // 
-            // ModuloClientes
+            // Modulo_Clientes
             // 
             ClientSize = new Size(758, 406);
             Controls.Add(dateFechAlta);
             Controls.Add(dateFechaNac);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnCancelarCli);
+            Controls.Add(btnActualizarCli);
+            Controls.Add(btnGuardarCli);
             Controls.Add(panel1);
             Controls.Add(tbCEmail);
             Controls.Add(tbCTelefono);
@@ -277,7 +280,7 @@ namespace StyleSys.Forms.Clientes
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "ModuloClientes";
+            Name = "Modulo_Clientes";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -297,15 +300,86 @@ namespace StyleSys.Forms.Clientes
         private TextBox tbCEmail;
         private Panel panel1;
         private Label label8;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private Button btnGuardarCli;
+        private Button btnActualizarCli;
+        private Button btnCancelarCli;
         private DateTimePicker dateFechaNac;
         private DateTimePicker dateFechAlta;
 
-        private void button1_Click(object sender, EventArgs e)
-        {
 
+        private void btnGuardarCli_Click(object sender, EventArgs e)
+        {
+            if (Validacion())
+            {
+                MessageBox.Show("Se creó el nuevo cliente correctamente.", "Inserción", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                _listaClientes.bindDGView(_context.Clientes.Where(c => c.cl_estado == true).ToList());
+                this.Dispose();
+            }
+        }
+
+        private bool Validacion()
+        {
+            //CHEQUEO DE CAMPOS VACÍOS
+            if (string.IsNullOrEmpty(tbCnombre.Text) || string.IsNullOrEmpty(tbCapellido.Text) ||
+                string.IsNullOrEmpty(tbCDni.Text)
+                || string.IsNullOrEmpty(tbCEmail.Text) || string.IsNullOrEmpty(tbCTelefono.Text))
+            {
+                MessageBox.Show("¡Complete todos los campos!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            else
+            {
+                //BLOQUE TRY CATCH PARA VALIDAR SEGÚN LAS REGLAS DE VALIDACIÓN ESCRITAS EN LA CLASE USUARIOVALIDATOR
+                try
+                {
+                    //Crea un objeto de tipo Usuario
+                    var cliente = new Cliente()
+                    {
+                        cl_nombre = tbCnombre.Text,
+                        cl_apellido = tbCapellido.Text,
+                        cl_dni = int.Parse(tbCDni.Text),
+                        cl_email = tbCEmail.Text,
+
+                        cl_telefono = tbCTelefono.Text,
+
+                        cl_fechaNacimiento = dateFechaNac.Value,
+                        cl_fechaAlta = dateFechAlta.Value,
+
+
+                        cl_estado = true
+                    };
+
+                    //Verifica si el formulario contiene un id, significa que se está EDITANDO un usuario
+                    /*if (int.TryParse(lbId.Text, out int id))
+                    {
+                        //VALIDACIÓN DE DATOS CON LA LIBRERIA FLUENTVALIDATION
+                        var validator = new UsuarioValidator(_context.Clientes.Select(c => c.cl_dni).ToList(), _context.Clientes.Select(c => c.cl_email).ToList(), true);
+                        validator.ValidateAndThrow(cliente); //Lanza una excepción cuando falla
+                        updateUsuario(cliente, id);
+                    }
+                    else
+                    {
+                        //VALIDACIÓN DE DATOS CON LA LIBRERIA FLUENTVALIDATION
+                        var validator = new UsuarioValidator(_context.Usuarios.Select(u => u.us_dni).ToList(), _context.Usuarios.Select(u => u.us_email).ToList(), false);
+                        validator.ValidateAndThrow(cliente); //Lanza una excepción cuando falla
+                        if (!createUsuario(usuario))
+                        {
+                            throw new ValidationException("Error creando usuario."); //Si falla la creación del usuario se lanza una exception
+                        }
+                    }*/
+                    if (!createCliente(cliente))
+                    {
+                        throw new ValidationException("Error creando usuario."); //Si falla la creación del usuario se lanza una exception
+                    }
+
+                    return true;
+                }
+                catch (ValidationException e)
+                {
+                    MessageBox.Show(e.Errors.First().ErrorMessage, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+            }
         }
 
         private Button btnClose;
@@ -313,6 +387,29 @@ namespace StyleSys.Forms.Clientes
         private void btnClose_Click_1(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void tbCnombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelarCli_Click(object sender, EventArgs e)
+        {
+            DialogResult msg = MessageBox.Show("¿Está seguro de borrar el formulario?", "Confirmar.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (msg == DialogResult.Yes)
+            {
+                tbCnombre.Clear();
+                tbCapellido.Clear();
+                
+               
+                tbCEmail.Clear();
+                tbCTelefono.Clear();
+                tbCDni.Clear();
+               
+                dateFechaNac.DataBindings.Clear();
+            }
         }
     }
 

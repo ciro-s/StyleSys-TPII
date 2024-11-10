@@ -127,7 +127,7 @@ namespace StyleSys.Forms.Usuarios
                             throw new ValidationException("Error creando usuario."); //Si falla la creación del usuario se lanza una exception
                         }
                     }
-                    
+
 
                     return true;
                 }
@@ -194,7 +194,7 @@ namespace StyleSys.Forms.Usuarios
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            if(DialogResult.Yes == MessageBox.Show("¿Está seguro que quiere actualizar la información de este usuario?", "Actualización.", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            if (DialogResult.Yes == MessageBox.Show("¿Está seguro que quiere actualizar la información de este usuario?", "Actualización.", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
             {
                 if (Validacion())
                 {
@@ -228,7 +228,7 @@ namespace StyleSys.Forms.Usuarios
                     //_context.Usuarios.Update(usuario);
                     _context.SaveChanges();
                     //_context.Dispose();
-                }                
+                }
                 else
                 {
                     throw new Exception("No se encontró al usuario");
@@ -238,6 +238,11 @@ namespace StyleSys.Forms.Usuarios
             {
                 MessageBox.Show(e.Message);
             }
+        }
+
+        private void lbId_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
