@@ -259,6 +259,56 @@ namespace DB.Migrations
                         });
                 });
 
+            modelBuilder.Entity("DB.Cliente", b =>
+                {
+                    b.Property<int>("id_cliente")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id_cliente"));
+
+                    b.Property<string>("cl_apellido")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("cl_dni")
+                        .HasColumnType("int");
+
+                    b.Property<string>("cl_email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("cl_estado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("cl_fechaAlta")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("cl_fechaNacimiento")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("cl_nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("cl_telefono")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id_cliente");
+
+                    b.HasAlternateKey("cl_dni")
+                        .HasName("UNQ_DNIcliente");
+
+                    b.HasAlternateKey("cl_email")
+                        .HasName("UNQ_EMAILCliente");
+
+                    b.ToTable("Cliente", (string)null);
+                });
+
             modelBuilder.Entity("DB.Rol", b =>
                 {
                     b.Property<int>("id_rol")
@@ -339,8 +389,7 @@ namespace DB.Migrations
 
                     b.Property<string>("us_email")
                         .IsRequired()
-                        .HasMaxLength(40)
-                        .HasColumnType("nvarchar(40)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("us_estado")
                         .HasColumnType("bit");

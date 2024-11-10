@@ -21,6 +21,7 @@ namespace DB
             modelBuilder.Entity<Producto>().ToTable("Producto");
             modelBuilder.Entity<CompraCabecera>().ToTable("Compra");
             modelBuilder.Entity<CompraDetalle>().ToTable("CompraDetalle");
+            modelBuilder.Entity<Cliente>().ToTable("Cliente"); 
 
             //Constraints de UNIQUE
             modelBuilder.Entity<Usuario>()
@@ -42,6 +43,14 @@ namespace DB
             modelBuilder.Entity<CompraCabecera>()
                 .HasAlternateKey(c => c.cod_cabecera)
                 .HasName("UNQ_COD");
+
+            modelBuilder.Entity<Cliente>()
+                .HasAlternateKey(c => c.cl_email)
+                .HasName("UNQ_EMAILCliente");
+
+            modelBuilder.Entity<Cliente>()
+                .HasAlternateKey(c => c.cl_dni)
+                .HasName("UNQ_DNIcliente");
 
             /**************** Inicia el data seeding (Datos iniciales en la base de datos) **********************/
             //Seeding de Roles
@@ -197,6 +206,8 @@ namespace DB
         public DbSet<Producto> Productos { get; set; }
         public DbSet<CompraCabecera> compraCabeceras { get; set; }
         public DbSet<CompraDetalle> compraDetalles { get; set; }
+
+        public  DbSet<Cliente> Clientes { get; set; }
 
         /*
          * Configuración del Connection String para la base de datos 
