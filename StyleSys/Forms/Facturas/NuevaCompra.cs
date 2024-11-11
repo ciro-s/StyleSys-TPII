@@ -73,6 +73,7 @@ namespace StyleSys.Forms.Facturas
             if (!string.IsNullOrEmpty(tbProd.Text) && !string.IsNullOrEmpty(tbProv.Text))
             {
                 var id = int.Parse(idProd.Text);
+                Producto producto = _context.Productos.Find(id);
 
                 //Verifica si el id ya existe en la lista del carrito
                 if (CarritoIDs.Contains(id))
@@ -82,13 +83,14 @@ namespace StyleSys.Forms.Facturas
                         if (id.ToString().Equals(dgvCarrito.Rows[i].Cells[0].Value.ToString())) //Compara lo ids
                         {
                             var cantidadAnterior = (decimal)dgvCarrito.Rows[i].Cells[3].Value;
+
                             dgvCarrito.Rows[i].Cells[3].Value = cantidadAnterior + cant.Value;
+                            dgvCarrito.Rows[i].Cells[4].Value = (decimal)dgvCarrito.Rows[i].Cells[3].Value * (decimal)producto.pr_precioCompra;
                         }
                     }
                 }
                 else //Nuevo producto a agregar
                 {
-                    Producto producto = _context.Productos.Find(id);
                     CarritoIDs.Add(id);
                     dgvCarrito.Rows.Add(producto.id_producto, producto.pr_nombre, producto.pr_precioCompra, cant.Value, (decimal)producto.pr_precioCompra * cant.Value);
                 }
@@ -120,8 +122,7 @@ namespace StyleSys.Forms.Facturas
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnRegistrar_Click(object sender, EventArgs e)
-        {
-            //using var db1 = new StyleSysContext();
+        { 
             var strategy = _context.Database.CreateExecutionStrategy();
 
             strategy.Execute(
@@ -146,15 +147,24 @@ namespace StyleSys.Forms.Facturas
                     //Recorre el carrito y crea los detalles
                     for (int i = 0; i < dgvCarrito.Rows.Count; i++)
                     {
+                        int idProducto = int.Parse(dgvCarrito.Rows[i].Cells[0].Value.ToString());
+                        float preciocompra = float.Parse(dgvCarrito.Rows[i].Cells[2].Value.ToString());
+                        int cantidad = int.Parse(dgvCarrito.Rows[i].Cells[3].Value.ToString());
+
+                        //Registra cada detalle de la compra
                         _context.compraDetalles.Add(
                             new CompraDetalle
                             {
                                 id_cabecera = cabecera.id_cabecera,
-                                id_producto = int.Parse(dgvCarrito.Rows[i].Cells[0].Value.ToString()),
-                                precio_compra = float.Parse(dgvCarrito.Rows[i].Cells[2].Value.ToString()),
-                                cantidad = int.Parse(dgvCarrito.Rows[i].Cells[3].Value.ToString())
+                                id_producto = idProducto,
+                                precio_compra = preciocompra,
+                                cantidad = cantidad
                             }
                         );
+
+                        //Actualiza el stock del producto
+                        var prod = _context.Productos.Find(idProducto);
+                        prod.pr_stock = prod.pr_stock + cantidad;
                     }
                     _context.SaveChanges();
 

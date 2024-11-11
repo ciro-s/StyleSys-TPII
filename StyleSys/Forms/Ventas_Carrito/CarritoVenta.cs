@@ -73,32 +73,59 @@ namespace StyleSys.Forms.Ventas_Carrito
             if (!string.IsNullOrEmpty(tbProd.Text) && !string.IsNullOrEmpty(tbCliente.Text))
             {
                 var id = int.Parse(idProd.Text);
+                Producto producto = _context.Productos.Find(id);
 
-                //Verifica si el id ya existe en la lista del carrito
-                if (CarritoIDs.Contains(id))
+                // Verifica que el producto exista y haya suficiente stock
+                if (producto != null && cant.Value <= producto.pr_stock)
                 {
-                    for (int i = 0; i < dgvCarrito.Rows.Count; i++) //Recorre el datagrid para buscar el producto
+                    // Verifica si el id ya existe en la lista del carrito
+                    if (CarritoIDs.Contains(id))
                     {
-                        if (id.ToString().Equals(dgvCarrito.Rows[i].Cells[0].Value.ToString())) //Compara lo ids
+                        for (int i = 0; i < dgvCarrito.Rows.Count; i++) // Recorre el DataGridView para buscar el producto
                         {
-                            var cantidadAnterior = (decimal)dgvCarrito.Rows[i].Cells[3].Value;
-                            dgvCarrito.Rows[i].Cells[3].Value = cantidadAnterior + cant.Value;
+                            if (id.ToString().Equals(dgvCarrito.Rows[i].Cells[0].Value.ToString())) // Compara los ids
+                            {
+                                var cantidadAnterior = (decimal)dgvCarrito.Rows[i].Cells[3].Value;
+                                var nuevaCantidad = cantidadAnterior + cant.Value;
+
+                                // Verifica que la nueva cantidad no exceda el stock
+                                if (nuevaCantidad <= producto.pr_stock)
+                                {
+                                    dgvCarrito.Rows[i].Cells[3].Value = nuevaCantidad;
+                                    dgvCarrito.Rows[i].Cells[4].Value = (decimal)dgvCarrito.Rows[i].Cells[3].Value * (decimal)producto.pr_precioVenta;
+                                }
+                                else
+                                {
+                                    MessageBox.Show($"La cantidad total de {producto.pr_nombre} excede el stock disponible ({producto.pr_stock}).", "Stock insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                            }
                         }
                     }
+                    else // Nuevo producto a agregar
+                    {
+                        if (cant.Value <= producto.pr_stock)
+                        {
+                            CarritoIDs.Add(id);
+                            dgvCarrito.Rows.Add(producto.id_producto, producto.pr_nombre, producto.pr_precioVenta, cant.Value, (decimal)producto.pr_precioVenta * cant.Value);
+                        }
+                        else
+                        {
+                            MessageBox.Show($"La cantidad solicitada de {producto.pr_nombre} excede el stock disponible ({producto.pr_stock}).", "Stock insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                    CalcularTotal();
                 }
-                else //Nuevo producto a agregar
+                else
                 {
-                    Producto producto = _context.Productos.Find(id);
-                    CarritoIDs.Add(id);
-                    dgvCarrito.Rows.Add(producto.id_producto, producto.pr_nombre, producto.pr_precioVenta, cant.Value, (decimal)producto.pr_precioVenta * cant.Value);
+                    MessageBox.Show($"Stock insuficiente o producto no encontrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                CalcularTotal();
             }
             else
             {
                 MessageBox.Show("Complete todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         /// <summary>
         /// Guarda en la base de datos la cabecera de la compra y el detalle de la misma.
@@ -134,15 +161,23 @@ namespace StyleSys.Forms.Ventas_Carrito
                     //Recorre el carrito y crea los detalles
                     for (int i = 0; i < dgvCarrito.Rows.Count; i++)
                     {
+                        int idProducto = int.Parse(dgvCarrito.Rows[i].Cells[0].Value.ToString());
+                        float precioventa = float.Parse(dgvCarrito.Rows[i].Cells[2].Value.ToString());
+                        int cantidad = int.Parse(dgvCarrito.Rows[i].Cells[3].Value.ToString());
+
                         _context.ventaDetalles.Add(
                             new VentaDetalle
                             {
                                 id_cabecera = cabecera.id_cabecera,
-                                id_producto = int.Parse(dgvCarrito.Rows[i].Cells[0].Value.ToString()),
-                                precio_venta = float.Parse(dgvCarrito.Rows[i].Cells[2].Value.ToString()),
-                                cantidad = int.Parse(dgvCarrito.Rows[i].Cells[3].Value.ToString())
+                                id_producto = idProducto,
+                                precio_venta = precioventa,
+                                cantidad = cantidad
                             }
                         );
+
+                        //Actualiza el stock del producto
+                        var prod = _context.Productos.Find(idProducto);
+                        prod.pr_stock = prod.pr_stock - cantidad;
                     }
                     _context.SaveChanges();
 
