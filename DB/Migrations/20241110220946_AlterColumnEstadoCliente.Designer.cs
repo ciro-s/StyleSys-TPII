@@ -4,6 +4,7 @@ using DB;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DB.Migrations
 {
     [DbContext(typeof(StyleSysContext))]
-    partial class StyleSysContextModelSnapshot : ModelSnapshot
+    [Migration("20241110220946_AlterColumnEstadoCliente")]
+    partial class AlterColumnEstadoCliente
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -175,55 +178,6 @@ namespace DB.Migrations
                     b.HasIndex("id_producto");
 
                     b.ToTable("CompraDetalle", (string)null);
-                });
-
-            modelBuilder.Entity("DB.FormaPago", b =>
-                {
-                    b.Property<int>("id_formaPago")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id_formaPago"));
-
-                    b.Property<string>("fp_descripcion")
-                        .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
-
-                    b.Property<string>("fp_nombre")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.HasKey("id_formaPago");
-
-                    b.ToTable("FormaPago", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            id_formaPago = 1,
-                            fp_descripcion = "Billetes",
-                            fp_nombre = "Efectivo"
-                        },
-                        new
-                        {
-                            id_formaPago = 2,
-                            fp_descripcion = "Mastercard, Visa, Tarjetas de billeteras virtuales",
-                            fp_nombre = "Tarjeta de débito"
-                        },
-                        new
-                        {
-                            id_formaPago = 3,
-                            fp_descripcion = "La acreditación depende del banco",
-                            fp_nombre = "Tarjeta de Crédito"
-                        },
-                        new
-                        {
-                            id_formaPago = 4,
-                            fp_descripcion = "Para billeteras virtuales (MP, MODO)",
-                            fp_nombre = "QR"
-                        });
                 });
 
             modelBuilder.Entity("DB.Producto", b =>
@@ -521,75 +475,6 @@ namespace DB.Migrations
                         });
                 });
 
-            modelBuilder.Entity("DB.VentaCabecera", b =>
-                {
-                    b.Property<int>("id_cabecera")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id_cabecera"));
-
-                    b.Property<long>("cod_cabecera")
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime>("fecha_registro")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("id_cliente")
-                        .HasColumnType("int");
-
-                    b.Property<int>("id_formaPago")
-                        .HasColumnType("int");
-
-                    b.Property<int>("id_usuario")
-                        .HasColumnType("int");
-
-                    b.Property<float>("monto_total")
-                        .HasColumnType("real");
-
-                    b.HasKey("id_cabecera");
-
-                    b.HasAlternateKey("cod_cabecera")
-                        .HasName("UNQ_COD_V");
-
-                    b.HasIndex("id_cliente");
-
-                    b.HasIndex("id_formaPago");
-
-                    b.HasIndex("id_usuario");
-
-                    b.ToTable("Venta", (string)null);
-                });
-
-            modelBuilder.Entity("DB.VentaDetalle", b =>
-                {
-                    b.Property<int>("id_detalle")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id_detalle"));
-
-                    b.Property<int>("cantidad")
-                        .HasColumnType("int");
-
-                    b.Property<int>("id_cabecera")
-                        .HasColumnType("int");
-
-                    b.Property<int>("id_producto")
-                        .HasColumnType("int");
-
-                    b.Property<float>("precio_venta")
-                        .HasColumnType("real");
-
-                    b.HasKey("id_detalle");
-
-                    b.HasIndex("id_cabecera");
-
-                    b.HasIndex("id_producto");
-
-                    b.ToTable("VentaDetalle", (string)null);
-                });
-
             modelBuilder.Entity("DB.CompraCabecera", b =>
                 {
                     b.HasOne("DB.Usuario", "usuario")
@@ -648,52 +533,6 @@ namespace DB.Migrations
                         .IsRequired();
 
                     b.Navigation("Rol");
-                });
-
-            modelBuilder.Entity("DB.VentaCabecera", b =>
-                {
-                    b.HasOne("DB.Cliente", "cliente")
-                        .WithMany()
-                        .HasForeignKey("id_cliente")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DB.FormaPago", "formaPago")
-                        .WithMany()
-                        .HasForeignKey("id_formaPago")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DB.Usuario", "usuario")
-                        .WithMany()
-                        .HasForeignKey("id_usuario")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("cliente");
-
-                    b.Navigation("formaPago");
-
-                    b.Navigation("usuario");
-                });
-
-            modelBuilder.Entity("DB.VentaDetalle", b =>
-                {
-                    b.HasOne("DB.VentaCabecera", "cabecera")
-                        .WithMany()
-                        .HasForeignKey("id_cabecera")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DB.Producto", "producto")
-                        .WithMany()
-                        .HasForeignKey("id_producto")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("cabecera");
-
-                    b.Navigation("producto");
                 });
 
             modelBuilder.Entity("DB.Rol", b =>

@@ -21,6 +21,10 @@ namespace DB
             modelBuilder.Entity<Producto>().ToTable("Producto");
             modelBuilder.Entity<CompraCabecera>().ToTable("Compra");
             modelBuilder.Entity<CompraDetalle>().ToTable("CompraDetalle");
+            modelBuilder.Entity<Cliente>().ToTable("Cliente");
+            modelBuilder.Entity<FormaPago>().ToTable("FormaPago");
+            modelBuilder.Entity<VentaCabecera>().ToTable("Venta");
+            modelBuilder.Entity<VentaDetalle>().ToTable("VentaDetalle");
 
             //Constraints de UNIQUE
             modelBuilder.Entity<Usuario>()
@@ -42,6 +46,18 @@ namespace DB
             modelBuilder.Entity<CompraCabecera>()
                 .HasAlternateKey(c => c.cod_cabecera)
                 .HasName("UNQ_COD");
+            
+            modelBuilder.Entity<VentaCabecera>()
+                .HasAlternateKey(v => v.cod_cabecera)
+                .HasName("UNQ_COD_V");
+
+            modelBuilder.Entity<Cliente>()
+                .HasAlternateKey(c => c.cl_email)
+                .HasName("UNQ_EMAILCliente");
+
+            modelBuilder.Entity<Cliente>()
+                .HasAlternateKey(c => c.cl_dni)
+                .HasName("UNQ_DNIcliente");
 
             /**************** Inicia el data seeding (Datos iniciales en la base de datos) **********************/
             //Seeding de Roles
@@ -185,6 +201,33 @@ namespace DB
                     pr_stockMinimo = 3
                 }
             );
+
+            modelBuilder.Entity<FormaPago>().HasData(
+                new FormaPago
+                {
+                    id_formaPago = 1,
+                    fp_nombre = "Efectivo",
+                    fp_descripcion = "Billetes"
+                },
+                new FormaPago
+                {
+                    id_formaPago = 2,
+                    fp_nombre = "Tarjeta de débito",
+                    fp_descripcion = "Mastercard, Visa, Tarjetas de billeteras virtuales"
+                },
+                new FormaPago
+                {
+                    id_formaPago = 3,
+                    fp_nombre = "Tarjeta de Crédito",
+                    fp_descripcion = "La acreditación depende del banco"
+                },
+                new FormaPago
+                {
+                    id_formaPago = 4,
+                    fp_nombre = "QR",
+                    fp_descripcion = "Para billeteras virtuales (MP, MODO)"
+                }
+            );
         }
         /******************************** FIN SEEDING *****************************************/
 
@@ -197,6 +240,10 @@ namespace DB
         public DbSet<Producto> Productos { get; set; }
         public DbSet<CompraCabecera> compraCabeceras { get; set; }
         public DbSet<CompraDetalle> compraDetalles { get; set; }
+        public DbSet<FormaPago> formaPagos { get; set; }
+        public  DbSet<Cliente> Clientes { get; set; }
+        public DbSet<VentaCabecera> ventaCabeceras { get; set; }
+        public DbSet<VentaDetalle> ventaDetalles { get; set; }
 
         /*
          * Configuración del Connection String para la base de datos 

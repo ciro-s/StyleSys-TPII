@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListaFacturas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             panel1 = new System.Windows.Forms.Panel();
+            tbBuscarVenta = new System.Windows.Forms.TextBox();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             label1 = new System.Windows.Forms.Label();
             panel2 = new System.Windows.Forms.Panel();
@@ -52,6 +53,7 @@
             // panel1
             // 
             panel1.BackColor = System.Drawing.Color.DodgerBlue;
+            panel1.Controls.Add(tbBuscarVenta);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label1);
             panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -59,6 +61,16 @@
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(982, 100);
             panel1.TabIndex = 3;
+            // 
+            // tbBuscarVenta
+            // 
+            tbBuscarVenta.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            tbBuscarVenta.Location = new System.Drawing.Point(342, 37);
+            tbBuscarVenta.Name = "tbBuscarVenta";
+            tbBuscarVenta.PlaceholderText = "Busca una venta...";
+            tbBuscarVenta.Size = new System.Drawing.Size(407, 32);
+            tbBuscarVenta.TabIndex = 7;
+            tbBuscarVenta.TextChanged += tbBuscarVenta_TextChanged;
             // 
             // pictureBox1
             // 
@@ -95,14 +107,14 @@
             dgvFacturas.AllowUserToAddRows = false;
             dgvFacturas.BackgroundColor = System.Drawing.Color.White;
             dgvFacturas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dgvFacturas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dgvFacturas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvFacturas.ColumnHeadersHeight = 30;
             dgvFacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvFacturas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1, cod_factura, cf_montototal, cl_nombre, fp_nombre, us_nombre, cf_fechaRegistro, detalles });
@@ -208,5 +220,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn us_nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn cf_fechaRegistro;
         private System.Windows.Forms.DataGridViewImageColumn detalles;
+        private System.Windows.Forms.TextBox tbBuscarVenta;
     }
 }

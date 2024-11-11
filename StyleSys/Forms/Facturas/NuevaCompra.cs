@@ -103,7 +103,7 @@ namespace StyleSys.Forms.Facturas
         /// <summary>
         /// Calcula el total de la compra recorriendo el carrito y escribe el total en el textbox
         /// </summary>
-        private void CalcularTotal() 
+        private void CalcularTotal()
         {
             decimal total = 0;
             for (int i = 0; i < dgvCarrito.Rows.Count; i++)
@@ -188,6 +188,21 @@ namespace StyleSys.Forms.Facturas
             MessageBox.Show("Se realizó la compra correctamente", "Registro exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             listaCompras.bindDGV(_context.compraCabeceras.ToList());
             this.Close();
+        }
+
+        private void dgvCarrito_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex > 0)
+            {
+                string col = dgvCarrito.Columns[e.ColumnIndex].Name;
+                var id = int.Parse(dgvCarrito[0, e.RowIndex].Value.ToString());
+
+                if (col == "delete")
+                {
+                    dgvCarrito.Rows.RemoveAt(e.RowIndex);
+                    CarritoIDs.Remove(id);
+                }
+            }
         }
     }
 }

@@ -63,18 +63,20 @@
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label1);
             panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            panel1.Location = new System.Drawing.Point(0, 353);
+            panel1.Location = new System.Drawing.Point(0, 265);
+            panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(982, 100);
+            panel1.Size = new System.Drawing.Size(859, 75);
             panel1.TabIndex = 5;
             // 
             // checkEliminados
             // 
             checkEliminados.AutoSize = true;
             checkEliminados.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            checkEliminados.Location = new System.Drawing.Point(635, 42);
+            checkEliminados.Location = new System.Drawing.Point(518, 31);
+            checkEliminados.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             checkEliminados.Name = "checkEliminados";
-            checkEliminados.Size = new System.Drawing.Size(186, 25);
+            checkEliminados.Size = new System.Drawing.Size(155, 23);
             checkEliminados.TabIndex = 5;
             checkEliminados.Text = "Mostrar Eliminados";
             checkEliminados.UseVisualStyleBackColor = true;
@@ -89,9 +91,10 @@
             btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnAgregar.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             btnAgregar.Image = (System.Drawing.Image)resources.GetObject("btnAgregar.Image");
-            btnAgregar.Location = new System.Drawing.Point(832, 28);
+            btnAgregar.Location = new System.Drawing.Point(728, 21);
+            btnAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new System.Drawing.Size(123, 53);
+            btnAgregar.Size = new System.Drawing.Size(108, 40);
             btnAgregar.TabIndex = 4;
             btnAgregar.Text = "Agregar";
             btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -101,9 +104,10 @@
             // pictureBox1
             // 
             pictureBox1.Image = (System.Drawing.Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new System.Drawing.Point(12, 15);
+            pictureBox1.Location = new System.Drawing.Point(10, 11);
+            pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(70, 70);
+            pictureBox1.Size = new System.Drawing.Size(61, 52);
             pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
@@ -113,9 +117,9 @@
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label1.ForeColor = System.Drawing.Color.White;
-            label1.Location = new System.Drawing.Point(88, 35);
+            label1.Location = new System.Drawing.Point(77, 26);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(265, 34);
+            label1.Size = new System.Drawing.Size(209, 26);
             label1.TabIndex = 2;
             label1.Text = "Gestionar Usuarios";
             // 
@@ -124,8 +128,9 @@
             panel2.Controls.Add(dgvUsuarios);
             panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             panel2.Location = new System.Drawing.Point(0, 0);
+            panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new System.Drawing.Size(982, 453);
+            panel2.Size = new System.Drawing.Size(859, 340);
             panel2.TabIndex = 6;
             // 
             // dgvUsuarios
@@ -155,9 +160,10 @@
             dgvUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             dgvUsuarios.EnableHeadersVisualStyles = false;
             dgvUsuarios.Location = new System.Drawing.Point(0, 0);
+            dgvUsuarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             dgvUsuarios.Name = "dgvUsuarios";
             dgvUsuarios.RowHeadersWidth = 51;
-            dgvUsuarios.Size = new System.Drawing.Size(982, 453);
+            dgvUsuarios.Size = new System.Drawing.Size(859, 340);
             dgvUsuarios.TabIndex = 1;
             dgvUsuarios.CellContentClick += dgvUsuarios_CellContentClick;
             // 
@@ -167,7 +173,7 @@
             Column1.HeaderText = "No";
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
-            Column1.Width = 62;
+            Column1.Width = 52;
             // 
             // id
             // 
@@ -176,7 +182,6 @@
             id.MinimumWidth = 6;
             id.Name = "id";
             id.Visible = false;
-            id.Width = 54;
             // 
             // us_nombre
             // 
@@ -248,15 +253,15 @@
             restaurar.MinimumWidth = 6;
             restaurar.Name = "restaurar";
             restaurar.Visible = false;
-            restaurar.Width = 6;
             // 
             // ListaUsuarios
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(982, 453);
+            ClientSize = new System.Drawing.Size(859, 340);
             Controls.Add(panel1);
             Controls.Add(panel2);
+            Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             Name = "ListaUsuarios";
             Text = "Usuarios";
             panel1.ResumeLayout(false);

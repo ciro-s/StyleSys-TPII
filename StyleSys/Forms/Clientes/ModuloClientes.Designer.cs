@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModuloClientes));
-            tbDireccion = new System.Windows.Forms.TextBox();
-            label11 = new System.Windows.Forms.Label();
             tbDni = new System.Windows.Forms.TextBox();
             label10 = new System.Windows.Forms.Label();
             dateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -53,25 +51,6 @@
             panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // tbDireccion
-            // 
-            tbDireccion.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            tbDireccion.Location = new System.Drawing.Point(110, 210);
-            tbDireccion.Name = "tbDireccion";
-            tbDireccion.Size = new System.Drawing.Size(601, 28);
-            tbDireccion.TabIndex = 4;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            label11.Location = new System.Drawing.Point(17, 213);
-            label11.Margin = new System.Windows.Forms.Padding(20);
-            label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(88, 19);
-            label11.TabIndex = 89;
-            label11.Text = "Direccion";
-            // 
             // tbDni
             // 
             tbDni.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
@@ -79,6 +58,7 @@
             tbDni.Name = "tbDni";
             tbDni.Size = new System.Drawing.Size(601, 28);
             tbDni.TabIndex = 3;
+            tbDni.KeyPress += numero_KeyPress;
             // 
             // label10
             // 
@@ -94,7 +74,7 @@
             // dateTimePicker
             // 
             dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            dateTimePicker.Location = new System.Drawing.Point(110, 342);
+            dateTimePicker.Location = new System.Drawing.Point(110, 299);
             dateTimePicker.Name = "dateTimePicker";
             dateTimePicker.Size = new System.Drawing.Size(250, 27);
             dateTimePicker.TabIndex = 7;
@@ -103,7 +83,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            label9.Location = new System.Drawing.Point(1, 346);
+            label9.Location = new System.Drawing.Point(1, 303);
             label9.Margin = new System.Windows.Forms.Padding(20);
             label9.Name = "label9";
             label9.Size = new System.Drawing.Size(104, 19);
@@ -113,15 +93,16 @@
             // tbTelefono
             // 
             tbTelefono.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            tbTelefono.Location = new System.Drawing.Point(110, 297);
+            tbTelefono.Location = new System.Drawing.Point(110, 254);
             tbTelefono.Name = "tbTelefono";
             tbTelefono.Size = new System.Drawing.Size(601, 28);
             tbTelefono.TabIndex = 6;
+            tbTelefono.KeyPress += numero_KeyPress;
             // 
             // tbMail
             // 
             tbMail.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            tbMail.Location = new System.Drawing.Point(110, 254);
+            tbMail.Location = new System.Drawing.Point(110, 211);
             tbMail.Name = "tbMail";
             tbMail.Size = new System.Drawing.Size(601, 28);
             tbMail.TabIndex = 5;
@@ -130,7 +111,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            label6.Location = new System.Drawing.Point(26, 300);
+            label6.Location = new System.Drawing.Point(26, 257);
             label6.Margin = new System.Windows.Forms.Padding(20);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(79, 19);
@@ -141,7 +122,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            label8.Location = new System.Drawing.Point(44, 257);
+            label8.Location = new System.Drawing.Point(44, 214);
             label8.Margin = new System.Windows.Forms.Padding(20);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(61, 19);
@@ -164,6 +145,7 @@
             btnActualizar.Text = "Actualizar";
             btnActualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             btnActualizar.UseVisualStyleBackColor = false;
+            btnActualizar.Click += btnActualizar_Click;
             // 
             // lbId
             // 
@@ -191,6 +173,7 @@
             btnCancelar.Text = "Cancelar";
             btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnGuardar
             // 
@@ -208,6 +191,7 @@
             btnGuardar.Text = "Guardar";
             btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // tbApellido
             // 
@@ -286,8 +270,6 @@
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(764, 453);
-            Controls.Add(tbDireccion);
-            Controls.Add(label11);
             Controls.Add(tbDni);
             Controls.Add(label10);
             Controls.Add(dateTimePicker);
@@ -316,27 +298,24 @@
         }
 
         #endregion
-
-        public System.Windows.Forms.TextBox tbDireccion;
-        private System.Windows.Forms.Label label11;
         public System.Windows.Forms.TextBox tbDni;
-        private System.Windows.Forms.Label label10;
         public System.Windows.Forms.DateTimePicker dateTimePicker;
-        private System.Windows.Forms.Label label9;
         public System.Windows.Forms.TextBox tbTelefono;
         public System.Windows.Forms.TextBox tbMail;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label8;
         public System.Windows.Forms.Button btnActualizar;
         public System.Windows.Forms.Label lbId;
         public System.Windows.Forms.Button btnCancelar;
         public System.Windows.Forms.Button btnGuardar;
         public System.Windows.Forms.TextBox tbApellido;
         public System.Windows.Forms.TextBox tbNombre;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label label10;
+        public System.Windows.Forms.Label label9;
+        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Label label8;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label label2;
     }
 }

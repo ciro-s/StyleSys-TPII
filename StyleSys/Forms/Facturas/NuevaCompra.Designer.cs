@@ -47,6 +47,8 @@
             tbProv = new System.Windows.Forms.TextBox();
             lbProd = new System.Windows.Forms.Label();
             panel3 = new System.Windows.Forms.Panel();
+            tbTotal = new System.Windows.Forms.TextBox();
+            label4 = new System.Windows.Forms.Label();
             btnRegistrar = new System.Windows.Forms.Button();
             button1 = new System.Windows.Forms.Button();
             dgvCarrito = new System.Windows.Forms.DataGridView();
@@ -56,8 +58,6 @@
             cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             delete = new System.Windows.Forms.DataGridViewImageColumn();
-            label4 = new System.Windows.Forms.Label();
-            tbTotal = new System.Windows.Forms.TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)cant).BeginInit();
             panel2.SuspendLayout();
@@ -97,6 +97,7 @@
             idProd.Size = new System.Drawing.Size(142, 27);
             idProd.TabIndex = 23;
             idProd.Text = "id producto";
+            idProd.Visible = false;
             // 
             // idProv
             // 
@@ -108,6 +109,7 @@
             idProv.Size = new System.Drawing.Size(156, 27);
             idProv.TabIndex = 22;
             idProv.Text = "id proveedor";
+            idProv.Visible = false;
             // 
             // cant
             // 
@@ -264,6 +266,26 @@
             panel3.Size = new System.Drawing.Size(931, 78);
             panel3.TabIndex = 1;
             // 
+            // tbTotal
+            // 
+            tbTotal.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            tbTotal.Location = new System.Drawing.Point(222, 23);
+            tbTotal.Name = "tbTotal";
+            tbTotal.ReadOnly = true;
+            tbTotal.Size = new System.Drawing.Size(298, 30);
+            tbTotal.TabIndex = 23;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            label4.ForeColor = System.Drawing.Color.Black;
+            label4.Location = new System.Drawing.Point(141, 23);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(84, 27);
+            label4.TabIndex = 22;
+            label4.Text = "TOTAL:";
+            // 
             // btnRegistrar
             // 
             btnRegistrar.BackColor = System.Drawing.Color.Gainsboro;
@@ -333,6 +355,7 @@
             dgvCarrito.RowHeadersWidth = 51;
             dgvCarrito.Size = new System.Drawing.Size(931, 317);
             dgvCarrito.TabIndex = 3;
+            dgvCarrito.CellContentClick += dgvCarrito_CellContentClick;
             // 
             // id
             // 
@@ -379,26 +402,6 @@
             delete.MinimumWidth = 6;
             delete.Name = "delete";
             delete.Width = 6;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            label4.ForeColor = System.Drawing.Color.Black;
-            label4.Location = new System.Drawing.Point(141, 23);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(84, 27);
-            label4.TabIndex = 22;
-            label4.Text = "TOTAL:";
-            // 
-            // tbTotal
-            // 
-            tbTotal.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            tbTotal.Location = new System.Drawing.Point(222, 23);
-            tbTotal.Name = "tbTotal";
-            tbTotal.ReadOnly = true;
-            tbTotal.Size = new System.Drawing.Size(298, 30);
-            tbTotal.TabIndex = 23;
             // 
             // NuevaCompra
             // 

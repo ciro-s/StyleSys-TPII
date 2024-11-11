@@ -29,9 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuscarProducto));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             panel1 = new System.Windows.Forms.Panel();
             tbBuscarProd = new System.Windows.Forms.TextBox();
             btnCancelar = new System.Windows.Forms.Button();
@@ -45,7 +44,6 @@
             categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             precioventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             select = new System.Windows.Forms.DataGridViewImageColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -74,6 +72,7 @@
             tbBuscarProd.PlaceholderText = "Busca un producto...";
             tbBuscarProd.Size = new System.Drawing.Size(407, 32);
             tbBuscarProd.TabIndex = 5;
+            tbBuscarProd.TextChanged += tbBuscarProd_TextChanged;
             // 
             // btnCancelar
             // 
@@ -128,17 +127,17 @@
             dgvProductos.AllowUserToAddRows = false;
             dgvProductos.BackgroundColor = System.Drawing.Color.White;
             dgvProductos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dgvProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dgvProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvProductos.ColumnHeadersHeight = 30;
             dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1, id, nombre, categoria, stock, precioventa, qty, select });
+            dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1, id, nombre, categoria, stock, precioventa, select });
             dgvProductos.Dock = System.Windows.Forms.DockStyle.Fill;
             dgvProductos.EnableHeadersVisualStyles = false;
             dgvProductos.Location = new System.Drawing.Point(0, 0);
@@ -146,6 +145,7 @@
             dgvProductos.RowHeadersWidth = 51;
             dgvProductos.Size = new System.Drawing.Size(1043, 606);
             dgvProductos.TabIndex = 1;
+            dgvProductos.CellContentClick += dgvProductos_CellContentClick;
             // 
             // Column1
             // 
@@ -187,20 +187,11 @@
             // precioventa
             // 
             precioventa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            precioventa.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            precioventa.DefaultCellStyle = dataGridViewCellStyle4;
             precioventa.HeaderText = "Precio Venta";
             precioventa.MinimumWidth = 6;
             precioventa.Name = "precioventa";
-            // 
-            // qty
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            qty.DefaultCellStyle = dataGridViewCellStyle3;
-            qty.HeaderText = "Cantidad";
-            qty.MinimumWidth = 6;
-            qty.Name = "qty";
-            qty.Width = 125;
             // 
             // select
             // 
@@ -238,14 +229,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgvProductos;
+        private System.Windows.Forms.TextBox tbBuscarProd;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn stock;
         private System.Windows.Forms.DataGridViewTextBoxColumn precioventa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qty;
         private System.Windows.Forms.DataGridViewImageColumn select;
-        private System.Windows.Forms.TextBox tbBuscarProd;
     }
 }

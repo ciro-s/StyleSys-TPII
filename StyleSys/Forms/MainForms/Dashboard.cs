@@ -146,7 +146,7 @@ namespace StyleSys.Forms.MainForms
 
         private void btnVenta_Click(object sender, EventArgs e)
         {
-            abrirFormHijo(new CarritoVenta());
+            abrirFormHijo(new CarritoVenta(activeUser));
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
