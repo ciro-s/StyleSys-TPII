@@ -33,49 +33,62 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             panel1 = new System.Windows.Forms.Panel();
-            btnBuscar = new System.Windows.Forms.Button();
-            btnAgregar = new System.Windows.Forms.Button();
             lbPrecioTotal = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
+            idCliente = new System.Windows.Forms.Label();
+            cbFormaPago = new System.Windows.Forms.ComboBox();
+            label3 = new System.Windows.Forms.Label();
+            btnBuscarCliente = new System.Windows.Forms.Button();
+            tbCliente = new System.Windows.Forms.TextBox();
+            label2 = new System.Windows.Forms.Label();
+            btnRegistrar = new System.Windows.Forms.Button();
             labelTo = new System.Windows.Forms.Label();
             panel3 = new System.Windows.Forms.Panel();
             lbTimer = new System.Windows.Forms.Label();
-            tbProd = new System.Windows.Forms.TextBox();
-            lbProd = new System.Windows.Forms.Label();
             lbCodFactura = new System.Windows.Forms.Label();
-            lbNoFactura = new System.Windows.Forms.Label();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             label1 = new System.Windows.Forms.Label();
+            cant = new System.Windows.Forms.NumericUpDown();
+            label4 = new System.Windows.Forms.Label();
+            btnBuscarProd = new System.Windows.Forms.Button();
+            tbProd = new System.Windows.Forms.TextBox();
+            lbProd = new System.Windows.Forms.Label();
             panel2 = new System.Windows.Forms.Panel();
             dgvCarrito = new System.Windows.Forms.DataGridView();
-            Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             precioventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            colAdd = new System.Windows.Forms.DataGridViewImageColumn();
-            colReduce = new System.Windows.Forms.DataGridViewImageColumn();
             delete = new System.Windows.Forms.DataGridViewImageColumn();
+            panel4 = new System.Windows.Forms.Panel();
+            idProd = new System.Windows.Forms.Label();
+            btnAddToCart = new System.Windows.Forms.Button();
             timer = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)cant).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCarrito).BeginInit();
+            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = System.Drawing.Color.DodgerBlue;
-            panel1.Controls.Add(btnBuscar);
-            panel1.Controls.Add(btnAgregar);
             panel1.Controls.Add(lbPrecioTotal);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(idCliente);
+            panel1.Controls.Add(cbFormaPago);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(btnBuscarCliente);
+            panel1.Controls.Add(tbCliente);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(btnRegistrar);
             panel1.Controls.Add(labelTo);
             panel1.Controls.Add(panel3);
-            panel1.Controls.Add(tbProd);
-            panel1.Controls.Add(lbProd);
             panel1.Controls.Add(lbCodFactura);
-            panel1.Controls.Add(lbNoFactura);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label1);
             panel1.Dock = System.Windows.Forms.DockStyle.Right;
@@ -84,56 +97,122 @@
             panel1.Size = new System.Drawing.Size(301, 611);
             panel1.TabIndex = 3;
             // 
-            // btnBuscar
-            // 
-            btnBuscar.BackColor = System.Drawing.Color.Transparent;
-            btnBuscar.FlatAppearance.BorderSize = 0;
-            btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
-            btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnBuscar.Image = (System.Drawing.Image)resources.GetObject("btnBuscar.Image");
-            btnBuscar.Location = new System.Drawing.Point(228, 125);
-            btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new System.Drawing.Size(61, 48);
-            btnBuscar.TabIndex = 12;
-            btnBuscar.UseVisualStyleBackColor = false;
-            btnBuscar.Click += btnBuscar_Click;
-            // 
-            // btnAgregar
-            // 
-            btnAgregar.BackColor = System.Drawing.Color.Transparent;
-            btnAgregar.FlatAppearance.BorderSize = 0;
-            btnAgregar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
-            btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnAgregar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            btnAgregar.ForeColor = System.Drawing.Color.White;
-            btnAgregar.Image = (System.Drawing.Image)resources.GetObject("btnAgregar.Image");
-            btnAgregar.Location = new System.Drawing.Point(0, 309);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new System.Drawing.Size(346, 53);
-            btnAgregar.TabIndex = 11;
-            btnAgregar.Text = "Registrar Venta";
-            btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            btnAgregar.UseVisualStyleBackColor = false;
-            // 
             // lbPrecioTotal
             // 
             lbPrecioTotal.AutoSize = true;
-            lbPrecioTotal.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            lbPrecioTotal.BackColor = System.Drawing.Color.Transparent;
+            lbPrecioTotal.Font = new System.Drawing.Font("Century Gothic", 19.8000011F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             lbPrecioTotal.ForeColor = System.Drawing.Color.White;
-            lbPrecioTotal.Location = new System.Drawing.Point(6, 268);
+            lbPrecioTotal.Location = new System.Drawing.Point(39, 307);
             lbPrecioTotal.Name = "lbPrecioTotal";
-            lbPrecioTotal.Size = new System.Drawing.Size(90, 27);
+            lbPrecioTotal.Size = new System.Drawing.Size(112, 40);
             lbPrecioTotal.TabIndex = 10;
-            lbPrecioTotal.Text = "$00000";
+            lbPrecioTotal.Text = "00000";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = System.Drawing.Color.Transparent;
+            label5.Font = new System.Drawing.Font("Century Gothic", 19.8000011F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            label5.ForeColor = System.Drawing.Color.White;
+            label5.Location = new System.Drawing.Point(8, 307);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(36, 40);
+            label5.TabIndex = 27;
+            label5.Text = "$";
+            // 
+            // idCliente
+            // 
+            idCliente.AutoSize = true;
+            idCliente.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            idCliente.ForeColor = System.Drawing.Color.Black;
+            idCliente.Location = new System.Drawing.Point(6, 155);
+            idCliente.Name = "idCliente";
+            idCliente.Size = new System.Drawing.Size(117, 27);
+            idCliente.TabIndex = 26;
+            idCliente.Text = "id cliente";
+            idCliente.Visible = false;
+            // 
+            // cbFormaPago
+            // 
+            cbFormaPago.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            cbFormaPago.FormattingEnabled = true;
+            cbFormaPago.Location = new System.Drawing.Point(9, 212);
+            cbFormaPago.Name = "cbFormaPago";
+            cbFormaPago.Size = new System.Drawing.Size(270, 29);
+            cbFormaPago.TabIndex = 17;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            label3.ForeColor = System.Drawing.Color.White;
+            label3.Location = new System.Drawing.Point(6, 182);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(273, 27);
+            label3.TabIndex = 16;
+            label3.Text = "Elegir Metodo de Pago:";
+            // 
+            // btnBuscarCliente
+            // 
+            btnBuscarCliente.BackColor = System.Drawing.Color.Transparent;
+            btnBuscarCliente.FlatAppearance.BorderSize = 0;
+            btnBuscarCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            btnBuscarCliente.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
+            btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnBuscarCliente.Image = (System.Drawing.Image)resources.GetObject("btnBuscarCliente.Image");
+            btnBuscarCliente.Location = new System.Drawing.Point(228, 112);
+            btnBuscarCliente.Name = "btnBuscarCliente";
+            btnBuscarCliente.Size = new System.Drawing.Size(61, 48);
+            btnBuscarCliente.TabIndex = 15;
+            btnBuscarCliente.UseVisualStyleBackColor = false;
+            btnBuscarCliente.Click += btnBuscarCliente_Click;
+            // 
+            // tbCliente
+            // 
+            tbCliente.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            tbCliente.Location = new System.Drawing.Point(6, 122);
+            tbCliente.Name = "tbCliente";
+            tbCliente.ReadOnly = true;
+            tbCliente.Size = new System.Drawing.Size(216, 30);
+            tbCliente.TabIndex = 14;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            label2.ForeColor = System.Drawing.Color.White;
+            label2.Location = new System.Drawing.Point(3, 92);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(179, 27);
+            label2.TabIndex = 13;
+            label2.Text = "Buscar Cliente:";
+            // 
+            // btnRegistrar
+            // 
+            btnRegistrar.BackColor = System.Drawing.Color.Transparent;
+            btnRegistrar.FlatAppearance.BorderSize = 0;
+            btnRegistrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            btnRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
+            btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnRegistrar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            btnRegistrar.ForeColor = System.Drawing.Color.White;
+            btnRegistrar.Image = (System.Drawing.Image)resources.GetObject("btnRegistrar.Image");
+            btnRegistrar.Location = new System.Drawing.Point(0, 369);
+            btnRegistrar.Name = "btnRegistrar";
+            btnRegistrar.Size = new System.Drawing.Size(346, 53);
+            btnRegistrar.TabIndex = 11;
+            btnRegistrar.Text = "Registrar Venta";
+            btnRegistrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            btnRegistrar.UseVisualStyleBackColor = false;
+            btnRegistrar.Click += btnRegistrar_Click;
             // 
             // labelTo
             // 
             labelTo.AutoSize = true;
             labelTo.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             labelTo.ForeColor = System.Drawing.Color.White;
-            labelTo.Location = new System.Drawing.Point(6, 241);
+            labelTo.Location = new System.Drawing.Point(11, 280);
             labelTo.Name = "labelTo";
             labelTo.Size = new System.Drawing.Size(71, 27);
             labelTo.TabIndex = 9;
@@ -160,47 +239,15 @@
             lbTimer.TabIndex = 9;
             lbTimer.Text = "00:00:00";
             // 
-            // tbProd
-            // 
-            tbProd.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            tbProd.Location = new System.Drawing.Point(6, 135);
-            tbProd.Name = "tbProd";
-            tbProd.ReadOnly = true;
-            tbProd.Size = new System.Drawing.Size(216, 30);
-            tbProd.TabIndex = 7;
-            // 
-            // lbProd
-            // 
-            lbProd.AutoSize = true;
-            lbProd.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            lbProd.ForeColor = System.Drawing.Color.White;
-            lbProd.Location = new System.Drawing.Point(3, 105);
-            lbProd.Name = "lbProd";
-            lbProd.Size = new System.Drawing.Size(199, 27);
-            lbProd.TabIndex = 6;
-            lbProd.Text = "Buscar Producto:";
-            // 
             // lbCodFactura
             // 
             lbCodFactura.AutoSize = true;
             lbCodFactura.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             lbCodFactura.ForeColor = System.Drawing.Color.White;
-            lbCodFactura.Location = new System.Drawing.Point(6, 205);
+            lbCodFactura.Location = new System.Drawing.Point(6, 369);
             lbCodFactura.Name = "lbCodFactura";
-            lbCodFactura.Size = new System.Drawing.Size(142, 27);
+            lbCodFactura.Size = new System.Drawing.Size(0, 27);
             lbCodFactura.TabIndex = 5;
-            lbCodFactura.Text = "0000000000";
-            // 
-            // lbNoFactura
-            // 
-            lbNoFactura.AutoSize = true;
-            lbNoFactura.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            lbNoFactura.ForeColor = System.Drawing.Color.White;
-            lbNoFactura.Location = new System.Drawing.Point(6, 178);
-            lbNoFactura.Name = "lbNoFactura";
-            lbNoFactura.Size = new System.Drawing.Size(140, 27);
-            lbNoFactura.TabIndex = 4;
-            lbNoFactura.Text = "No Factura:";
             // 
             // pictureBox1
             // 
@@ -223,9 +270,69 @@
             label1.TabIndex = 2;
             label1.Text = "Registrar venta";
             // 
+            // cant
+            // 
+            cant.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            cant.ForeColor = System.Drawing.Color.Black;
+            cant.Location = new System.Drawing.Point(315, 57);
+            cant.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            cant.Name = "cant";
+            cant.Size = new System.Drawing.Size(74, 28);
+            cant.TabIndex = 23;
+            cant.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            label4.ForeColor = System.Drawing.Color.Black;
+            label4.Location = new System.Drawing.Point(177, 58);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(123, 27);
+            label4.TabIndex = 22;
+            label4.Text = "Cantidad:";
+            // 
+            // btnBuscarProd
+            // 
+            btnBuscarProd.BackColor = System.Drawing.Color.Transparent;
+            btnBuscarProd.FlatAppearance.BorderSize = 0;
+            btnBuscarProd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            btnBuscarProd.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
+            btnBuscarProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnBuscarProd.ForeColor = System.Drawing.Color.Black;
+            btnBuscarProd.Image = (System.Drawing.Image)resources.GetObject("btnBuscarProd.Image");
+            btnBuscarProd.Location = new System.Drawing.Point(399, 5);
+            btnBuscarProd.Name = "btnBuscarProd";
+            btnBuscarProd.Size = new System.Drawing.Size(61, 48);
+            btnBuscarProd.TabIndex = 12;
+            btnBuscarProd.UseVisualStyleBackColor = false;
+            btnBuscarProd.Click += btnBuscar_Click;
+            // 
+            // tbProd
+            // 
+            tbProd.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            tbProd.ForeColor = System.Drawing.Color.Black;
+            tbProd.Location = new System.Drawing.Point(177, 15);
+            tbProd.Name = "tbProd";
+            tbProd.ReadOnly = true;
+            tbProd.Size = new System.Drawing.Size(216, 30);
+            tbProd.TabIndex = 7;
+            // 
+            // lbProd
+            // 
+            lbProd.AutoSize = true;
+            lbProd.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            lbProd.ForeColor = System.Drawing.Color.Black;
+            lbProd.Location = new System.Drawing.Point(12, 19);
+            lbProd.Name = "lbProd";
+            lbProd.Size = new System.Drawing.Size(159, 22);
+            lbProd.TabIndex = 6;
+            lbProd.Text = "Buscar Producto:";
+            // 
             // panel2
             // 
             panel2.Controls.Add(dgvCarrito);
+            panel2.Controls.Add(panel4);
             panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             panel2.Location = new System.Drawing.Point(0, 0);
             panel2.Name = "panel2";
@@ -247,7 +354,7 @@
             dgvCarrito.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvCarrito.ColumnHeadersHeight = 30;
             dgvCarrito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvCarrito.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1, id, nombre, precioventa, cantidad, total, colAdd, colReduce, delete });
+            dgvCarrito.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { id, nombre, precioventa, cantidad, total, delete });
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
@@ -258,19 +365,12 @@
             dgvCarrito.DefaultCellStyle = dataGridViewCellStyle2;
             dgvCarrito.Dock = System.Windows.Forms.DockStyle.Fill;
             dgvCarrito.EnableHeadersVisualStyles = false;
-            dgvCarrito.Location = new System.Drawing.Point(0, 0);
+            dgvCarrito.Location = new System.Drawing.Point(0, 98);
             dgvCarrito.Name = "dgvCarrito";
             dgvCarrito.RowHeadersWidth = 51;
-            dgvCarrito.Size = new System.Drawing.Size(838, 611);
-            dgvCarrito.TabIndex = 1;
-            // 
-            // Column1
-            // 
-            Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            Column1.HeaderText = "No";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
-            Column1.Width = 62;
+            dgvCarrito.Size = new System.Drawing.Size(838, 513);
+            dgvCarrito.TabIndex = 4;
+            dgvCarrito.CellContentClick += dgvCarrito_CellContentClick;
             // 
             // id
             // 
@@ -278,7 +378,8 @@
             id.HeaderText = "Id";
             id.MinimumWidth = 6;
             id.Name = "id";
-            id.Width = 54;
+            id.Visible = false;
+            id.Width = 125;
             // 
             // nombre
             // 
@@ -308,24 +409,6 @@
             total.MinimumWidth = 6;
             total.Name = "total";
             // 
-            // colAdd
-            // 
-            colAdd.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            colAdd.HeaderText = "";
-            colAdd.Image = (System.Drawing.Image)resources.GetObject("colAdd.Image");
-            colAdd.MinimumWidth = 6;
-            colAdd.Name = "colAdd";
-            colAdd.Width = 6;
-            // 
-            // colReduce
-            // 
-            colReduce.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            colReduce.HeaderText = "";
-            colReduce.Image = (System.Drawing.Image)resources.GetObject("colReduce.Image");
-            colReduce.MinimumWidth = 6;
-            colReduce.Name = "colReduce";
-            colReduce.Width = 6;
-            // 
             // delete
             // 
             delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -334,6 +417,53 @@
             delete.MinimumWidth = 6;
             delete.Name = "delete";
             delete.Width = 6;
+            // 
+            // panel4
+            // 
+            panel4.BackColor = System.Drawing.Color.White;
+            panel4.Controls.Add(idProd);
+            panel4.Controls.Add(btnAddToCart);
+            panel4.Controls.Add(cant);
+            panel4.Controls.Add(lbProd);
+            panel4.Controls.Add(label4);
+            panel4.Controls.Add(tbProd);
+            panel4.Controls.Add(btnBuscarProd);
+            panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            panel4.Location = new System.Drawing.Point(0, 0);
+            panel4.Name = "panel4";
+            panel4.Size = new System.Drawing.Size(838, 98);
+            panel4.TabIndex = 0;
+            // 
+            // idProd
+            // 
+            idProd.AutoSize = true;
+            idProd.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            idProd.ForeColor = System.Drawing.Color.Black;
+            idProd.Location = new System.Drawing.Point(12, 47);
+            idProd.Name = "idProd";
+            idProd.Size = new System.Drawing.Size(142, 27);
+            idProd.TabIndex = 25;
+            idProd.Text = "id producto";
+            idProd.Visible = false;
+            // 
+            // btnAddToCart
+            // 
+            btnAddToCart.BackColor = System.Drawing.Color.Gainsboro;
+            btnAddToCart.FlatAppearance.BorderSize = 0;
+            btnAddToCart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            btnAddToCart.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
+            btnAddToCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnAddToCart.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            btnAddToCart.ForeColor = System.Drawing.Color.Black;
+            btnAddToCart.Image = (System.Drawing.Image)resources.GetObject("btnAddToCart.Image");
+            btnAddToCart.Location = new System.Drawing.Point(457, 21);
+            btnAddToCart.Name = "btnAddToCart";
+            btnAddToCart.Size = new System.Drawing.Size(252, 53);
+            btnAddToCart.TabIndex = 24;
+            btnAddToCart.Text = "Agregar Producto";
+            btnAddToCart.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            btnAddToCart.UseVisualStyleBackColor = false;
+            btnAddToCart.Click += btnAddToCart_Click;
             // 
             // timer
             // 
@@ -354,8 +484,11 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)cant).EndInit();
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvCarrito).EndInit();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -365,18 +498,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dgvCarrito;
         private System.Windows.Forms.Label lbCodFactura;
-        private System.Windows.Forms.Label lbNoFactura;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precioventa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn total;
-        private System.Windows.Forms.DataGridViewImageColumn colAdd;
-        private System.Windows.Forms.DataGridViewImageColumn colReduce;
-        private System.Windows.Forms.DataGridViewImageColumn delete;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lbTimer;
         private System.Windows.Forms.TextBox tbProd;
@@ -384,7 +506,26 @@
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label lbPrecioTotal;
         private System.Windows.Forms.Label labelTo;
-        private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnRegistrar;
+        private System.Windows.Forms.Button btnBuscarProd;
+        private System.Windows.Forms.Button btnBuscarCliente;
+        private System.Windows.Forms.TextBox tbCliente;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cbFormaPago;
+        private System.Windows.Forms.Label label3;
+        protected System.Windows.Forms.NumericUpDown cant;
+        protected System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel4;
+        protected System.Windows.Forms.Button btnAddToCart;
+        public System.Windows.Forms.Label idProd;
+        public System.Windows.Forms.Label idCliente;
+        private System.Windows.Forms.DataGridView dgvCarrito;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precioventa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total;
+        private System.Windows.Forms.DataGridViewImageColumn delete;
+        private System.Windows.Forms.Label label5;
     }
 }

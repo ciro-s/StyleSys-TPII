@@ -17,7 +17,7 @@ namespace StyleSys.Forms.Clientes
     {
         private StyleSysContext _context;
         ListaClientes _listaClientes;
-        public ModuloClientes(ListaClientes lu)
+        public ModuloClientes(ListaClientes lu = null)
         {
             InitializeComponent();
             _context = new StyleSysContext(); //Conexión a la base de datos
@@ -57,7 +57,14 @@ namespace StyleSys.Forms.Clientes
             if (Validacion())
             {
                 MessageBox.Show("Se creó el nuevo cliente correctamente.", "Inserción", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                _listaClientes.bindDGView(_context.Clientes.Where(u => u.cl_estado == true).ToList());
+                if (_listaClientes != null)
+                {
+                    _listaClientes.bindDGView(_context.Clientes.Where(u => u.cl_estado == true).ToList());
+                }
+                else
+                {
+                    this.DialogResult = DialogResult.OK;
+                }
                 this.Dispose();
             }
         }

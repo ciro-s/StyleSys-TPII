@@ -4,6 +4,7 @@ using DB;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DB.Migrations
 {
     [DbContext(typeof(StyleSysContext))]
-    partial class StyleSysContextModelSnapshot : ModelSnapshot
+    [Migration("20241110233123_CreateFormaPagoVentasCabeceraYDetallesTables")]
+    partial class CreateFormaPagoVentasCabeceraYDetallesTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -550,7 +553,7 @@ namespace DB.Migrations
                     b.HasKey("id_cabecera");
 
                     b.HasAlternateKey("cod_cabecera")
-                        .HasName("UNQ_COD_V");
+                        .HasName("UNQ_COD");
 
                     b.HasIndex("id_cliente");
 
@@ -679,7 +682,7 @@ namespace DB.Migrations
 
             modelBuilder.Entity("DB.VentaDetalle", b =>
                 {
-                    b.HasOne("DB.VentaCabecera", "cabecera")
+                    b.HasOne("DB.CompraCabecera", "cabecera")
                         .WithMany()
                         .HasForeignKey("id_cabecera")
                         .OnDelete(DeleteBehavior.Cascade)

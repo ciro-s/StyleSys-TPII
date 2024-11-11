@@ -35,7 +35,7 @@ namespace StyleSys.Forms.Facturas
                 string categoria = _context.Categorias.Find(productos[i].id_categoria).cat_nombre;
 
                 //Agrega el registro al grid
-                dgvProductos.Rows.Add(i + 1, productos[i].id_producto, productos[i].pr_nombre, categoria, productos[i].pr_stock, productos[i].pr_precioVenta);
+                dgvProductos.Rows.Add(i + 1, productos[i].id_producto, productos[i].pr_nombre, categoria, productos[i].pr_stock, productos[i].pr_precioCompra);
             }
         }
 
