@@ -75,9 +75,10 @@
             acumulado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             panelForm = new System.Windows.Forms.Panel();
-            dtpHasta = new System.Windows.Forms.DateTimePicker();
+            mostrarRank = new System.Windows.Forms.Button();
+            rankHasta = new System.Windows.Forms.DateTimePicker();
             label3 = new System.Windows.Forms.Label();
-            dtpDesde = new System.Windows.Forms.DateTimePicker();
+            rankDesde = new System.Windows.Forms.DateTimePicker();
             label2 = new System.Windows.Forms.Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -295,7 +296,7 @@
             ventas_fechadesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             ventas_fechadesde.Location = new System.Drawing.Point(190, 14);
             ventas_fechadesde.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            ventas_fechadesde.MaxDate = new System.DateTime(2024, 11, 11, 0, 0, 0, 0);
+            ventas_fechadesde.MaxDate = new System.DateTime(2080, 11, 11, 0, 0, 0, 0);
             ventas_fechadesde.Name = "ventas_fechadesde";
             ventas_fechadesde.Size = new System.Drawing.Size(109, 23);
             ventas_fechadesde.TabIndex = 5;
@@ -556,9 +557,10 @@
             // panelForm
             // 
             panelForm.BackColor = System.Drawing.Color.DodgerBlue;
-            panelForm.Controls.Add(dtpHasta);
+            panelForm.Controls.Add(mostrarRank);
+            panelForm.Controls.Add(rankHasta);
             panelForm.Controls.Add(label3);
-            panelForm.Controls.Add(dtpDesde);
+            panelForm.Controls.Add(rankDesde);
             panelForm.Controls.Add(label2);
             panelForm.Dock = System.Windows.Forms.DockStyle.Top;
             panelForm.Location = new System.Drawing.Point(3, 2);
@@ -567,47 +569,57 @@
             panelForm.Size = new System.Drawing.Size(845, 46);
             panelForm.TabIndex = 0;
             // 
-            // dtpHasta
+            // mostrarRank
             // 
-            dtpHasta.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            dtpHasta.Location = new System.Drawing.Point(595, 12);
-            dtpHasta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            dtpHasta.MaxDate = new System.DateTime(2024, 11, 11, 0, 0, 0, 0);
-            dtpHasta.Name = "dtpHasta";
-            dtpHasta.Size = new System.Drawing.Size(109, 23);
-            dtpHasta.TabIndex = 3;
-            dtpHasta.Value = new System.DateTime(2024, 11, 11, 0, 0, 0, 0);
+            mostrarRank.Location = new System.Drawing.Point(638, 16);
+            mostrarRank.Name = "mostrarRank";
+            mostrarRank.Size = new System.Drawing.Size(75, 23);
+            mostrarRank.TabIndex = 4;
+            mostrarRank.Text = "Rankin";
+            mostrarRank.UseVisualStyleBackColor = true;
+            mostrarRank.Click += mostrarRank_Click;
+            // 
+            // rankHasta
+            // 
+            rankHasta.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            rankHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            rankHasta.Location = new System.Drawing.Point(471, 14);
+            rankHasta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            rankHasta.MaxDate = new System.DateTime(2080, 11, 11, 0, 0, 0, 0);
+            rankHasta.Name = "rankHasta";
+            rankHasta.Size = new System.Drawing.Size(109, 23);
+            rankHasta.TabIndex = 3;
+            rankHasta.Value = new System.DateTime(2024, 11, 12, 23, 59, 0, 0);
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label3.ForeColor = System.Drawing.Color.White;
-            label3.Location = new System.Drawing.Point(480, 14);
+            label3.Location = new System.Drawing.Point(356, 16);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(96, 18);
             label3.TabIndex = 2;
             label3.Text = "Datos hasta:";
             // 
-            // dtpDesde
+            // rankDesde
             // 
-            dtpDesde.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            dtpDesde.Location = new System.Drawing.Point(236, 12);
-            dtpDesde.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            dtpDesde.MaxDate = new System.DateTime(2024, 11, 11, 0, 0, 0, 0);
-            dtpDesde.Name = "dtpDesde";
-            dtpDesde.Size = new System.Drawing.Size(109, 23);
-            dtpDesde.TabIndex = 1;
-            dtpDesde.Value = new System.DateTime(2024, 9, 27, 0, 0, 0, 0);
+            rankDesde.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            rankDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            rankDesde.Location = new System.Drawing.Point(185, 12);
+            rankDesde.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            rankDesde.MaxDate = new System.DateTime(2080, 11, 11, 0, 0, 0, 0);
+            rankDesde.Name = "rankDesde";
+            rankDesde.Size = new System.Drawing.Size(109, 23);
+            rankDesde.TabIndex = 1;
+            rankDesde.Value = new System.DateTime(2024, 9, 27, 0, 0, 0, 0);
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label2.ForeColor = System.Drawing.Color.White;
-            label2.Location = new System.Drawing.Point(121, 14);
+            label2.Location = new System.Drawing.Point(70, 14);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(103, 18);
             label2.TabIndex = 0;
@@ -652,9 +664,9 @@
         private System.Windows.Forms.TabPage ventas;
         private System.Windows.Forms.Panel panelForm;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dtpHasta;
+        private System.Windows.Forms.DateTimePicker rankHasta;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dtpDesde;
+        private System.Windows.Forms.DateTimePicker rankDesde;
         private System.Windows.Forms.DataGridView dgvRanking;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre_producto;
@@ -692,5 +704,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn us_nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaVenta;
         private System.Windows.Forms.DataGridViewImageColumn detalles;
+        private System.Windows.Forms.Button mostrarRank;
     }
 }
