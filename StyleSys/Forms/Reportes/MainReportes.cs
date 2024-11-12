@@ -143,6 +143,7 @@ namespace StyleSys.Forms.Reportes
                     TotalRecaudado = g.Sum(v => v.cantidad * v.precio_venta),
                     StockActual = g.Key.pr_stock    // Ahora accedemos a pr_stock en la agrupación
                 })
+                .OrderByDescending(v => v.CantidadTotal)  // Orden descendente por cantidad total comprada
                 .ToList();
 
             dgvRanking.Rows.Clear(); // Limpiar DataGridView antes de agregar nuevas filas
