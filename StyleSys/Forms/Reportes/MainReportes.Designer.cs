@@ -38,6 +38,14 @@
             tabReportes = new System.Windows.Forms.TabControl();
             ventas = new System.Windows.Forms.TabPage();
             dgvVentasDiarias = new System.Windows.Forms.DataGridView();
+            dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            cod_factura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            cf_montototal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            cl_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            fp_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            us_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            fechaVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            detalles = new System.Windows.Forms.DataGridViewImageColumn();
             panel2 = new System.Windows.Forms.Panel();
             VentaBusca = new System.Windows.Forms.Button();
             ventas_fechahasta = new System.Windows.Forms.DateTimePicker();
@@ -71,14 +79,6 @@
             label3 = new System.Windows.Forms.Label();
             dtpDesde = new System.Windows.Forms.DateTimePicker();
             label2 = new System.Windows.Forms.Label();
-            dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            cod_factura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            cf_montototal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            cl_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            fp_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            us_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            fechaVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            detalles = new System.Windows.Forms.DataGridViewImageColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabReportes.SuspendLayout();
@@ -181,6 +181,64 @@
             dgvVentasDiarias.Size = new System.Drawing.Size(845, 183);
             dgvVentasDiarias.TabIndex = 2;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewTextBoxColumn1.HeaderText = "No";
+            dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.Width = 46;
+            // 
+            // cod_factura
+            // 
+            cod_factura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            cod_factura.HeaderText = "Código";
+            cod_factura.MinimumWidth = 6;
+            cod_factura.Name = "cod_factura";
+            cod_factura.Width = 69;
+            // 
+            // cf_montototal
+            // 
+            cf_montototal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            cf_montototal.HeaderText = "Monto Total";
+            cf_montototal.MinimumWidth = 6;
+            cf_montototal.Name = "cf_montototal";
+            // 
+            // cl_nombre
+            // 
+            cl_nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            cl_nombre.HeaderText = "Cliente";
+            cl_nombre.MinimumWidth = 6;
+            cl_nombre.Name = "cl_nombre";
+            // 
+            // fp_nombre
+            // 
+            fp_nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            fp_nombre.HeaderText = "Forma de pago";
+            fp_nombre.MinimumWidth = 6;
+            fp_nombre.Name = "fp_nombre";
+            // 
+            // us_nombre
+            // 
+            us_nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            us_nombre.HeaderText = "Vendedor";
+            us_nombre.MinimumWidth = 6;
+            us_nombre.Name = "us_nombre";
+            // 
+            // fechaVenta
+            // 
+            fechaVenta.HeaderText = "Fecha";
+            fechaVenta.Name = "fechaVenta";
+            // 
+            // detalles
+            // 
+            detalles.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            detalles.HeaderText = "";
+            detalles.Image = (System.Drawing.Image)resources.GetObject("detalles.Image");
+            detalles.MinimumWidth = 6;
+            detalles.Name = "detalles";
+            detalles.Width = 6;
+            // 
             // panel2
             // 
             panel2.BackColor = System.Drawing.Color.DodgerBlue;
@@ -218,7 +276,7 @@
             ventas_fechahasta.Name = "ventas_fechahasta";
             ventas_fechahasta.Size = new System.Drawing.Size(109, 23);
             ventas_fechahasta.TabIndex = 7;
-            ventas_fechahasta.Value = new System.DateTime(2024, 11, 11, 17, 58, 12, 0);
+            ventas_fechahasta.Value = new System.DateTime(2024, 11, 11, 23, 59, 0, 0);
             // 
             // label5
             // 
@@ -554,64 +612,6 @@
             label2.Size = new System.Drawing.Size(103, 18);
             label2.TabIndex = 0;
             label2.Text = "Datos desde:";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewTextBoxColumn1.HeaderText = "No";
-            dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.Width = 46;
-            // 
-            // cod_factura
-            // 
-            cod_factura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            cod_factura.HeaderText = "Código";
-            cod_factura.MinimumWidth = 6;
-            cod_factura.Name = "cod_factura";
-            cod_factura.Width = 69;
-            // 
-            // cf_montototal
-            // 
-            cf_montototal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            cf_montototal.HeaderText = "Monto Total";
-            cf_montototal.MinimumWidth = 6;
-            cf_montototal.Name = "cf_montototal";
-            // 
-            // cl_nombre
-            // 
-            cl_nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            cl_nombre.HeaderText = "Cliente";
-            cl_nombre.MinimumWidth = 6;
-            cl_nombre.Name = "cl_nombre";
-            // 
-            // fp_nombre
-            // 
-            fp_nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            fp_nombre.HeaderText = "Forma de pago";
-            fp_nombre.MinimumWidth = 6;
-            fp_nombre.Name = "fp_nombre";
-            // 
-            // us_nombre
-            // 
-            us_nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            us_nombre.HeaderText = "Vendedor";
-            us_nombre.MinimumWidth = 6;
-            us_nombre.Name = "us_nombre";
-            // 
-            // fechaVenta
-            // 
-            fechaVenta.HeaderText = "Fecha";
-            fechaVenta.Name = "fechaVenta";
-            // 
-            // detalles
-            // 
-            detalles.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            detalles.HeaderText = "";
-            detalles.Image = (System.Drawing.Image)resources.GetObject("detalles.Image");
-            detalles.MinimumWidth = 6;
-            detalles.Name = "detalles";
-            detalles.Width = 6;
             // 
             // MainReportes
             // 

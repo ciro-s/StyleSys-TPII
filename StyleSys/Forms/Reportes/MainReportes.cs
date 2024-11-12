@@ -68,7 +68,7 @@ namespace StyleSys.Forms.Reportes
 
             DateTime fechaDesde = ventas_fechadesde.Value;  // control para fecha desde
             DateTime fechaHasta = ventas_fechahasta.Value;  // control para fecha hasta
-            //DateTime fechaHasta1 = new DateTime(2024,11,12);
+            //DateTime fechaHasta = new DateTime(2024,11,12);
             // Realiza la consulta uniendo las tablas VentaCabeceras y VentaDetalles
             var query = from cab in _context.ventaCabeceras
                         join det in _context.ventaDetalles
