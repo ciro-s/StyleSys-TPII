@@ -39,13 +39,16 @@
             ventas = new System.Windows.Forms.TabPage();
             dgvVentasDiarias = new System.Windows.Forms.DataGridView();
             dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            cod_factura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            cf_montototal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            cl_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            fp_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            us_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            detalles = new System.Windows.Forms.DataGridViewImageColumn();
+            dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            vendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             panel2 = new System.Windows.Forms.Panel();
+            VentaBusca = new System.Windows.Forms.Button();
             ventas_fechahasta = new System.Windows.Forms.DateTimePicker();
             label5 = new System.Windows.Forms.Label();
             ventas_fechadesde = new System.Windows.Forms.DateTimePicker();
@@ -60,6 +63,7 @@
             precio_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             total_parcial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             panel3 = new System.Windows.Forms.Panel();
+            compras_fechahasta = new System.Windows.Forms.DateTimePicker();
             compras_fechadesde = new System.Windows.Forms.DateTimePicker();
             btnComprasFiltrar = new System.Windows.Forms.Button();
             label4 = new System.Windows.Forms.Label();
@@ -72,11 +76,11 @@
             acumulado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             panelForm = new System.Windows.Forms.Panel();
-            dtpHasta = new System.Windows.Forms.DateTimePicker();
+            mostrarRank = new System.Windows.Forms.Button();
+            rankHasta = new System.Windows.Forms.DateTimePicker();
             label3 = new System.Windows.Forms.Label();
-            dtpDesde = new System.Windows.Forms.DateTimePicker();
+            rankDesde = new System.Windows.Forms.DateTimePicker();
             label2 = new System.Windows.Forms.Label();
-            compras_fechahasta = new System.Windows.Forms.DateTimePicker();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabReportes.SuspendLayout();
@@ -105,9 +109,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = (System.Drawing.Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new System.Drawing.Point(12, 15);
+            pictureBox1.Location = new System.Drawing.Point(11, 15);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(70, 70);
+            pictureBox1.Size = new System.Drawing.Size(70, 69);
             pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
@@ -152,6 +156,7 @@
             // dgvVentasDiarias
             // 
             dgvVentasDiarias.AllowUserToAddRows = false;
+            dgvVentasDiarias.AllowUserToDeleteRows = false;
             dgvVentasDiarias.BackgroundColor = System.Drawing.Color.White;
             dgvVentasDiarias.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -164,73 +169,85 @@
             dgvVentasDiarias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgvVentasDiarias.ColumnHeadersHeight = 30;
             dgvVentasDiarias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvVentasDiarias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { dataGridViewTextBoxColumn1, cod_factura, cf_montototal, cl_nombre, fp_nombre, us_nombre, detalles });
+            dgvVentasDiarias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, vendedor, cliente });
             dgvVentasDiarias.Dock = System.Windows.Forms.DockStyle.Fill;
             dgvVentasDiarias.EnableHeadersVisualStyles = false;
-            dgvVentasDiarias.Location = new System.Drawing.Point(3, 65);
+            dgvVentasDiarias.Location = new System.Drawing.Point(3, 64);
             dgvVentasDiarias.Name = "dgvVentasDiarias";
             dgvVentasDiarias.RowHeadersWidth = 51;
-            dgvVentasDiarias.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            dgvVentasDiarias.Size = new System.Drawing.Size(968, 247);
-            dgvVentasDiarias.TabIndex = 2;
-            dgvVentasDiarias.Visible = false;
+            dgvVentasDiarias.Size = new System.Drawing.Size(968, 248);
+            dgvVentasDiarias.TabIndex = 4;
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewTextBoxColumn1.HeaderText = "No";
+            dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewTextBoxColumn1.HeaderText = "Código";
             dataGridViewTextBoxColumn1.MinimumWidth = 6;
             dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.Width = 56;
             // 
-            // cod_factura
+            // dataGridViewTextBoxColumn2
             // 
-            cod_factura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            cod_factura.HeaderText = "Código";
-            cod_factura.MinimumWidth = 6;
-            cod_factura.Name = "cod_factura";
-            cod_factura.Width = 85;
+            dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewTextBoxColumn2.HeaderText = "Fecha";
+            dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.Width = 74;
             // 
-            // cf_montototal
+            // dataGridViewTextBoxColumn3
             // 
-            cf_montototal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            cf_montototal.HeaderText = "Monto Total";
-            cf_montototal.MinimumWidth = 6;
-            cf_montototal.Name = "cf_montototal";
+            dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewTextBoxColumn3.HeaderText = "Forma Pago";
+            dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
-            // cl_nombre
+            // dataGridViewTextBoxColumn4
             // 
-            cl_nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            cl_nombre.HeaderText = "Cliente";
-            cl_nombre.MinimumWidth = 6;
-            cl_nombre.Name = "cl_nombre";
+            dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewTextBoxColumn4.HeaderText = "Producto";
+            dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
-            // fp_nombre
+            // dataGridViewTextBoxColumn5
             // 
-            fp_nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            fp_nombre.HeaderText = "Forma de pago";
-            fp_nombre.MinimumWidth = 6;
-            fp_nombre.Name = "fp_nombre";
+            dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewTextBoxColumn5.HeaderText = "Cantidad";
+            dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            dataGridViewTextBoxColumn5.Width = 96;
             // 
-            // us_nombre
+            // dataGridViewTextBoxColumn6
             // 
-            us_nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            us_nombre.HeaderText = "Vendedor";
-            us_nombre.MinimumWidth = 6;
-            us_nombre.Name = "us_nombre";
+            dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewTextBoxColumn6.HeaderText = "Precio";
+            dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            dataGridViewTextBoxColumn6.Width = 77;
             // 
-            // detalles
+            // dataGridViewTextBoxColumn7
             // 
-            detalles.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            detalles.HeaderText = "";
-            detalles.Image = (System.Drawing.Image)resources.GetObject("detalles.Image");
-            detalles.MinimumWidth = 6;
-            detalles.Name = "detalles";
-            detalles.Width = 6;
+            dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewTextBoxColumn7.HeaderText = "Total";
+            dataGridViewTextBoxColumn7.MinimumWidth = 6;
+            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // vendedor
+            // 
+            vendedor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            vendedor.HeaderText = "Vendedor";
+            vendedor.MinimumWidth = 6;
+            vendedor.Name = "vendedor";
+            // 
+            // cliente
+            // 
+            cliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            cliente.HeaderText = "Cliente";
+            cliente.MinimumWidth = 6;
+            cliente.Name = "cliente";
             // 
             // panel2
             // 
             panel2.BackColor = System.Drawing.Color.DodgerBlue;
+            panel2.Controls.Add(VentaBusca);
             panel2.Controls.Add(ventas_fechahasta);
             panel2.Controls.Add(label5);
             panel2.Controls.Add(ventas_fechadesde);
@@ -238,26 +255,45 @@
             panel2.Dock = System.Windows.Forms.DockStyle.Top;
             panel2.Location = new System.Drawing.Point(3, 3);
             panel2.Name = "panel2";
-            panel2.Size = new System.Drawing.Size(968, 62);
+            panel2.Size = new System.Drawing.Size(968, 61);
             panel2.TabIndex = 1;
+            // 
+            // VentaBusca
+            // 
+            VentaBusca.BackColor = System.Drawing.Color.Gainsboro;
+            VentaBusca.FlatAppearance.BorderSize = 0;
+            VentaBusca.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            VentaBusca.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
+            VentaBusca.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            VentaBusca.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            VentaBusca.ForeColor = System.Drawing.Color.Black;
+            VentaBusca.Location = new System.Drawing.Point(738, 12);
+            VentaBusca.Name = "VentaBusca";
+            VentaBusca.Size = new System.Drawing.Size(133, 39);
+            VentaBusca.TabIndex = 21;
+            VentaBusca.Text = "Buscar";
+            VentaBusca.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            VentaBusca.UseVisualStyleBackColor = false;
+            VentaBusca.Click += VentaBusca_Click;
             // 
             // ventas_fechahasta
             // 
             ventas_fechahasta.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             ventas_fechahasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            ventas_fechahasta.Location = new System.Drawing.Point(693, 18);
-            ventas_fechahasta.MaxDate = new System.DateTime(2024, 9, 27, 0, 0, 0, 0);
+            ventas_fechahasta.Location = new System.Drawing.Point(577, 18);
+            ventas_fechahasta.MaxDate = new System.DateTime(2070, 11, 11, 0, 0, 0, 0);
+            ventas_fechahasta.MinDate = new System.DateTime(2024, 1, 1, 0, 0, 0, 0);
             ventas_fechahasta.Name = "ventas_fechahasta";
             ventas_fechahasta.Size = new System.Drawing.Size(124, 27);
             ventas_fechahasta.TabIndex = 7;
-            ventas_fechahasta.Value = new System.DateTime(2024, 9, 27, 0, 0, 0, 0);
+            ventas_fechahasta.Value = new System.DateTime(2024, 11, 11, 23, 59, 0, 0);
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label5.ForeColor = System.Drawing.Color.White;
-            label5.Location = new System.Drawing.Point(561, 20);
+            label5.Location = new System.Drawing.Point(445, 20);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(118, 22);
             label5.TabIndex = 6;
@@ -267,19 +303,20 @@
             // 
             ventas_fechadesde.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             ventas_fechadesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            ventas_fechadesde.Location = new System.Drawing.Point(283, 18);
-            ventas_fechadesde.MaxDate = new System.DateTime(2024, 9, 27, 0, 0, 0, 0);
+            ventas_fechadesde.Location = new System.Drawing.Point(210, 18);
+            ventas_fechadesde.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            ventas_fechadesde.MaxDate = new System.DateTime(2080, 11, 11, 0, 0, 0, 0);
             ventas_fechadesde.Name = "ventas_fechadesde";
             ventas_fechadesde.Size = new System.Drawing.Size(124, 27);
             ventas_fechadesde.TabIndex = 5;
-            ventas_fechadesde.Value = new System.DateTime(2024, 9, 27, 0, 0, 0, 0);
+            ventas_fechadesde.Value = new System.DateTime(2024, 11, 1, 0, 0, 0, 0);
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label7.ForeColor = System.Drawing.Color.White;
-            label7.Location = new System.Drawing.Point(151, 20);
+            label7.Location = new System.Drawing.Point(85, 20);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(126, 22);
             label7.TabIndex = 4;
@@ -316,10 +353,10 @@
             dgvCompras.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { codigo, fecha, total, nombreproducto, cantidad_compra, precio_compra, total_parcial });
             dgvCompras.Dock = System.Windows.Forms.DockStyle.Fill;
             dgvCompras.EnableHeadersVisualStyles = false;
-            dgvCompras.Location = new System.Drawing.Point(3, 65);
+            dgvCompras.Location = new System.Drawing.Point(3, 64);
             dgvCompras.Name = "dgvCompras";
             dgvCompras.RowHeadersWidth = 51;
-            dgvCompras.Size = new System.Drawing.Size(968, 247);
+            dgvCompras.Size = new System.Drawing.Size(968, 248);
             dgvCompras.TabIndex = 3;
             // 
             // codigo
@@ -331,17 +368,19 @@
             // 
             // fecha
             // 
+            fecha.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             fecha.HeaderText = "Fecha";
             fecha.MinimumWidth = 6;
             fecha.Name = "fecha";
-            fecha.Width = 125;
+            fecha.Width = 84;
             // 
             // total
             // 
+            total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             total.HeaderText = "Total";
             total.MinimumWidth = 6;
             total.Name = "total";
-            total.Width = 125;
+            total.Width = 76;
             // 
             // nombreproducto
             // 
@@ -352,10 +391,11 @@
             // 
             // cantidad_compra
             // 
-            cantidad_compra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            cantidad_compra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             cantidad_compra.HeaderText = "Cantidad";
             cantidad_compra.MinimumWidth = 6;
             cantidad_compra.Name = "cantidad_compra";
+            cantidad_compra.Width = 110;
             // 
             // precio_compra
             // 
@@ -382,8 +422,16 @@
             panel3.Dock = System.Windows.Forms.DockStyle.Top;
             panel3.Location = new System.Drawing.Point(3, 3);
             panel3.Name = "panel3";
-            panel3.Size = new System.Drawing.Size(968, 62);
+            panel3.Size = new System.Drawing.Size(968, 61);
             panel3.TabIndex = 1;
+            // 
+            // compras_fechahasta
+            // 
+            compras_fechahasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            compras_fechahasta.Location = new System.Drawing.Point(475, 13);
+            compras_fechahasta.Name = "compras_fechahasta";
+            compras_fechahasta.Size = new System.Drawing.Size(135, 31);
+            compras_fechahasta.TabIndex = 22;
             // 
             // compras_fechadesde
             // 
@@ -392,6 +440,7 @@
             compras_fechadesde.Name = "compras_fechadesde";
             compras_fechadesde.Size = new System.Drawing.Size(135, 31);
             compras_fechadesde.TabIndex = 21;
+            compras_fechadesde.Value = new System.DateTime(2024, 11, 1, 0, 0, 0, 0);
             // 
             // btnComprasFiltrar
             // 
@@ -399,16 +448,14 @@
             btnComprasFiltrar.FlatAppearance.BorderSize = 0;
             btnComprasFiltrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
             btnComprasFiltrar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
-            btnComprasFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnComprasFiltrar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            btnComprasFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            btnComprasFiltrar.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             btnComprasFiltrar.ForeColor = System.Drawing.Color.Black;
-            btnComprasFiltrar.Image = (System.Drawing.Image)resources.GetObject("btnComprasFiltrar.Image");
-            btnComprasFiltrar.Location = new System.Drawing.Point(659, 10);
+            btnComprasFiltrar.Location = new System.Drawing.Point(659, 9);
             btnComprasFiltrar.Name = "btnComprasFiltrar";
             btnComprasFiltrar.Size = new System.Drawing.Size(133, 39);
             btnComprasFiltrar.TabIndex = 20;
             btnComprasFiltrar.Text = "Buscar";
-            btnComprasFiltrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             btnComprasFiltrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             btnComprasFiltrar.UseVisualStyleBackColor = false;
             btnComprasFiltrar.Click += btnComprasFiltrar_Click;
@@ -467,10 +514,10 @@
             dgvRanking.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1, nombre_producto, cantidad, acumulado, stock });
             dgvRanking.Dock = System.Windows.Forms.DockStyle.Fill;
             dgvRanking.EnableHeadersVisualStyles = false;
-            dgvRanking.Location = new System.Drawing.Point(3, 65);
+            dgvRanking.Location = new System.Drawing.Point(3, 64);
             dgvRanking.Name = "dgvRanking";
             dgvRanking.RowHeadersWidth = 51;
-            dgvRanking.Size = new System.Drawing.Size(968, 247);
+            dgvRanking.Size = new System.Drawing.Size(968, 248);
             dgvRanking.TabIndex = 2;
             // 
             // Column1
@@ -512,67 +559,81 @@
             // panelForm
             // 
             panelForm.BackColor = System.Drawing.Color.DodgerBlue;
-            panelForm.Controls.Add(dtpHasta);
+            panelForm.Controls.Add(mostrarRank);
+            panelForm.Controls.Add(rankHasta);
             panelForm.Controls.Add(label3);
-            panelForm.Controls.Add(dtpDesde);
+            panelForm.Controls.Add(rankDesde);
             panelForm.Controls.Add(label2);
             panelForm.Dock = System.Windows.Forms.DockStyle.Top;
             panelForm.Location = new System.Drawing.Point(3, 3);
             panelForm.Name = "panelForm";
-            panelForm.Size = new System.Drawing.Size(968, 62);
+            panelForm.Size = new System.Drawing.Size(968, 61);
             panelForm.TabIndex = 0;
             // 
-            // dtpHasta
+            // mostrarRank
             // 
-            dtpHasta.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            dtpHasta.Location = new System.Drawing.Point(680, 16);
-            dtpHasta.MaxDate = new System.DateTime(2024, 9, 27, 0, 0, 0, 0);
-            dtpHasta.Name = "dtpHasta";
-            dtpHasta.Size = new System.Drawing.Size(124, 27);
-            dtpHasta.TabIndex = 3;
-            dtpHasta.Value = new System.DateTime(2024, 9, 27, 0, 0, 0, 0);
+            mostrarRank.BackColor = System.Drawing.Color.Gainsboro;
+            mostrarRank.FlatAppearance.BorderSize = 0;
+            mostrarRank.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            mostrarRank.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
+            mostrarRank.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            mostrarRank.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            mostrarRank.ForeColor = System.Drawing.Color.Black;
+            mostrarRank.Location = new System.Drawing.Point(642, 9);
+            mostrarRank.Name = "mostrarRank";
+            mostrarRank.Size = new System.Drawing.Size(133, 39);
+            mostrarRank.TabIndex = 21;
+            mostrarRank.Text = "Ranking";
+            mostrarRank.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            mostrarRank.UseVisualStyleBackColor = false;
+            mostrarRank.Click += mostrarRank_Click;
+            // 
+            // rankHasta
+            // 
+            rankHasta.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            rankHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            rankHasta.Location = new System.Drawing.Point(471, 15);
+            rankHasta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            rankHasta.MaxDate = new System.DateTime(2080, 11, 11, 0, 0, 0, 0);
+            rankHasta.Name = "rankHasta";
+            rankHasta.Size = new System.Drawing.Size(109, 27);
+            rankHasta.TabIndex = 3;
+            rankHasta.Value = new System.DateTime(2024, 11, 12, 23, 59, 0, 0);
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label3.ForeColor = System.Drawing.Color.White;
-            label3.Location = new System.Drawing.Point(548, 18);
+            label3.Location = new System.Drawing.Point(356, 17);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(118, 22);
             label3.TabIndex = 2;
             label3.Text = "Datos hasta:";
             // 
-            // dtpDesde
+            // rankDesde
             // 
-            dtpDesde.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            dtpDesde.Location = new System.Drawing.Point(270, 16);
-            dtpDesde.MaxDate = new System.DateTime(2024, 9, 27, 0, 0, 0, 0);
-            dtpDesde.Name = "dtpDesde";
-            dtpDesde.Size = new System.Drawing.Size(124, 27);
-            dtpDesde.TabIndex = 1;
-            dtpDesde.Value = new System.DateTime(2024, 9, 27, 0, 0, 0, 0);
+            rankDesde.Checked = false;
+            rankDesde.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            rankDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            rankDesde.Location = new System.Drawing.Point(202, 15);
+            rankDesde.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            rankDesde.MaxDate = new System.DateTime(2080, 11, 11, 0, 0, 0, 0);
+            rankDesde.Name = "rankDesde";
+            rankDesde.Size = new System.Drawing.Size(109, 27);
+            rankDesde.TabIndex = 1;
+            rankDesde.Value = new System.DateTime(2024, 11, 1, 0, 0, 0, 0);
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label2.ForeColor = System.Drawing.Color.White;
-            label2.Location = new System.Drawing.Point(138, 18);
+            label2.Location = new System.Drawing.Point(70, 17);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(126, 22);
             label2.TabIndex = 0;
             label2.Text = "Datos desde:";
-            // 
-            // compras_fechahasta
-            // 
-            compras_fechahasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            compras_fechahasta.Location = new System.Drawing.Point(476, 13);
-            compras_fechahasta.Name = "compras_fechahasta";
-            compras_fechahasta.Size = new System.Drawing.Size(135, 31);
-            compras_fechahasta.TabIndex = 22;
             // 
             // MainReportes
             // 
@@ -612,9 +673,9 @@
         private System.Windows.Forms.TabPage ventas;
         private System.Windows.Forms.Panel panelForm;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dtpHasta;
+        private System.Windows.Forms.DateTimePicker rankHasta;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dtpDesde;
+        private System.Windows.Forms.DateTimePicker rankDesde;
         private System.Windows.Forms.DataGridView dgvRanking;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre_producto;
@@ -623,14 +684,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn stock;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DateTimePicker dtpVentasDiarias;
-        private System.Windows.Forms.DataGridView dgvVentasDiarias;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cod_factura;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cf_montototal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fp_nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn us_nombre;
-        private System.Windows.Forms.DataGridViewImageColumn detalles;
         private System.Windows.Forms.TabPage compras;
         private System.Windows.Forms.DataGridView dgvCompras;
         private System.Windows.Forms.Panel panel3;
@@ -642,6 +695,17 @@
         private System.Windows.Forms.DateTimePicker ventas_fechadesde;
         private System.Windows.Forms.Label label7;
         protected System.Windows.Forms.Button btnComprasFiltrar;
+        private System.Windows.Forms.DateTimePicker compras_fechahasta;
+        private System.Windows.Forms.DataGridView dgvVentasDiarias;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vendedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
@@ -649,6 +713,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad_compra;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio_compra;
         private System.Windows.Forms.DataGridViewTextBoxColumn total_parcial;
-        private System.Windows.Forms.DateTimePicker compras_fechahasta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cod_factura;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cf_montototal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fp_nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn us_nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaVenta;
+        private System.Windows.Forms.DataGridViewImageColumn detalles;
+        protected System.Windows.Forms.Button VentaBusca;
+        protected System.Windows.Forms.Button mostrarRank;
     }
 }

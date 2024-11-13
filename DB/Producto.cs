@@ -54,8 +54,8 @@ namespace DB
         {
             RuleFor(producto => producto.pr_nombre)
                 .NotNull().WithMessage("El nombre es requerido.")
-                .Matches(@"^[a-zA-Z\s]+$").WithMessage("El nombre solo puede contener letras y espacios.")
-                .Length(3, 20).WithMessage("El nombre debe contener entre 3 y 20 caracteres");
+                .Matches(@"^[a-zA-Z0-9\s]+$").WithMessage("El nombre solo puede contener letras, numeros y espacios.")
+                .Length(3, 30).WithMessage("El nombre debe contener entre 3 y 20 caracteres");
 
             RuleFor(producto => producto.pr_precioVenta)
                 .NotNull().WithMessage("El precio de venta es requerido")

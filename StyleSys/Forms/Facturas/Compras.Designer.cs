@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Compras));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             panel1 = new System.Windows.Forms.Panel();
             tbBuscarCompra = new System.Windows.Forms.TextBox();
             btnAgregar = new System.Windows.Forms.Button();
@@ -57,18 +57,20 @@
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label1);
             panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            panel1.Location = new System.Drawing.Point(0, 353);
+            panel1.Location = new System.Drawing.Point(0, 265);
+            panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(982, 100);
+            panel1.Size = new System.Drawing.Size(859, 75);
             panel1.TabIndex = 5;
             // 
             // tbBuscarCompra
             // 
             tbBuscarCompra.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            tbBuscarCompra.Location = new System.Drawing.Point(322, 33);
+            tbBuscarCompra.Location = new System.Drawing.Point(282, 25);
+            tbBuscarCompra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             tbBuscarCompra.Name = "tbBuscarCompra";
             tbBuscarCompra.PlaceholderText = "Busca una compra...";
-            tbBuscarCompra.Size = new System.Drawing.Size(407, 32);
+            tbBuscarCompra.Size = new System.Drawing.Size(357, 27);
             tbBuscarCompra.TabIndex = 6;
             tbBuscarCompra.TextChanged += tbBuscarCompra_TextChanged;
             tbBuscarCompra.KeyPress += numero_KeyPress;
@@ -82,9 +84,10 @@
             btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnAgregar.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             btnAgregar.Image = (System.Drawing.Image)resources.GetObject("btnAgregar.Image");
-            btnAgregar.Location = new System.Drawing.Point(843, 23);
+            btnAgregar.Location = new System.Drawing.Point(738, 17);
+            btnAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new System.Drawing.Size(123, 53);
+            btnAgregar.Size = new System.Drawing.Size(108, 40);
             btnAgregar.TabIndex = 5;
             btnAgregar.Text = "Agregar";
             btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -94,9 +97,10 @@
             // pictureBox1
             // 
             pictureBox1.Image = (System.Drawing.Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new System.Drawing.Point(8, 14);
+            pictureBox1.Location = new System.Drawing.Point(7, 10);
+            pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(70, 70);
+            pictureBox1.Size = new System.Drawing.Size(61, 52);
             pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
@@ -106,9 +110,9 @@
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label1.ForeColor = System.Drawing.Color.White;
-            label1.Location = new System.Drawing.Point(81, 32);
+            label1.Location = new System.Drawing.Point(71, 24);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(138, 34);
+            label1.Size = new System.Drawing.Size(111, 26);
             label1.TabIndex = 2;
             label1.Text = "Compras";
             // 
@@ -117,8 +121,9 @@
             panel2.Controls.Add(dgvCompras);
             panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             panel2.Location = new System.Drawing.Point(0, 0);
+            panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new System.Drawing.Size(982, 453);
+            panel2.Size = new System.Drawing.Size(859, 340);
             panel2.TabIndex = 6;
             // 
             // dgvCompras
@@ -126,24 +131,25 @@
             dgvCompras.AllowUserToAddRows = false;
             dgvCompras.BackgroundColor = System.Drawing.Color.White;
             dgvCompras.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dgvCompras.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dgvCompras.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvCompras.ColumnHeadersHeight = 30;
             dgvCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvCompras.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1, cod_factura, montototal, usuario, cf_fechaRegistro, detalles });
             dgvCompras.Dock = System.Windows.Forms.DockStyle.Fill;
             dgvCompras.EnableHeadersVisualStyles = false;
             dgvCompras.Location = new System.Drawing.Point(0, 0);
+            dgvCompras.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             dgvCompras.Name = "dgvCompras";
             dgvCompras.RowHeadersWidth = 51;
             dgvCompras.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            dgvCompras.Size = new System.Drawing.Size(982, 453);
+            dgvCompras.Size = new System.Drawing.Size(859, 340);
             dgvCompras.TabIndex = 1;
             dgvCompras.CellContentClick += dgvCompras_CellContentClick;
             // 
@@ -153,7 +159,7 @@
             Column1.HeaderText = "No";
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
-            Column1.Width = 62;
+            Column1.Width = 52;
             // 
             // cod_factura
             // 
@@ -161,7 +167,7 @@
             cod_factura.HeaderText = "Código";
             cod_factura.MinimumWidth = 6;
             cod_factura.Name = "cod_factura";
-            cod_factura.Width = 103;
+            cod_factura.Width = 87;
             // 
             // montototal
             // 
@@ -195,11 +201,12 @@
             // 
             // Compras
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(982, 453);
+            ClientSize = new System.Drawing.Size(859, 340);
             Controls.Add(panel1);
             Controls.Add(panel2);
+            Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             Name = "Compras";
             Text = "Compras";
             panel1.ResumeLayout(false);
