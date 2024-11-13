@@ -22,7 +22,7 @@ namespace StyleSys
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Dashboard("mluna"));
+            Application.Run(new Login());
         }
     }
 }

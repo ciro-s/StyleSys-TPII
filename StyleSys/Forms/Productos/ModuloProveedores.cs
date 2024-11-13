@@ -195,5 +195,14 @@ namespace StyleSys.Forms.Productos
                 tbDescripcion.Clear();
             }
         }
+
+        private void numero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+                return;
+            }
+        }
     }
 }

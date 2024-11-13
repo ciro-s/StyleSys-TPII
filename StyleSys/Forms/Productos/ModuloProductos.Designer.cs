@@ -165,6 +165,7 @@
             tbPrecioCompra.Name = "tbPrecioCompra";
             tbPrecioCompra.Size = new System.Drawing.Size(523, 28);
             tbPrecioCompra.TabIndex = 2;
+            tbPrecioCompra.KeyPress += numero_KeyPress;
             // 
             // tbPrecioVenta
             // 
@@ -173,6 +174,7 @@
             tbPrecioVenta.Name = "tbPrecioVenta";
             tbPrecioVenta.Size = new System.Drawing.Size(523, 28);
             tbPrecioVenta.TabIndex = 3;
+            tbPrecioVenta.KeyPress += numero_KeyPress;
             // 
             // tbStock
             // 
@@ -181,6 +183,7 @@
             tbStock.Name = "tbStock";
             tbStock.Size = new System.Drawing.Size(523, 28);
             tbStock.TabIndex = 4;
+            tbStock.KeyPress += entero_KeyPress;
             // 
             // btnGuardar
             // 

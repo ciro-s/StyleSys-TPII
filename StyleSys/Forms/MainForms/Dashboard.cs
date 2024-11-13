@@ -69,8 +69,8 @@ namespace StyleSys.Forms.MainForms
                     panelCompras.Visible = true;
                     break;
                 case 3: //rol super admin
-                    panelProductos.Visible = true;
-                    panelProveedores.Visible = false;
+                    panelProductos.Visible = false;
+                    panelProveedores.Visible = true;
                     panelUsuarios.Visible = true;
                     panelFacturas.Visible = true;
                     panelClientes.Visible = false;

@@ -60,15 +60,18 @@ namespace DB
             RuleFor(producto => producto.pr_precioVenta)
                 .NotNull().WithMessage("El precio de venta es requerido")
                 .GreaterThan(0).WithMessage("El precio de venta debe ser mayor a 0")
-                .GreaterThan(producto => producto.pr_precioCompra).WithMessage("El precio de venta debe ser mayor al de compra");
+                .GreaterThan(producto => producto.pr_precioCompra).WithMessage("El precio de venta debe ser mayor al de compra")
+                .Must(value => decimal.TryParse(value.ToString(), out _)).WithMessage("El precio de venta debe ser un número decimal.");
 
             RuleFor(producto => producto.pr_precioCompra)
                 .NotNull().WithMessage("El precio de venta es requerido")
-                .GreaterThan(0).WithMessage("El precio de compra debe ser mayor a 0");
+                .GreaterThan(0).WithMessage("El precio de compra debe ser mayor a 0")
+                .Must(value => decimal.TryParse(value.ToString(), out _)).WithMessage("El precio de compra debe ser un número decimal.");
 
             RuleFor(producto => producto.pr_stockMinimo)
                 .NotNull().WithMessage("El stock minimo es requerido")
-                .GreaterThan(-1).WithMessage("El stock minimo debe ser 0 ó mayor");
+                .GreaterThan(-1).WithMessage("El stock minimo debe ser 0 ó mayor")
+                .Must(value => int.TryParse(value.ToString(), out _)).WithMessage("El stock minimo debe ser un número decimal.");
         }
     }
 }

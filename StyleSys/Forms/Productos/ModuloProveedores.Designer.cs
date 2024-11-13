@@ -138,6 +138,7 @@
             tbCUIT.Name = "tbCUIT";
             tbCUIT.Size = new System.Drawing.Size(523, 28);
             tbCUIT.TabIndex = 2;
+            tbCUIT.KeyPress += numero_KeyPress;
             // 
             // tbNombre
             // 

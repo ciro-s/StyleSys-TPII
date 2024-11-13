@@ -82,6 +82,7 @@ namespace DB
 
             RuleFor(Cliente => Cliente.cl_telefono)
                 .NotNull().WithMessage("El telefono es requerido")
+                .Matches(@"^(54)?([1-9][0-9]{3})([1-9][0-9]{5})$").WithMessage("Ingrese un número de teléfono válido")
                 .Length(10, 20).WithMessage("El número de teléfono debe tener entre 10 y 20 caracteres.");
 
             RuleFor(Cliente => Cliente.cl_email)
