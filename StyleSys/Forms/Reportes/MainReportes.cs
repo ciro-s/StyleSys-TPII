@@ -58,7 +58,7 @@ namespace StyleSys.Forms.Reportes
                 string producto = productos.ContainsKey(compra.id_producto) ? productos[compra.id_producto] : "Desconocido";
 
                 // Agrega la fila al DataGridView
-                dgvCompras.Rows.Add(compra.cod_cabecera, compra.fecha_registro, compra.monto_total, producto, compra.cantidad, compra.precio_compra, compra.TotalParcial);
+                dgvCompras.Rows.Add(compra.cod_cabecera, compra.fecha_registro.ToString("yy-MM-dd"), compra.monto_total, producto, compra.cantidad, compra.precio_compra, compra.TotalParcial);
             }
         }
 
@@ -68,7 +68,7 @@ namespace StyleSys.Forms.Reportes
 
             DateTime fechaDesde = ventas_fechadesde.Value;  // control para fecha desde
             DateTime fechaHasta = ventas_fechahasta.Value;  // control para fecha hasta
-            //DateTime fechaHasta = new DateTime(2024,11,12);
+
             // Realiza la consulta uniendo las tablas VentaCabeceras y VentaDetalles
             var query = from cab in _context.ventaCabeceras
                         join det in _context.ventaDetalles
@@ -93,8 +93,9 @@ namespace StyleSys.Forms.Reportes
             
 
             // Carga los usuarios y productos en memoria para evitar múltiples consultas
-            var usuarios = _context.Usuarios.ToDictionary(u => u.id_usuario, u => u.us_nombre);
-            var clientes = _context.Clientes.ToDictionary(c => c.id_cliente, c => c.cl_nombre);
+            var productos = _context.Productos.ToDictionary(p => p.id_producto, p => p.pr_nombre);
+            var usuarios = _context.Usuarios.ToDictionary(u => u.id_usuario, u => u.us_nombre +" "+ u.us_apellido);
+            var clientes = _context.Clientes.ToDictionary(c => c.id_cliente, c => c.cl_nombre +" "+ c.cl_apellido);
             var formaPago = _context.formaPagos.ToDictionary(f => f.id_formaPago, f => f.fp_nombre);
 
             dgvVentasDiarias.Rows.Clear();  //DataGridView para ventas
@@ -103,12 +104,13 @@ namespace StyleSys.Forms.Reportes
             foreach (var venta in ventas)
             {
                 // Obtiene el nombre del usuario y del producto desde los diccionarios
+                string producto = productos.ContainsKey(venta.id_usuario) ? productos[venta.id_producto] : "Desconocido";
                 string usuario = usuarios.ContainsKey(venta.id_usuario) ? usuarios[venta.id_usuario] : "Desconocido";
                 string cliente = clientes.ContainsKey(venta.id_cliente) ? clientes[venta.id_cliente] : "Desconocido";
                 string pago = formaPago.ContainsKey(venta.id_formaPago) ? formaPago[venta.id_formaPago]: "Desconocido";
 
                 // Agrega la fila al DataGridView
-                dgvVentasDiarias.Rows.Add(venta.id_cabecera, venta.cod_cabecera, venta.monto_total, cliente, pago , usuario , venta.fecha_registro);
+                dgvVentasDiarias.Rows.Add(venta.cod_cabecera, venta.fecha_registro.ToString("yy-MM-dd"), pago, producto, venta.cantidad , venta.precio_venta , (decimal)venta.precio_venta * (decimal)venta.cantidad, usuario, cliente);
             }
         }
 
