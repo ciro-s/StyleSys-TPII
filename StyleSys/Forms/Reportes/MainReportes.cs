@@ -64,7 +64,7 @@ namespace StyleSys.Forms.Reportes
 
         private void VentaBusca_Click(object sender, EventArgs e)
         {
-            
+
 
             DateTime fechaDesde = ventas_fechadesde.Value;  // control para fecha desde
             DateTime fechaHasta = ventas_fechahasta.Value;  // control para fecha hasta
@@ -86,11 +86,11 @@ namespace StyleSys.Forms.Reportes
                             det.id_producto,
                             det.cantidad,
                             det.precio_venta,
-                            
+
                         };
 
             var ventas = query.ToList();
-            
+
 
             // Carga los usuarios y productos en memoria para evitar múltiples consultas
             var productos = _context.Productos.ToDictionary(p => p.id_producto, p => p.pr_nombre);
@@ -107,12 +107,62 @@ namespace StyleSys.Forms.Reportes
                 string producto = productos.ContainsKey(venta.id_usuario) ? productos[venta.id_producto] : "Desconocido";
                 string usuario = usuarios.ContainsKey(venta.id_usuario) ? usuarios[venta.id_usuario] : "Desconocido";
                 string cliente = clientes.ContainsKey(venta.id_cliente) ? clientes[venta.id_cliente] : "Desconocido";
-                string pago = formaPago.ContainsKey(venta.id_formaPago) ? formaPago[venta.id_formaPago]: "Desconocido";
+                string pago = formaPago.ContainsKey(venta.id_formaPago) ? formaPago[venta.id_formaPago] : "Desconocido";
 
                 // Agrega la fila al DataGridView
                 dgvVentasDiarias.Rows.Add(venta.cod_cabecera, venta.fecha_registro.ToString("yy-MM-dd"), pago, producto, venta.cantidad , venta.precio_venta , (decimal)venta.precio_venta * (decimal)venta.cantidad, usuario, cliente);
             }
         }
+
+
+        private void mostrarRank_Click(object sender, EventArgs e)
+        {
+            DateTime fechaDesde = rankDesde.Value;
+            DateTime fechaHasta = rankHasta.Value;
+
+            // Realiza la consulta uniendo las tablas VentaCabeceras, VentaDetalles y Productos
+            var query = from cab in _context.ventaCabeceras
+                        join det in _context.ventaDetalles on cab.id_cabecera equals det.id_cabecera
+                        join prod in _context.Productos on det.id_producto equals prod.id_producto
+                        where cab.fecha_registro >= fechaDesde && cab.fecha_registro <= fechaHasta
+                        select new
+                        {
+                            det.id_producto,
+                            prod.pr_nombre,
+                            prod.pr_stock,      // Campo de stock actual del producto
+                            det.cantidad,
+                            det.precio_venta
+                        };
+
+            // Agrupa por id_producto, nombre_producto y stock actual
+            var ventasAgrupadas = query
+                .GroupBy(v => new { v.id_producto, v.pr_nombre, v.pr_stock })
+                .Select(g => new
+                {
+                    IdProducto = g.Key.id_producto,
+                    NombreProducto = g.Key.pr_nombre,
+                    CantidadTotal = g.Sum(v => v.cantidad),
+                    TotalRecaudado = g.Sum(v => v.cantidad * v.precio_venta),
+                    StockActual = g.Key.pr_stock    // Ahora accedemos a pr_stock en la agrupación
+                })
+                .OrderByDescending(v => v.CantidadTotal)  // Orden descendente por cantidad total comprada
+                .ToList();
+
+            dgvRanking.Rows.Clear(); // Limpiar DataGridView antes de agregar nuevas filas
+
+            // Mostrar cada producto con su ID, nombre, cantidad total, total recaudado y stock actual
+            foreach (var venta in ventasAgrupadas)
+            {
+                dgvRanking.Rows.Add(venta.IdProducto, venta.NombreProducto, venta.CantidadTotal, venta.TotalRecaudado, venta.StockActual);
+            }
+
+            // MessageBox si es necesario
+            MessageBox.Show("Reporte generado con éxito", "Total de Productos Vendidos y Recaudado");
+        }
+
+
+
+
 
     }
 }
